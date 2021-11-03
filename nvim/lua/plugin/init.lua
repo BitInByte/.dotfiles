@@ -1,0 +1,6 @@
+require("telescopecfg")
+require("treesittercfg")
+require("lsp")
+require("compe")
+require("snippets")
+-- require("saga")
