@@ -1,10 +1,9 @@
-
 -- Setup nvim-cmp.
 vim.o.completeopt = "menuone,noselect"
 
-
--- luasnip setup
+-- %% Sources %%
 local luasnip = require 'luasnip'
+local lspkind = require('lspkind')
 
 local cmp = require'cmp'
 cmp.setup({
@@ -47,6 +46,17 @@ cmp.setup({
       end
     end,
     },
+    formatting = {
+        format = require("lspkind").cmp_format({with_text = true, menu = ({
+            buffer = "[Buffer]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[LuaSnip]",
+            nvim_lua = "[Lua]",
+            latex_symbols = "[Latex]",
+            path = "[Path]",
+            calc = "[Calc]"
+            })}),
+    },
     sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     -- { name = 'vsnip' }, -- For vsnip users.
@@ -80,23 +90,9 @@ cmp.setup.cmdline(':', {
     })
 })
 
-vim.opt.spell = true
-vim.opt.spelllang = { 'en_us' }
 
-local lspkind = require('lspkind')
-cmp.setup {
-    formatting = {
-        format = require("lspkind").cmp_format({with_text = true, menu = ({
-            buffer = "[Buffer]",
-            nvim_lsp = "[LSP]",
-            luasnip = "[LuaSnip]",
-            nvim_lua = "[Lua]",
-            latex_symbols = "[Latex]",
-            path = "[Path]",
-            calc = "[Calc]"
-            })}),
-        },
-}
+-- cmp.setup {
+-- }
 
 -- Auto-format *.rs (rust) files prior to saving them
 -- autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 1000)

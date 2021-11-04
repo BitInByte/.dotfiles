@@ -7,20 +7,11 @@
  "Enable file splitting
 filetype plugin indent on
 
-let pluginPath = '~/.vim/plugged'
-
-if has('nvim')
   let pluginPath = '~/.config/nvim/plugged'
-endif
 
  "Installed via vim plug https://github.com/junegunn/vim-plug
-" :PlugInstall to install them
-" if has('nvim')
-  " call plug#begin('~/.config/nvim/plugged')
-" else
-  " call plug#begin('~/.vim/plugged')
-" endif
 call plug#begin(pluginPath)
+
 " Vim Manual
 Plug 'vim-utils/vim-man'
 
@@ -50,12 +41,13 @@ Plug 'styled-components/vim-styled-components'
 " Lsp stuff
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'f3fora/cmp-spell'
 Plug 'hrsh7th/cmp-calc'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'f3fora/cmp-spell'
+" Icons on auto completion
 Plug 'onsails/lspkind-nvim'
 
 " LSP for Java
@@ -66,6 +58,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 
+" not working
 " Plug 'glepnir/lspsaga.nvim'
 
 " Status Bar
@@ -107,25 +100,18 @@ Plug 'honza/vim-snippets'
 " Kotlin Syntax Highlight
 Plug 'udalov/kotlin-vim'
 
-if has('nvim')
-
-  " Telescope thing
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-telescope/telescope-fzy-native.nvim'
-  Plug 'kyazdani42/nvim-web-devicons'
-else
-  " Fuzy Finder
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-endif
-
-if has('nvim')
-  " Treesitter highlight this now
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-  " Plug 'nvim-treesitter/playground'
-endif
+" Telescope thing
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+" Treesitter highlight this now
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+" Plug 'nvim-treesitter/playground'
+"
+" Git stuff
+Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
 
@@ -158,45 +144,12 @@ call plug#end()
 " source ~/.config/nvim/plugins/find_and_replace.vim
 "source ~/.config/nvim/plugins/tmux.vim
 
-" execute 'source ~/' . VIMRCPATH . '/plugins/sets.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/ale.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/fix.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/NERD.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/keymaps.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/cocconfig.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/functions.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/lightline.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/whichkey.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/java.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/fold.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/plugvim.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/colors.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/terminal_toggle.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/cspell.vim'
-" execute 'source ~/' . VIMRCPATH . '/plugins/find_and_replace.vim'
-
-
-" if has('nvim')
-  " source ~/.config/nvim/plugins/telescope.vim
-" else
-  " " source ~/.config/nvim/plugins/fzf.vim
-  " source ~/.vim/plugins/fzf.vim
-" endif
-
-" if executable('rg')
-    " let g:rg_derive_root='true'
-" endif
-
 " Lua stuff
 if has('nvim')
   lua require("init")
 endif
 
-" if has("nvim")
-    " set inccommand="nosplit"
-" endif
+" let g:vimtex_compiler_progname = 'nvr'
 
-let g:vimtex_compiler_progname = 'nvr'
-
-nmap <space>li <plug>(vimtex-info)
+" nmap <space>li <plug>(vimtex-info)
 

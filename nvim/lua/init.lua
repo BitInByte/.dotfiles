@@ -1,5 +1,7 @@
+require("sets")
 require("telescopecfg")
 require("treesittercfg")
+require("sources")
 require("lsp")
 require("compe")
 require("snippets")

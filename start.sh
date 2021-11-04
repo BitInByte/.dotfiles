@@ -12,15 +12,17 @@ backup() {
 
 backupNeovim() {
   echo "Backing up Neovim...";
-  cp -r ~/.config/nvim/plugin ./nvim
-  cp -r ~/.config/nvim/colors ./nvim
-  cp -r ~/.config/nvim/ftplugin ./nvim
-  cp -r ~/.config/nvim/lua ./nvim
+  mkdir -p ./oh-my-zsh
+  mkdir -p ./nvim
+  cp -r ~/.config/nvim/plugin ./nvim/
+  cp -r ~/.config/nvim/colors ./nvim/
+  cp -r ~/.config/nvim/ftplugin ./nvim/
+  cp -r ~/.config/nvim/lua ./nvim/
   # cp ~/.config/nvim/coc-settings.json .
-  cp ~/.config/nvim/init.vim ./nvim
+  cp ~/.config/nvim/init.vim ./nvim/
   cp ~/.hyper.js .
   # cp -r ~/.config/coc/ultisnips .
-  cp ~/.oh-my-zsh/custom/aliases.zsh ./oh-my-zsh
+  cp ~/.oh-my-zsh/custom/aliases.zsh ./oh-my-zsh/
   cp ~/.zshrc .
   cp ~/.zshenv .
   cp ~/.tmux.conf .
