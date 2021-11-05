@@ -4,10 +4,10 @@
 " _/ // / / / / /__| |/ / / / / / / /
 "/___/_/ /_/_/\__(_)___/_/_/ /_/ /_/
 
- "Enable file splitting
-filetype plugin indent on
+" Auto indent
+" filetype plugin indent on
 
-  let pluginPath = '~/.config/nvim/plugged'
+let pluginPath = '~/.config/nvim/plugged'
 
  "Installed via vim plug https://github.com/junegunn/vim-plug
 call plug#begin(pluginPath)
@@ -30,13 +30,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Nerd Tree Highlight
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "Plug 'preservim/tagbar'
-" Use release branch (recommend)
 
 " Vim LSP Manager
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'styled-components/vim-styled-components'
-"Plug 'ycm-core/YouCompleteMe'
-"Plug 'leafgarland/typescript-vim'
 
 " Lsp stuff
 Plug 'neovim/nvim-lspconfig'
@@ -47,6 +44,8 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-calc'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'f3fora/cmp-spell'
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+
 " Icons on auto completion
 Plug 'onsails/lspkind-nvim'
 
@@ -85,7 +84,7 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'ryanoasis/vim-devicons'
 
 " LaTeX
-Plug 'lervag/vimtex'
+" Plug 'lervag/vimtex'
 
 " Top ToolBar
 Plug 'romgrk/barbar.nvim'
@@ -93,9 +92,8 @@ Plug 'romgrk/barbar.nvim'
 " HTML Auto Close
 Plug 'alvan/vim-closetag'
 
-
 " Snippets
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 
 " Kotlin Syntax Highlight
 Plug 'udalov/kotlin-vim'
@@ -115,41 +113,10 @@ Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
 
-" let $VIMRCPATH
-" let VIMRCPATH='.vim'
-" if has('nvim')
-  " let VIMRCPATH = '.config/nvim'
-" endif
-
-
-" let $VIMRMPATH='.config/nvim'
-" echo $VIMRMPATH
-
-" Sourcing my configs
+" Sourcing my configs if needed
 " source ~/.config/nvim/plugins/sets.vim
-" source ~/.config/nvim/plugins/ale.vim
-" source ~/.config/nvim/plugins/fix.vim
-" source ~/.config/nvim/plugins/NERD.vim
-" source ~/.config/nvim/plugins/keymaps.vim
-" source ~/.config/nvim/plugins/cocconfig.vim
-" source ~/.config/nvim/plugins/functions.vim
-" source ~/.config/nvim/plugins/lightline.vim
-" source ~/.config/nvim/plugins/whichkey.vim
-" source ~/.config/nvim/plugins/java.vim
-" source ~/.config/nvim/plugins/fold.vim
-" source ~/.config/nvim/plugins/plugvim.vim
-" source ~/.config/nvim/plugins/colors.vim
-" source ~/.config/nvim/plugins/terminal_toggle.vim
-" source ~/.config/nvim/plugins/cspell.vim
-" source ~/.config/nvim/plugins/find_and_replace.vim
-"source ~/.config/nvim/plugins/tmux.vim
 
 " Lua stuff
 if has('nvim')
   lua require("init")
 endif
-
-" let g:vimtex_compiler_progname = 'nvr'
-
-" nmap <space>li <plug>(vimtex-info)
-

@@ -54,7 +54,8 @@ cmp.setup({
             nvim_lua = "[Lua]",
             latex_symbols = "[Latex]",
             path = "[Path]",
-            calc = "[Calc]"
+            calc = "[Calc]",
+            cmp_tabnine = "[Tab9]"
             })}),
     },
     sources = cmp.config.sources({
@@ -71,6 +72,8 @@ cmp.setup({
     { name = 'spell' },
     }, {
     { name = 'calc' },
+    }, {
+    { name = 'cmp_tabnine' },
     })
 })
 
@@ -89,31 +92,3 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
     })
 })
-
-
--- cmp.setup {
--- }
-
--- Auto-format *.rs (rust) files prior to saving them
--- autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 1000)
-
--- Setup lspconfig.
--- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-
--- require('lspconfig')['jdtls'].setup {
-    -- capabilities = capabilities
--- }
-
--- require('lspconfig')['tsserver'].setup {
-    -- capabilities = capabilities
--- }
-
--- require('lspconfig')['vuels'].setup {
-    -- capabilities = capabilities
--- }
-
--- require('lspconfig')['pyright'].setup {
-    -- capabilities = capabilities
--- }
-

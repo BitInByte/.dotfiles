@@ -73,7 +73,8 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (CSS format, i.e.: `top right bottom left`)
-    padding: '12px 14px',
+    // padding: '12px 14px',
+    padding: '0px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -157,7 +158,7 @@ module.exports = {
   plugins: [
     'hypercwd',
     //"hyper-tabs-autohide",
-    'hyper-pane',
+    // 'hyper-pane',
     'hyper-active-tab',
     // 'hyper-font-ligatures',
   ],
