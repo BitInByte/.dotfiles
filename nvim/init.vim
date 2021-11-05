@@ -7,6 +7,8 @@
 " Auto indent
 " filetype plugin indent on
 
+let g:mapleader = " "
+
 let pluginPath = '~/.config/nvim/plugged'
 
  "Installed via vim plug https://github.com/junegunn/vim-plug
