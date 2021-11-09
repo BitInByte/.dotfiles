@@ -10,9 +10,9 @@ return require('packer').startup(function(use)
     -- LSP
     use 'neovim/nvim-lspconfig'
     use 'mfussenegger/nvim-jdtls' -- java
+    use 'lervag/vimtex' -- vimtex
 
     -- CMP
-    use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'

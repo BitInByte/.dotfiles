@@ -62,7 +62,13 @@ Then, you should specify the path to the jdtls in the .zshenv file in order to a
 
 ## Java
 
-It needs jdtls in order to work. It might also need to change the start.sh script in the ftplugin
+We need to download jdtls in order for it to work.
+
+First of all, we need to download a milestone build from the github and we can save it whenever we want. In my case, I've just saved in /Library/Java directory.
+
+Then, we need to update our .zshenv file in order to have all of the java related stuff in our path.
+
+Last, we need to update the ftplugin java.lua file with the correct paths and that's it. It should then work in a java file, out of the box
 
 ### Treesiter Commands
 
