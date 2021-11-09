@@ -19,20 +19,21 @@ This config only works with Neovim +0.5. It is almost 100% Lua and ViM doesn't s
 
 ### Neovim
 
-1. Neovim nightly (0.5)
-2. Vim-Plug
+1. Neovim nightly (+0.5)
+2. Packer.nvim
 3. Python autopep8 is required to pretify
-4. ripgrep: https://github.com/BurntSushi/ripgrep (if neovim) => used in Telescope
+4. ripgrep: https://github.com/BurntSushi/ripgrep => used in Telescope
 5. Patched Cascadia Code Font (Nerd Fonts)
 6. MacTex
 
 ### Terminal/Homebrew
 
-1. Tmux
-2. Cascadia code font
+1. Tmux | Hyper
+2. Cascadia code font (To got the most of this config, use a patched font from nerd fonts)
 3. Oh My ZSH
 4. Powerlevel10k (terminal)
 5. Ranger
+6. LazyGit
 
 ### Oh My ZSH
 
@@ -51,7 +52,7 @@ sudo ./start.sh install neovim
 
 You should install a patched Cascadia Font and attribute it to the used terminal in order to get the icons on telescope and on nerdtree
 
-You should install MacTex in order to compile latex documents
+You should install MacTex in order to compile latex documents with vimtex
 
 ## LSP Sources
 

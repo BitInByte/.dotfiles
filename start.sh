@@ -22,11 +22,12 @@ backupNeovim() {
   cp -r ~/.config/nvim/lua ./nvim/lua/
   cp ~/.config/nvim/init.lua ./nvim/
   cp ~/.hyper.js .
-  cp ~/.oh-my-zsh/custom/aliases.zsh ./oh-my-zsh/
+  # cp ~/.oh-my-zsh/custom/aliases.zsh ./oh-my-zsh/
   cp ~/.zshrc .
   cp ~/.zshenv .
   cp ~/.tmux.conf .
   cp ~/.p10k.zsh .
+  cp ~/Library/Application\ Support/lazygit/config.yml .
 
   rm ./nvim/plugin/packer_compiled.lua
 }
@@ -39,11 +40,12 @@ installNeovim() {
   cp -r nvim/lua ~/.config/nvim/lua/
   cp nvim/init.lua ~/.config/nvim/
   cp .hyper.js ~
-  cp -r oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom/
+  # cp -r oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom/
   cp .zshrc ~
   cp .zshenv ~
   cp .tmux.conf ~
   cp .p10k.zsh ~
+  cp config.yaml ~/Library/Application\ Support/lazygit/
 }
 
 

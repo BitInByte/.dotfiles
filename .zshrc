@@ -109,8 +109,15 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias hyperconfig="nvim ~/.hyper.js"
+alias foxyData='cd ~/Documents/data'
+alias fcfg='cd ~/Documents/data/ConfigBackup/'
+alias config='cd ~/.config'
+alias nvimConfig='cd ~/.config/nvim'
+alias lg='lazygit'
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
