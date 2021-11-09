@@ -13,7 +13,7 @@
 
 ## Information
 
-This config only works with Neovim +0.5. It uses a lot of lua plugins and ViM doesn't support it yet.
+This config only works with Neovim +0.5. It is almost 100% Lua and ViM doesn't support it.
 
 ## External Dependencies
 
@@ -60,6 +60,9 @@ In order to use the sources, you should install LSP's... Most of them you can fi
 For Java however, you need to download the jdtls via milestone and copy it into a directory (I use the /Library/java directory).
 Then, you should specify the path to the jdtls in the .zshenv file in order to add the path into the environment.
 
+## Java
+
+It needs jdtls in order to work. It might also need to change the start.sh script in the ftplugin
 
 ### Treesiter Commands
 
