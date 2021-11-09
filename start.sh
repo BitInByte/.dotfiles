@@ -12,28 +12,32 @@ echo "Argument: $2";
 
 backupNeovim() {
   echo "Backing up Neovim...";
+  rm -r ./nvim
+  rm -r ./oh-my-zsh
   mkdir -p ./oh-my-zsh
   mkdir -p ./nvim
   cp -r ~/.config/nvim/plugin ./nvim/plugin/
-  cp -r ~/.config/nvim/colors ./nvim/colors/
+  # cp -r ~/.config/nvim/colors ./nvim/colors/
   cp -r ~/.config/nvim/ftplugin ./nvim/ftplugin/
   cp -r ~/.config/nvim/lua ./nvim/lua/
-  cp ~/.config/nvim/init.vim ./nvim/
+  cp ~/.config/nvim/init.lua ./nvim/
   cp ~/.hyper.js .
   cp ~/.oh-my-zsh/custom/aliases.zsh ./oh-my-zsh/
   cp ~/.zshrc .
   cp ~/.zshenv .
   cp ~/.tmux.conf .
   cp ~/.p10k.zsh .
+
+  rm ./nvim/plugin/packer_compiled.lua
 }
 
 installNeovim() {
   echo "Installing Neovim...";
   cp -r nvim/plugin ~/.config/nvim/plugin/
   cp -r nvim/ftplugin ~/.config/nvim/ftplugin/
-  cp -r nvim/colors ~/.config/nvim/colors/
+  # cp -r nvim/colors ~/.config/nvim/colors/
   cp -r nvim/lua ~/.config/nvim/lua/
-  cp nvim/init.vim ~/.config/nvim/
+  cp nvim/init.lua ~/.config/nvim/
   cp .hyper.js ~
   cp -r oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom/
   cp .zshrc ~

@@ -1,0 +1,8 @@
+require('modules.nv-tree')
+require('modules.nv-telescope')
+require('modules.nv-colorizer')
+require('modules.nv-bufferline')
+require('modules.nv-galaxyline')
+require('modules.nv-comment')
+require('modules.nv-autopairs')
+require('modules.nv-autotag')
