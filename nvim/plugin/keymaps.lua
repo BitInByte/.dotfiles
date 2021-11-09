@@ -13,12 +13,12 @@ vim.api.nvim_set_keymap('n', '<leader>tt', ':sp<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tT', ':vsp<CR>', { silent = true })
 
 -- Move Lines
-vim.api.nvim_set_keymap('n','<C-j>', ':m .+1<CR>==', { silent = true })
-vim.api.nvim_set_keymap('n','<C-k>', ':m .-2<CR>==', { silent = true })
-vim.api.nvim_set_keymap('i','<C-j> <Esc>', ':m .+1<CR>==gi', { silent = true })
-vim.api.nvim_set_keymap('i','<C-k> <Esc>', ':m .-2<CR>==gi', { silent = true })
-vim.api.nvim_set_keymap('v','<C-j>', ':m \'>+1<CR>gv=gv', { silent = true })
-vim.api.nvim_set_keymap('v','<C-k>', ':m \'<-2<CR>gv=gv', { silent = true })
+vim.api.nvim_set_keymap('n','<C-j>', ':m .+1<CR>==', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n','<C-k>', ':m .-2<CR>==', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('i','<C-j> <Esc>', ':m .+1<CR>==gi', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('i','<C-k> <Esc>', ':m .-2<CR>==gi', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('v','<C-j>', ':m \'>+1<CR>gv=gv', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('v','<C-k>', ':m \'<-2<CR>gv=gv', { silent = true, noremap = true })
 
 -- Telescope
 vim.api.nvim_set_keymap('n','<leader>ff', '<cmd>Telescope find_files<CR>', { silent = true })
