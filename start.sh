@@ -13,7 +13,7 @@ echo "Argument: $2";
 backupNeovim() {
   echo "Backing up Neovim...";
   rm -r ./nvim
-  rm -r ./oh-my-zsh
+  # rm -r ./oh-my-zsh
   mkdir -p ./oh-my-zsh
   mkdir -p ./nvim
   cp -r ~/.config/nvim/plugin ./nvim/plugin/
