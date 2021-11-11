@@ -87,6 +87,12 @@ return require('packer').startup(function(use)
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'
 
+    -- Infor on the cursor location
+    use {
+	"SmiteshP/nvim-gps",
+	requires = "nvim-treesitter/nvim-treesitter"
+    }
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

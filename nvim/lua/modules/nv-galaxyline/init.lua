@@ -1,6 +1,7 @@
 local gl = require('galaxyline')
 local colors = require('galaxyline.theme').default
 local condition = require('galaxyline.condition')
+local gps = require("nvim-gps")
 local gls = gl.section
 gl.short_line_list = {'NvimTree','vista','dbui','packer'}
 
@@ -51,6 +52,17 @@ gls.left[5] = {
 }
 
 gls.left[6] = {
+    nvimGPS = {
+		provider = function()
+			return gps.get_location() .. ' '
+		end,
+		condition = function()
+			return gps.is_available()
+		end
+	}
+}
+
+gls.left[7] = {
   LineInfo = {
     provider = 'LineColumn',
     separator = ' ',
@@ -59,7 +71,7 @@ gls.left[6] = {
   },
 }
 
-gls.left[7] = {
+gls.left[8] = {
   PerCent = {
     provider = 'LinePercent',
     separator = ' ',
@@ -68,14 +80,14 @@ gls.left[7] = {
   }
 }
 
-gls.left[8] = {
+gls.left[9] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
     icon = '  ',
     highlight = {colors.red,colors.bg}
   }
 }
-gls.left[9] = {
+gls.left[10] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
     icon = '  ',
@@ -83,7 +95,7 @@ gls.left[9] = {
   }
 }
 
-gls.left[10] = {
+gls.left[11] = {
   DiagnosticHint = {
     provider = 'DiagnosticHint',
     icon = '  ',
@@ -91,7 +103,7 @@ gls.left[10] = {
   }
 }
 
-gls.left[11] = {
+gls.left[12] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
     icon = '  ',
@@ -207,3 +219,5 @@ gls.short_line_right[1] = {
     highlight = {colors.fg,colors.bg}
   }
 } 
+
+
