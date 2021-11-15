@@ -61,4 +61,4 @@ vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>
 vim.api.nvim_set_keymap('n', '<leader>lg', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>', opts)
 
 vim.api.nvim_set_keymap('n','<leader>lA', '<cmd>lua require(\'jdtls\').code_action()<CR>', { silent = true })
-vim.api.nvim_set_keymap('n','<leader>lA', '<esc><Cmd>lua require(\'jdtls\').code_action(true)<CR>', { silent = true })
+-- vim.api.nvim_set_keymap('n','<leader>lA', '<esc><Cmd>lua require(\'jdtls\').code_action(true)<CR>', { silent = true })

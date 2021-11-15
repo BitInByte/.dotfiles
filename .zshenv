@@ -4,6 +4,6 @@ export NVIM_CONFIG=~/.config/nvim
 
 export PATH="$PATH:/Users/joaopedro/development/tools/flutter/bin"
 
-export JDTLS_HOME=/Library/Java/jdt-language-server-1.5.0-202110191539
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home/
-export WORKSPACE=~/.cache/jdtls-workspace # Defaults to $HOME/workspace
+# export JDTLS_HOME=/Library/Java/jdt-language-server-1.5.0-202110191539
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home/
+# export WORKSPACE=~/.cache/jdtls-workspace # Defaults to $HOME/workspace
