@@ -3,7 +3,7 @@ vim.o.completeopt = "menuone,noselect"
 
 -- %% Sources %%
 local luasnip = require 'luasnip'
-local lspkind = require('lspkind')
+-- local lspkind = require('lspkind')
 
 local cmp = require'cmp'
 cmp.setup({
@@ -55,27 +55,26 @@ cmp.setup({
             latex_symbols = "[Latex]",
             path = "[Path]",
             calc = "[Calc]",
-            cmp_tabnine = "[Tab9]"
-            })}),
+            cmp_tabnine = "[Tab9]",
+            cmdline = "[Cmd]"
+            })
+        }),
     },
     sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    -- { name = 'vsnip' }, -- For vsnip users.
     { name = 'luasnip' }, -- For luasnip users.
+    -- { name = 'vsnip' }, -- For vsnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
-    }, {
-    { name = 'buffer' },
-    }, {
+    { name = 'nvim_lua' },
+    { name = 'nvim_lsp' },
+    { name = 'buffer', keyword_length = 5 },
     { name = 'path' },
-    }, {
     { name = 'spell' },
-    }, {
     { name = 'calc' },
-    }, {
     { name = 'cmp_tabnine' },
     })
 })
+
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {

@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'mfussenegger/nvim-jdtls' -- java
     use 'lervag/vimtex' -- vimtex
+    use 'glepnir/lspsaga.nvim'
 
     -- CMP
 	use 'hrsh7th/cmp-nvim-lsp'
@@ -19,6 +20,7 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-cmdline'
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-calc'
+    use 'hrsh7th/cmp-nvim-lua' -- neovim lua autocompletion
 	-- use 'hrsh7th/cmp-cmdline'
 	use 'f3fora/cmp-spell'
 	use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
@@ -87,7 +89,7 @@ return require('packer').startup(function(use)
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'
 
-    -- Infor on the cursor location
+    -- Info on the cursor location
     use {
 	"SmiteshP/nvim-gps",
 	requires = "nvim-treesitter/nvim-treesitter"
