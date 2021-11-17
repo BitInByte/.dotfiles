@@ -34,10 +34,10 @@ backupNeovim() {
 
 installNeovim() {
   echo "Installing Neovim...";
-  cp -r nvim/plugin ~/.config/nvim/plugin/
-  cp -r nvim/ftplugin ~/.config/nvim/ftplugin/
+  cp -r nvim/plugin ~/.config/nvim/
+  cp -r nvim/ftplugin ~/.config/nvim/
   # cp -r nvim/colors ~/.config/nvim/colors/
-  cp -r nvim/lua ~/.config/nvim/lua/
+  cp -r nvim/lua ~/.config/nvim/
   cp nvim/init.lua ~/.config/nvim/
   cp .hyper.js ~
   # cp -r oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom/
