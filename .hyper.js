@@ -147,6 +147,9 @@ module.exports = {
     // for advanced config flags please refer to https://hyper.is/#cfg
 
     activeTab: '🚀',
+      hyperTabs: {
+        trafficButtons: true,
+      }
   },
 
   // a list of plugins to fetch and install from npm
@@ -162,6 +165,10 @@ module.exports = {
         // "shades-of-purple-hyper", 
         "hyper-whimsy", 
         // "hyper-rose-pine" 
+        // "hyperborder"
+        'hyper-tabs-enhanced',
+        "hyper-hide-scroll",
+        // 'hyper-tabs-autohide'
     ],
 
   // in development, you can create a directory under
