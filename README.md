@@ -37,8 +37,8 @@ This config only works with Neovim +0.5. It is almost 100% Lua and ViM doesn't s
 
 ### Oh My ZSH
 
-1. zsh-autosuggestions: https://github.com/zsh-users/zsh-autosuggestions
-2. zsh-syntax-highlighting: https://github.com/zsh-users/zsh-syntax-highlighting
+1. zsh-autosuggestions: https://github.com/zsh-users/zsh-autosuggestions - Install the oh my zsh version of it
+2. zsh-syntax-highlighting: https://github.com/zsh-users/zsh-syntax-highlighting - Install the oh my zsh version of it
 
 ## Config installation
 
