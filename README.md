@@ -74,8 +74,10 @@ Last, we need to update the ftplugin java.lua file with the correct paths and th
 ## Ranger
 
 In order for ranger to work properly, we need to install a couple of dependencies. This will be applied for kitty terminal.
-´´´brew install highlight´´´
-´´´pip install pillow ranger-fm´´´
+```zsh
+brew install highlight
+pip install pillow ranger-fm
+```
 
 ### Treesiter Commands
 
