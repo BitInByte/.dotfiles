@@ -71,6 +71,12 @@ Then, we need to update our .zshenv file in order to have all of the java relate
 
 Last, we need to update the ftplugin java.lua file with the correct paths and that's it. It should then work in a java file, out of the box
 
+## Ranger
+
+In order for ranger to work properly, we need to install a couple of dependencies. This will be applied for kitty terminal.
+´´´brew install highlight´´´
+´´´pip install pillow ranger-fm´´´
+
 ### Treesiter Commands
 
 For treesitter, only for neovim, you can install language interpreter by :TSInstall <language>
