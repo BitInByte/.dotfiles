@@ -28,7 +28,7 @@ This config only works with Neovim +0.5. It is almost 100% Lua and ViM doesn't s
 
 ### Terminal/Homebrew
 
-1. Tmux | Hyper
+1. Tmux | Kitty
 2. Cascadia code font (To got the most of this config, use a patched font from nerd fonts)
 3. Oh My ZSH
 4. Powerlevel10k (terminal)
