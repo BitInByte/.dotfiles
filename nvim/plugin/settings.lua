@@ -29,6 +29,8 @@ vim.o.showtabline = 2               -- Always show tabs
 --vim.o.timeoutlen = 200              -- Remove some delay on vim waiting for leader sequence
 vim.o.updatetime = 250              -- Add update time so that disgnostics on hover works
 vim.o.swapfile = false              -- Disable swap file getting ride of the dialog to choose if we want to recover the file
+vim.opt.foldmethod = "indent"       -- Set fold to indent
+vim.opt.foldcolumn = "1"            -- Add a column sign telling the folds that we have
+vim.opt.foldenable = false          -- Disable automatic fold on launch
 vim.wo.spell = false				-- Enable/Disable spell
 vim.bo.spelllang = "en_us" 			-- Set spell dictionary
-
