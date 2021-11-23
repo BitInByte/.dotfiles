@@ -82,8 +82,15 @@ return require('packer').startup(function(use)
     }
 
     -- Comment Utility
-    use "terrortylor/nvim-comment"
-    use 'JoosepAlviste/nvim-ts-context-commentstring' -- vue integration
+    -- use "terrortylor/nvim-comment"
+    -- use 'JoosepAlviste/nvim-ts-context-commentstring' -- vue integration
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
 
     -- Auto Close Tag
     use 'windwp/nvim-autopairs'
