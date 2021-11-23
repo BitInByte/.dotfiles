@@ -30,9 +30,13 @@ vim.api.nvim_set_keymap('n','<leader>fc', '<cmd>Telescope colorscheme<CR>', { si
 vim.api.nvim_set_keymap('n','<leader>fs', '<cmd>Telescope spell_suggest<CR>', { silent = true })
 vim.api.nvim_set_keymap('n','<leader>fk', '<cmd>Telescope keymaps<CR>', { silent = true })
 vim.api.nvim_set_keymap('n','<leader>ft', '<cmd>Telescope treesitter<CR>', { silent = true })
+vim.api.nvim_set_keymap('n','<leader>fr', '<cmd>Telescope resume<CR>', { silent = true })
 vim.api.nvim_set_keymap('n','<leader>fgs', '<cmd>Telescope git_status<CR>', { silent = true })
 vim.api.nvim_set_keymap('n','<leader>fgc', '<cmd>Telescope git_commits<CR>', { silent = true })
 vim.api.nvim_set_keymap('n','<leader>fgb', '<cmd>Telescope git_branches<CR>', { silent = true })
+vim.api.nvim_set_keymap('n','<leader>flc', '<cmd>Telescope lsp_code_actions<CR>', { silent = true })
+vim.api.nvim_set_keymap('n','<leader>fli', '<cmd>Telescope lsp_implementations<CR>', { silent = true })
+vim.api.nvim_set_keymap('n','<leader>flr', '<cmd>Telescope lsp_references<CR>', { silent = true })
 
 -- Buffer Move
 vim.api.nvim_set_keymap('n', '<C-h>', ':bprev<CR>', { silent = true })

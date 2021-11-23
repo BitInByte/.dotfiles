@@ -11,7 +11,8 @@ return require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'mfussenegger/nvim-jdtls' -- java
     use 'lervag/vimtex' -- vimtex
-    use 'glepnir/lspsaga.nvim'
+    use 'glepnir/lspsaga.nvim' -- popups
+    use  "ray-x/lsp_signature.nvim" -- show args info
 
     -- CMP
 	use 'hrsh7th/cmp-nvim-lsp'
@@ -101,6 +102,9 @@ return require('packer').startup(function(use)
 	"SmiteshP/nvim-gps",
 	requires = "nvim-treesitter/nvim-treesitter"
     }
+
+    -- Indentation lines
+    use "lukas-reineke/indent-blankline.nvim"
 
 
   -- Automatically set up your configuration after cloning packer.nvim

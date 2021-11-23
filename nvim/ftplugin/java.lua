@@ -40,6 +40,7 @@ local config = {
   capabilities = capabilities,
 }
 require('jdtls').start_or_attach(config)
+require "lsp_signature".on_attach()  -- Note: add in lsp client on-attach
 
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
