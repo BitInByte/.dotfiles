@@ -32,7 +32,7 @@ installmacos() {
   echo "Installing MacOS";
 
   echo "Installing required plugins...";
-  brew install neovim
+  brew install neovim exa ranger
   echo "Plugins installed successfully...";
 
   generatupdate
@@ -42,7 +42,8 @@ installarch() {
   echo "Installing Arch";
 
   echo "Installing required plugins...";
-  pacman -S neovim texlive-most The texlive-lang texlive-bibtexextra texlive-fontsextra biber kitty zathura zathura-pdf-mupdf 
+  pacman -Syu
+  pacman -S neovim texlive-most The texlive-lang texlive-bibtexextra texlive-fontsextra biber kitty zathura zathura-pdf-mupdf exa
   echo "Plugins installed successfully...";
 
   generalupdate

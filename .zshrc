@@ -117,6 +117,7 @@ alias fcfg='cd ~/Documents/data/ConfigBackup/'
 alias config='cd ~/.config'
 alias nvimConfig='cd ~/.config/nvim'
 alias lg='lazygit'
+alias ls='exa --icons'
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
