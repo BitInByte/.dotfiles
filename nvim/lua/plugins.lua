@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
 		vim.cmd('colorscheme rose-pine')
 	    end
 	})
+    use 'folke/tokyonight.nvim'
 
     -- Telescope
     use {
@@ -72,14 +73,18 @@ return require('packer').startup(function(use)
     -- Buffer Line
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
-    -- Galaxy Line
-    use {
+    -- Status Line
+    --[[ use {
       'glepnir/galaxyline.nvim',
         branch = 'main',
         -- your statusline
         --config = function() require'my_statusline' end,
         -- some optional icons
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    } ]]
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 
     -- Comment Utility

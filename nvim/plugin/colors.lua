@@ -11,7 +11,10 @@
 --require('calvera').set()
 
 --Lua:
-require('moonlight').set()
+-- require('moonlight').set()
+-- vim.cmd[[colorscheme tokyonight]]
+
+-- Rose pine being enabled on the packer
 
 
 --Lua:
