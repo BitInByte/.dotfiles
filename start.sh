@@ -43,7 +43,7 @@ installarch() {
 
   echo "Installing required plugins...";
   pacman -Syu
-  pacman -S neovim texlive-most The texlive-lang texlive-bibtexextra texlive-fontsextra biber kitty zathura zathura-pdf-mupdf exa
+  pacman -S neovim texlive-most texlive-lang texlive-bibtexextra texlive-fontsextra biber kitty zathura zathura-pdf-mupdf exa ranger
   echo "Plugins installed successfully...";
 
   generalupdate
@@ -53,7 +53,7 @@ installarch() {
 backupmacos() {
   echo "Backing up Neovim...";
   rm -r ./nvim
-  mkdir -p ./oh-my-zsh
+  # mkdir -p ./oh-my-zsh
   mkdir -p ./nvim
   cp -r ~/.config/nvim/plugin ./nvim/plugin/
   cp -r ~/.config/nvim/ftplugin ./nvim/ftplugin/

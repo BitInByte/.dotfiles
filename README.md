@@ -47,7 +47,12 @@ You can install this config Neovim using the start.sh file.
 If you want to install you should download this config and inside of this config directory, you should run the following command:
 
 ```zsh
-sudo ./start.sh install neovim
+sudo ./start.sh install mac
+```
+
+And to update you can use the following command:
+```zsh
+sudo ./start.sh update mac
 ```
 
 You should install a patched Cascadia Font and attribute it to the used terminal in order to get the icons on telescope and on nerdtree
