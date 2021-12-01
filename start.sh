@@ -86,7 +86,6 @@ generalupdate() {
   cp kitty.conf ~/.config/kitty/
   cp alacritty.yml ~/.config/alacritty/
   echo "Configs installed successfully";
-
 }
 
 case $1 in
