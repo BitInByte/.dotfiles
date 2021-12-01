@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
     use 'lervag/vimtex' -- vimtex
     use 'glepnir/lspsaga.nvim' -- popups
     use  "ray-x/lsp_signature.nvim" -- show args info
+    use 'github/copilot.vim'
 
     -- CMP
 	use 'hrsh7th/cmp-nvim-lsp'

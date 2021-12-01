@@ -80,6 +80,13 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
+require('cfg-lsp.providers.lua')
+require('cfg-lsp.providers.vuels')
+require('cfg-lsp.providers.tsserver')
+require('cfg-lsp.providers.vimls')
+require('cfg-lsp.providers.latex')
+--require('cfg-lsp.jdtls')
+--
 -- Diagnostics Hover
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
 
@@ -87,11 +94,13 @@ vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diag
 vim.cmd [[
     autocmd BufWritePre *.java lua vim.lsp.buf.formatting_sync(nil, 1000)
     autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 1000)
 ]]
 
-require('cfg-lsp.providers.lua')
-require('cfg-lsp.providers.vuels')
-require('cfg-lsp.providers.tsserver')
-require('cfg-lsp.providers.vimls')
-require('cfg-lsp.providers.latex')
---require('cfg-lsp.jdtls')
+-- Enable codelens
+vim.cmd [[
+    autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
+]]
+

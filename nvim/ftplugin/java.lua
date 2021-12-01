@@ -9,8 +9,8 @@
 --     '-Dosgi.bundles.defaultStartLevel=4',
 --     -- ADD REMAINING OPTIONS FROM https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line !
 --   },
---     
--- 
+--
+--
 --   -- This is the default if not provided, you can remove it. Or adjust as needed.
 --   -- One dedicated LSP server & client will be started per unique root_dir
 --   root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'})
@@ -63,3 +63,11 @@ vim.api.nvim_set_keymap('n', '<leader>lg', '<cmd>lua vim.lsp.buf.formatting_sync
 
 vim.api.nvim_set_keymap('n','<leader>lA', '<cmd>lua require(\'jdtls\').code_action()<CR>', { silent = true })
 -- vim.api.nvim_set_keymap('n','<leader>lA', '<esc><Cmd>lua require(\'jdtls\').code_action(true)<CR>', { silent = true })
+
+-- Enable codelens
+-- vim.cmd [[
+--     autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
+-- ]]
+vim.cmd [[
+    autocmd BufEnter,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
+]]
