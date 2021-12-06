@@ -1,3 +1,4 @@
+-- Ensure packer is installed in the pc
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -13,7 +14,7 @@ return require('packer').startup(function(use)
     use 'lervag/vimtex' -- vimtex
     use 'glepnir/lspsaga.nvim' -- popups
     use  "ray-x/lsp_signature.nvim" -- show args info
-    use 'github/copilot.vim'
+    -- use 'github/copilot.vim'
 
     -- CMP
 	use 'hrsh7th/cmp-nvim-lsp'
