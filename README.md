@@ -34,6 +34,7 @@ This config only works with Neovim +0.5. It is almost 100% Lua and ViM doesn't s
 4. Powerlevel10k (terminal)
 5. Ranger
 6. LazyGit
+7. Zathura PDF
 
 ### Oh My ZSH
 
@@ -87,3 +88,26 @@ pip install pillow ranger-fm
 ### Treesiter Commands
 
 For treesitter, only for neovim, you can install language interpreter by :TSInstall <language>
+
+### Zathura PDF
+
+To install zathura, we need to install poppler.
+
+Then, we can install zathura like this:
+```zsh
+brew install zathura --with-synctex
+brew install zathura-pdf-poppler
+```
+
+We also need to follow some steps that are in the zathura brew github page.
+
+<!-- To install zathura, we need to install the meson: -->
+<!-- ```Python -->
+<!-- pip3 install meson -->
+<!-- ``` -->
+<!---->
+<!-- We also need to install popler, we can install it from the homebrew. -->
+<!---->
+<!-- Then, we need to install girara, zathura and zathura-pdf-popler. We only need to follow the steps on the website. -->
+<!---->
+<!-- Then, we need to download Zathura and build it with meson and ninja. -->
