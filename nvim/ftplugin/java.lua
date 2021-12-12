@@ -36,6 +36,13 @@ local config = {
         '--add-opens java.base/java.util=ALL-UNNAMED',
         '--add-opens java.base/java.lang=ALL-UNNAMED'
   },
+   -- Here you can configure eclipse.jdt.ls specific settings
+  -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+  -- for a list of options
+    settings = {
+        java = {
+        },
+    },
   root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
   capabilities = capabilities,
 }
@@ -61,7 +68,7 @@ vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_locli
 vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>lg', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>', opts)
 
-vim.api.nvim_set_keymap('n','<leader>lA', '<cmd>lua require(\'jdtls\').code_action()<CR>', { silent = true })
+vim.api.nvim_set_keymap('n','<leader>lA', '<cmd>lua vim.lsp.buf.code_action()<CR>', { silent = true })
 -- vim.api.nvim_set_keymap('n','<leader>lA', '<esc><Cmd>lua require(\'jdtls\').code_action(true)<CR>', { silent = true })
 
 -- Enable codelens

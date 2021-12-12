@@ -70,7 +70,7 @@ require('lualine').setup {
     lualine_a = {
       { 'mode', separator = { left = '' }, right_padding = 2 },
     },
-    lualine_b = { 'filename', 'branch', {'diagnostics', sources={'nvim_lsp'}} },
+    lualine_b = { 'filename', 'branch', {'diagnostics', sources={'nvim_diagnostic'}} },
     lualine_c = {  {gpsLocation, cond = isGpsAvailable}},
     lualine_x = {{lspClients, icon = ' LSP:'}},
     lualine_y = {'fileformat',  'filetype', 'progress' },
