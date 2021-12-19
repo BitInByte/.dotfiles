@@ -8,3 +8,4 @@ export PATH="~/opt/anaconda3/bin:$PATH"
 # export JDTLS_HOME=/Library/Java/jdt-language-server-1.5.0-202110191539
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home/
 # export WORKSPACE=~/.cache/jdtls-workspace # Defaults to $HOME/workspace
+. "$HOME/.cargo/env"

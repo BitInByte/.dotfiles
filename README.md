@@ -87,6 +87,9 @@ yarn global add lua-fmt
 
 It's more as a workaround that could be a feature in the future to integrate it with the core nvim lsp but for now, formatter.nvim is the solution.
 
+## Rust
+In order to work with rust lsp, we need to install rls and we need to always bootstrap a new project with the help of cargo
+
 ## Ranger
 
 In order for ranger to work properly, we need to install a couple of dependencies. This will be applied for kitty terminal.
