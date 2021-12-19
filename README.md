@@ -95,6 +95,13 @@ brew install highlight
 pip install pillow ranger-fm
 ```
 
+## Anaconda
+
+In order to use conda command, we need to perform the following command, after anaconda installation:
+```zsh
+~/opt/anaconda3/bin/conda init zsh
+```
+
 ### Treesiter Commands
 
 For treesitter, only for neovim, you can install language interpreter by :TSInstall <language>
