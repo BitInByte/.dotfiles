@@ -77,6 +77,16 @@ Then, we need to update our .zshenv file in order to have all of the java relate
 
 Last, we need to update the ftplugin java.lua file with the correct paths and that's it. It should then work in a java file, out of the box
 
+## Lua
+
+In order for lua code formatter to work, we need to install a lua formatter, for that we can use the following command: 
+
+```zsh
+yarn global add lua-fmt
+```
+
+It's more as a workaround that could be a feature in the future to integrate it with the core nvim lsp but for now, formatter.nvim is the solution.
+
 ## Ranger
 
 In order for ranger to work properly, we need to install a couple of dependencies. This will be applied for kitty terminal.
