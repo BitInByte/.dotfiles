@@ -45,7 +45,7 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {"pyright", "tsserver"}
+local servers = {"pyright", "tsserver", "rls", "vuels"}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -84,12 +84,14 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
   }
 )
 
-require("cfg-lsp.providers.lua")
-require("cfg-lsp.providers.vuels")
-require("cfg-lsp.providers.tsserver")
-require("cfg-lsp.providers.vimls")
-require("cfg-lsp.providers.latex")
-require("cfg-lsp.providers.rust")
+-- Lua lsp
+local lualsp = require("cfg-lsp.providers.lua")
+lualsp.load(capabilities, on_attach)
+-- require("cfg-lsp.providers.vuels")
+-- require("cfg-lsp.providers.tsserver")
+-- require("cfg-lsp.providers.vimls")
+-- require("cfg-lsp.providers.latex")
+-- require("cfg-lsp.providers.rust")
 --require('cfg-lsp.jdtls')
 --
 -- Diagnostics Hover
@@ -97,11 +99,7 @@ vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diag
 
 -- Format on save
 vim.cmd [[
-    autocmd BufWritePre *.java lua vim.lsp.buf.formatting_sync(nil, 1000)
-    autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 1000)
-    autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 1000)
-    autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 1000)
-    autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.java, *.js, *.ts, *.tsx, *.jsx, *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
 ]]
 
 -- Enable codelens
