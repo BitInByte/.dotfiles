@@ -99,7 +99,13 @@ vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diag
 
 -- Format on save
 vim.cmd [[
-    autocmd BufWritePre *.java, *.js, *.ts, *.tsx, *.jsx, *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.java lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)
 ]]
 
 -- Enable codelens
