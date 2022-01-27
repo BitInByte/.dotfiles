@@ -121,6 +121,11 @@ return require("packer").startup(
     -- Indentation lines
     use "lukas-reineke/indent-blankline.nvim"
 
+    -- Please help my life
+    -- use ""
+
+    use "ThePrimeagen/vim-be-good"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
