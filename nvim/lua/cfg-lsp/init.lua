@@ -94,6 +94,17 @@ lualsp.load(capabilities, on_attach)
 -- require("cfg-lsp.providers.latex")
 -- require("cfg-lsp.providers.rust")
 --require('cfg-lsp.jdtls')
+require("cfg-lsp.providers.csharp")
+
+-- local pid = vim.fn.getpid()
+-- -- local omnisharp_bin = "/usr/local/opt/omnisharp-mono/bin/omnisharp"
+-- local omnisharp_bin = "/usr/local/opt/omnisharp/libexec/run"
+-- require "lspconfig".omnisharp.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)}
+-- }
+
 --
 -- Diagnostics Hover
 -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua  vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]

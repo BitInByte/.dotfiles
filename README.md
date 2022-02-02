@@ -90,6 +90,10 @@ It's more as a workaround that could be a feature in the future to integrate it 
 ## Rust
 In order to work with rust lsp, we need to install rls and we need to always bootstrap a new project with the help of cargo
 
+## C#
+
+In order to use csharp, you need to download the onisharp (https://github.com/OmniSharp/omnisharp-roslyn) and place it in "$HOME/Repositories/language-servers/omnisharp/run" if the folders doesn't exist, you should create them
+
 ## Ranger
 
 In order for ranger to work properly, we need to install a couple of dependencies. This will be applied for kitty terminal.

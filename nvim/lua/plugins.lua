@@ -13,9 +13,11 @@ return require("packer").startup(
     -- LSP
     use "neovim/nvim-lspconfig"
     use "mfussenegger/nvim-jdtls" -- java
+    -- use "OmniSharp/omnisharp-vim"
     use "lervag/vimtex" -- vimtex
     use "glepnir/lspsaga.nvim" -- popups
     use "ray-x/lsp_signature.nvim" -- show args info
+    -- use "razzmatazz/csharp-language-server"
     -- use 'github/copilot.vim'
 
     -- CMP
@@ -124,7 +126,7 @@ return require("packer").startup(
     -- Please help my life
     -- use ""
 
-    use "ThePrimeagen/vim-be-good"
+    -- use "ThePrimeagen/vim-be-good"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
