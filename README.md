@@ -92,7 +92,7 @@ In order to work with rust lsp, we need to install rls and we need to always boo
 
 ## C#
 
-In order to use csharp, you need to download the onisharp (https://github.com/OmniSharp/omnisharp-roslyn) and place it in "$HOME/Repositories/language-servers/omnisharp/run" if the folders doesn't exist, you should create them
+In order to use csharp, you need to download the onisharp (https://github.com/OmniSharp/omnisharp-roslyn) and place it in "$HOME/Repositories/language-servers/omnisharp/run" if the folders doesn't exist, you should create them. You should download the omnisharp-osx.tar.gz which contain the run executable.
 
 ## Ranger
 
