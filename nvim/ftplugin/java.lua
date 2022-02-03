@@ -1,24 +1,7 @@
--- local config = {
---   -- The command that starts the language server
---   cmd = {
---     --vim.fn.expand('./start.sh'),
---     --'/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home/',
---     --'/Users/foxy/.config/nvim/lua/cfg-lsp/jdtls/start.sh',
---     '/Users/foxy/.config/nvim/ftplugin/start.sh',
---     -- '/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home/bin/java -Declipse.application=org.eclipse',
---     '-Dosgi.bundles.defaultStartLevel=4',
---     -- ADD REMAINING OPTIONS FROM https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line !
---   },
---
---
---   -- This is the default if not provided, you can remove it. Or adjust as needed.
---   -- One dedicated LSP server & client will be started per unique root_dir
---   root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'})
--- }
--- require('jdtls').start_or_attach(config)
+local shared_commons = require("cfg-lsp.sharedcommons")
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local config = {
   cmd = {
@@ -46,7 +29,7 @@ local config = {
     java = {}
   },
   root_dir = require("jdtls.setup").find_root({".git", "mvnw", "gradlew"}),
-  capabilities = capabilities
+  capabilities = shared_commons.capabilities
 }
 require("jdtls").start_or_attach(config)
 require "lsp_signature".on_attach() -- Note: add in lsp client on-attach
