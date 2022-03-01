@@ -17,7 +17,6 @@ return require("packer").startup(
     use "lervag/vimtex" -- vimtex
     use "glepnir/lspsaga.nvim" -- popups
     use "ray-x/lsp_signature.nvim" -- show args info
-    -- use "razzmatazz/csharp-language-server"
     -- use 'github/copilot.vim'
 
     -- CMP

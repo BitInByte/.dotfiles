@@ -4,7 +4,7 @@ local shared_commons = require("cfg-lsp.sharedcommons")
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {"pyright", "tsserver", "rls", "vuels"}
+local servers = {"pyright", "tsserver", "rls", "vuels", "sqlls"}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = shared_commons.on_attach,
