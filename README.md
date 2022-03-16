@@ -67,6 +67,8 @@ In order to use the sources, you should install LSP's... Most of them you can fi
 For Java however, you need to download the jdtls via milestone and copy it into a directory (I use the /Library/java directory).
 Then, you should specify the path to the jdtls in the .zshenv file in order to add the path into the environment.
 
+Most of the lsp's require .git in order to be able to find the root directory.
+
 ## Java
 
 We need to download jdtls in order for it to work.
