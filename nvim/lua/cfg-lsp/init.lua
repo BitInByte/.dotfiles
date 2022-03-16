@@ -4,7 +4,7 @@ local shared_commons = require("cfg-lsp.sharedcommons")
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {"pyright", "tsserver", "rls", "vuels", "sqlls"}
+local servers = {"pyright", "tsserver", "rls", "vuels", "sqlls", "intelephense"}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = shared_commons.on_attach,
@@ -53,6 +53,8 @@ lualsp.load(shared_commons.capabilities, shared_commons.on_attach)
 -- require("cfg-lsp.providers.rust")
 --require('cfg-lsp.jdtls')
 require("cfg-lsp.providers.csharp")
+-- require("cfg-lsp.providers.intelephense")
+require("cfg-lsp.providers.emmet")
 
 -- local pid = vim.fn.getpid()
 -- -- local omnisharp_bin = "/usr/local/opt/omnisharp-mono/bin/omnisharp"
@@ -78,6 +80,7 @@ vim.cmd [[
     autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
     autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)
     autocmd BufWritePre *.cs lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.php lua vim.lsp.buf.formatting_sync(nil, 1000)
 ]]
 
 -- Enable codelens

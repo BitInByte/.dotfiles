@@ -110,6 +110,8 @@ In order to use conda command, we need to perform the following command, after a
 ```zsh
 ~/opt/anaconda3/bin/conda init zsh
 ```
+## Web Development
+We need to install some stuff regarding web development. emmet-ls, tserver and intelephense from npm.
 
 ### Treesiter Commands
 
@@ -126,6 +128,8 @@ brew install zathura-pdf-poppler
 ```
 
 We also need to follow some steps that are in the zathura brew github page.
+
+
 
 <!-- To install zathura, we need to install the meson: -->
 <!-- ```Python -->
