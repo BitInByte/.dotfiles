@@ -13,10 +13,11 @@
 --Lua:
 -- require('moonlight').set()
 -- vim.cmd[[colorscheme tokyonight]]
+-- vim.cmd('colorscheme tokyonight')
 
 -- Rose pine being enabled on the packer
 
 
 --Lua:
---require('moonlight').set()
+-- require('moonlight').set()
 
