@@ -23,7 +23,8 @@ This config only works with Neovim +0.5. It is almost 100% Lua and ViM doesn't s
 2. Packer.nvim
 3. Python autopep8 is required to pretify
 4. ripgrep: https://github.com/BurntSushi/ripgrep => used in Telescope
-5. Patched Cascadia Code Font (Nerd Fonts)
+5. Patched Cascadia Code Font (Nerd Fonts) (Old font)
+5. Patched Victor Mono Font (Nerd Fonts)
 6. MacTex
 
 ### Terminal/Homebrew
