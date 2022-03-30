@@ -21,3 +21,6 @@ require("cfg-treesitter")
 
 -- Sources & Plugins Options
 require("modules")
+
+-- Themes Supported Configuration
+require("themes")
