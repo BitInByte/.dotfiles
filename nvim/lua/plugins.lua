@@ -43,10 +43,10 @@ return require("packer").startup(
     -- File Explorer
     use {
       "kyazdani42/nvim-tree.lua",
-      requires = "kyazdani42/nvim-web-devicons",
-      config = function()
-        require "nvim-tree".setup {}
-      end
+      requires = "kyazdani42/nvim-web-devicons"
+      -- config = function()
+      --   require "nvim-tree".setup {}
+      -- end
     }
 
     -- ColorSchemes
@@ -57,15 +57,18 @@ return require("packer").startup(
         "rose-pine/neovim",
         as = "rose-pine",
         config = function()
-          -- Options (see available options below)
-          vim.g.rose_pine_variant = "base"
-
-          -- Load colorscheme after options
+          --   -- Options (see available options below)
+          -- vim.g.rose_pine_variant = "base"
+          --
+          --   -- Load colorscheme after options
           vim.cmd("colorscheme rose-pine")
         end
       }
     )
     use "folke/tokyonight.nvim"
+
+    -- use "kaicataldo/material.vim"
+    use "marko-cerovac/material.nvim"
 
     -- Telescope
     use {
@@ -103,10 +106,10 @@ return require("packer").startup(
     -- use "terrortylor/nvim-comment"
     -- use 'JoosepAlviste/nvim-ts-context-commentstring' -- vue integration
     use {
-      "numToStr/Comment.nvim",
-      config = function()
-        require("Comment").setup()
-      end
+      "numToStr/Comment.nvim"
+      -- config = function()
+      --   require("Comment").setup()
+      -- end
     }
 
     -- Auto Close Tag
@@ -126,6 +129,14 @@ return require("packer").startup(
     -- use ""
 
     -- use "ThePrimeagen/vim-be-good"
+
+    -- Git Utilities
+    use {
+      "lewis6991/gitsigns.nvim"
+      -- config = function()
+      --   require("gitsigns").setup()
+      -- end
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

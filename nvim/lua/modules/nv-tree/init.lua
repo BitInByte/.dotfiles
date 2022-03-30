@@ -150,7 +150,7 @@ require "nvim-tree".setup {
   }
 } -- END_DEFAULT_OPTS
 
-vim.g.nvim_tree_quit_on_open = 1
+-- vim.g.nvim_tree_quit_on_open = 1
 -- silent - command will not be echoed in the command line
 -- noremap - non recursive map
 vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", {silent = true})

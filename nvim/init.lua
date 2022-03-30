@@ -7,17 +7,17 @@
 -- Init.lua
 -- Author: BitInByte (jopecodes.dev)
 -- Remap Leader Key
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
 -- Configs
-require('plugins')
+require("plugins")
 
 -- LSP
-require('cfg-lsp')
-require('cfg-cmp')
+require("cfg-lsp")
+require("cfg-cmp")
 
 -- TreeSitter
-require('cfg-treesitter')
+require("cfg-treesitter")
 
 -- Sources & Plugins Options
-require('modules')
+require("modules")
