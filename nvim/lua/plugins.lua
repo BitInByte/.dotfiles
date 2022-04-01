@@ -103,8 +103,6 @@ return require("packer").startup(
     }
 
     -- Comment Utility
-    -- use "terrortylor/nvim-comment"
-    -- use 'JoosepAlviste/nvim-ts-context-commentstring' -- vue integration
     use {
       "numToStr/Comment.nvim"
       -- config = function()
@@ -125,11 +123,6 @@ return require("packer").startup(
     -- Indentation lines
     use "lukas-reineke/indent-blankline.nvim"
 
-    -- Please help my life
-    -- use ""
-
-    -- use "ThePrimeagen/vim-be-good"
-
     -- Git Utilities
     use {
       "lewis6991/gitsigns.nvim"
@@ -137,6 +130,15 @@ return require("packer").startup(
       --   require("gitsigns").setup()
       -- end
     }
+
+    -- Scrollbar
+    use("petertriho/nvim-scrollbar")
+
+    -- Folding utility
+    use("anuvyklack/pretty-fold.nvim")
+
+    -- Symbols and tags outline window tree
+    use("simrat39/symbols-outline.nvim")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

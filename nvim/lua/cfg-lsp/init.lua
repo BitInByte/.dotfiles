@@ -55,6 +55,7 @@ lualsp.load(shared_commons.capabilities, shared_commons.on_attach)
 require("cfg-lsp.providers.csharp")
 -- require("cfg-lsp.providers.intelephense")
 require("cfg-lsp.providers.emmet")
+require("cfg-lsp.providers.texlab")
 
 -- local pid = vim.fn.getpid()
 -- -- local omnisharp_bin = "/usr/local/opt/omnisharp-mono/bin/omnisharp"
@@ -81,6 +82,7 @@ vim.cmd [[
     autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)
     autocmd BufWritePre *.cs lua vim.lsp.buf.formatting_sync(nil, 1000)
     autocmd BufWritePre *.php lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.tex lua vim.lsp.buf.formatting_sync(nil, 1000)
 ]]
 
 -- Enable codelens
