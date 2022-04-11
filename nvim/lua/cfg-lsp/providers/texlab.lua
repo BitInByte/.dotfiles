@@ -28,3 +28,17 @@ require "lspconfig".texlab.setup {
     }
   }
 }
+
+vim.cmd [[
+    autocmd BufWritePost *.tex :TexlabBuild
+]]
+
+vim.cmd [[
+    function! ZathuraOpenPdf()
+        let fullPath = finddir('.git/..', expand('%:p:h').';')
+        echo fullPath
+        let pdfFile = substitute(fullPath, ".tex", ".pdf", "")
+    endfunction
+
+    nnoremap <A-p> :call ZathuraOpenPdf()<CR>
+]]

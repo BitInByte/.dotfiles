@@ -1,23 +1,43 @@
 require("pretty-fold").setup {
-  fill_char = "•",
+  -- fill_char = "•",
+  fill_char = "━",
+  -- sections = {
+  --   left = {
+  --     "content"
+  --   },
+  --   right = {
+  --     " ",
+  --     "number_of_folded_lines",
+  --     ": ",
+  --     "percentage",
+  --     " ",
+  --     function(config)
+  --       return config.fill_char:rep(3)
+  --     end
+  --   }
+  -- },
   sections = {
     left = {
-      "content"
+      "━ ",
+      function()
+        return string.rep("*", vim.v.foldlevel)
+      end,
+      " ━┫",
+      "content",
+      "┣"
     },
     right = {
-      " ",
+      "┫ ",
       "number_of_folded_lines",
       ": ",
       "percentage",
-      " ",
-      function(config)
-        return config.fill_char:rep(3)
-      end
+      " ┣━━"
     }
   },
   remove_fold_markers = true,
   -- Keep the indentation of the content of the fold string.
-  keep_indentation = true,
+  -- keep_indentation = true,
+  keep_indentation = false,
   -- Possible values:
   -- "delete" : Delete all comment signs from the fold string.
   -- "spaces" : Replace all comment signs with equal number of spaces.
@@ -40,4 +60,16 @@ require("pretty-fold").setup {
     {"%[", "]"} -- % to escape lua pattern char
   }
 }
-require("pretty-fold.preview").setup()
+-- require("pretty-fold.preview").setup()
+require("pretty-fold.preview").setup {
+  key = "h" -- choose 'h' or 'l' key
+}
+
+-- Save folds
+vim.cmd [[
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+]]

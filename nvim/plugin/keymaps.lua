@@ -55,3 +55,6 @@ vim.api.nvim_set_keymap("n", "<leader>p", "+p", {silent = true})
 vim.api.nvim_set_keymap("n", "<leader>P", "+P", {silent = true})
 vim.api.nvim_set_keymap("v", "<leader>p", "+p", {silent = true})
 vim.api.nvim_set_keymap("v", "<leader>P", "+P", {silent = true})
+
+-- disable ex mode
+vim.api.nvim_set_keymap("", "Q", "<Nop>", {silent = true})

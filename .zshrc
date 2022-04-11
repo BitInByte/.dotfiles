@@ -118,7 +118,7 @@ alias config='cd ~/.config'
 alias nvimConfig='cd ~/.config/nvim'
 alias lg='lazygit'
 alias ls='exa --icons'
-alias cloudssh='ssh adminuser@13.69.176.183'
+alias cloudssh='kitty +kitten ssh adminuser@13.69.176.183'
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

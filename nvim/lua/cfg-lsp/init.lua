@@ -56,6 +56,7 @@ require("cfg-lsp.providers.csharp")
 -- require("cfg-lsp.providers.intelephense")
 require("cfg-lsp.providers.emmet")
 require("cfg-lsp.providers.texlab")
+-- require("cfg-lsp.providers.grammarly")
 
 -- local pid = vim.fn.getpid()
 -- -- local omnisharp_bin = "/usr/local/opt/omnisharp-mono/bin/omnisharp"
