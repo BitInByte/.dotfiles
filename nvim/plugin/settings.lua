@@ -30,6 +30,7 @@ vim.o.showtabline = 2 -- Always show tabs
 vim.o.updatetime = 250 -- Add update time so that disgnostics on hover works
 vim.o.swapfile = false -- Disable swap file getting ride of the dialog to choose if we want to recover the file
 vim.o.inccommand = "nosplit" -- Highlight search and replace
+vim.o.laststatus = 3 -- Status bar always on bottom
 vim.opt.foldmethod = "indent" -- Set fold to indent
 vim.opt.foldcolumn = "1" -- Add a column sign telling the folds that we have
 vim.opt.foldenable = false -- Disable automatic fold on launch

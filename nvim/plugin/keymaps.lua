@@ -58,3 +58,5 @@ vim.api.nvim_set_keymap("v", "<leader>P", "+P", {silent = true})
 
 -- disable ex mode
 vim.api.nvim_set_keymap("", "Q", "<Nop>", {silent = true})
+
+vim.api.nvim_set_keymap("n", "<leader>g", ":Neogit<CR>", {silent = true})

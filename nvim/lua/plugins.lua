@@ -130,6 +130,7 @@ return require("packer").startup(
       --   require("gitsigns").setup()
       -- end
     }
+    use {"TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim"}
 
     -- Scrollbar
     use("petertriho/nvim-scrollbar")
