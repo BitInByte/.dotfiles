@@ -141,6 +141,16 @@ return require("packer").startup(
     -- Symbols and tags outline window tree
     use("simrat39/symbols-outline.nvim")
 
+    -- ToDo comment highlight
+    -- TODO: Test
+    use {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+        require("todo-comments").setup {}
+      end
+    }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

@@ -13,4 +13,5 @@
 -- vim.cmd [[colorscheme tokyonight]]
 
 vim.g.material_style = "deep ocean"
+-- vim.g.material_style = "lighter"
 vim.cmd("colorscheme material")
