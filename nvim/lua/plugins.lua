@@ -136,8 +136,14 @@ return require("packer").startup(
     use("petertriho/nvim-scrollbar")
 
     -- Folding utility
-    use("anuvyklack/pretty-fold.nvim")
-
+    use {
+      "anuvyklack/pretty-fold.nvim",
+      requires = "anuvyklack/nvim-keymap-amend", -- only for preview
+      config = function()
+        require("pretty-fold").setup()
+        require("pretty-fold.preview").setup()
+      end
+    }
     -- Symbols and tags outline window tree
     use("simrat39/symbols-outline.nvim")
 
