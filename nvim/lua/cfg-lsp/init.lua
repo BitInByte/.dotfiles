@@ -57,6 +57,8 @@ require("cfg-lsp.providers.csharp")
 require("cfg-lsp.providers.emmet")
 require("cfg-lsp.providers.texlab")
 require("cfg-lsp.providers.pyright")
+require("cfg-lsp.providers.angular")
+require("cfg-lsp.providers.swift")
 -- require("cfg-lsp.providers.grammarly")
 
 -- local pid = vim.fn.getpid()

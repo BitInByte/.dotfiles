@@ -39,6 +39,35 @@ vim.api.nvim_set_keymap("n", "<leader>fli", "<cmd>Telescope lsp_implementations<
 vim.api.nvim_set_keymap("n", "<leader>flr", "<cmd>Telescope lsp_references<CR>", {silent = true})
 vim.api.nvim_set_keymap("n", "<leader>ft", "<cmd>TodoTelescope<CR>", {silent = true})
 
+-- lspsaga
+vim.api.nvim_set_keymap("n", "<leader>sa", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", {silent = true})
+vim.api.nvim_set_keymap("n", "<leader>sk", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", {silent = true})
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>ss",
+  "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>",
+  {silent = true}
+)
+vim.api.nvim_set_keymap("n", "<leader>sr", "<cmd>lua require('lspsaga.rename').rename()<CR>", {silent = true})
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>sp",
+  "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>",
+  {silent = true}
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>st",
+  "<cmd>lua require('lspsaga.floaterm').open_float_terminal()<CR>",
+  {silent = true}
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<C-c>",
+  "<C-\\><C-n>:lua require('lspsaga.floaterm').close_float_terminal()<CR>",
+  {silent = true}
+)
+
 -- Buffer Move
 vim.api.nvim_set_keymap("n", "<C-h>", ":bprev<CR>", {silent = true})
 vim.api.nvim_set_keymap("n", "<C-l>", ":bnext<CR>", {silent = true})
@@ -61,3 +90,5 @@ vim.api.nvim_set_keymap("v", "<leader>P", "+P", {silent = true})
 vim.api.nvim_set_keymap("", "Q", "<Nop>", {silent = true})
 
 vim.api.nvim_set_keymap("n", "<leader>g", ":Neogit<CR>", {silent = true})
+
+vim.api.nvim_set_keymap("n", "<leader>at", "<cmd>Angtoggle toggle<CR>", {silent = true})

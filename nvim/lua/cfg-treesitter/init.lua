@@ -16,7 +16,8 @@ require "nvim-treesitter.configs".setup {
     "bibtex",
     "scss",
     "dart",
-    "c_sharp"
+    "c_sharp",
+    "swift"
   },
   highlight = {
     enable = true

@@ -157,6 +157,12 @@ return require("packer").startup(
       end
     }
 
+    -- Angular Toggle
+    use {
+      "BitInByte/angtoggle-nvim"
+      -- branch = "development-v0"
+    }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
