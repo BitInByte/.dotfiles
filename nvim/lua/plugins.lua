@@ -39,6 +39,8 @@ return require("packer").startup(
     use "L3MON4D3/LuaSnip"
     use "saadparwaiz1/cmp_luasnip"
     use "rafamadriz/friendly-snippets"
+    use "SirVer/ultisnips"
+    use "quangnguyen30192/cmp-nvim-ultisnips"
 
     -- File Explorer
     use {

@@ -1,79 +1,89 @@
-local nvim_lsp = require("lspconfig")
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = {noremap = true, silent = true}
+vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
-local shared_commons = require("cfg-lsp.sharedcommons")
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = {"pyright", "tsserver", "rls", "vuels", "sqlls", "intelephense", "bashls", "jsonls"}
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = shared_commons.on_attach,
-    flags = {
-      debounce_text_changes = 150
-    },
-    capabilities = shared_commons.capabilities
-  }
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = {noremap = true, silent = true, buffer = bufnr}
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set(
+    "n",
+    "<space>wl",
+    function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end,
+    bufopts
+  )
+  vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
+  vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+  vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
+  -- vim.keymap.set('n', '<space>lg', vim.lsp.buf.formatting, bufopts)
+  --
+  vim.api.nvim_create_autocmd(
+    "CursorHold",
+    {
+      buffer = bufnr,
+      callback = function()
+        local opts = {
+          focusable = false,
+          close_events = {"BufLeave", "CursorMoved", "InsertEnter", "FocusLost"},
+          border = "rounded",
+          source = "always",
+          prefix = " ",
+          scope = "cursor"
+        }
+        vim.diagnostic.open_float(nil, opts)
+      end
+    }
+  )
 end
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-  vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  {
-    -- Enable underline, use default values
-    underline = true,
-    -- Enable virtual text, override spacing to 4
-    virtual_text = {
-      spacing = 4
-      -- prefix = '~',
-    },
-    -- Use a function to dynamically turn signs off
-    -- and on, using buffer local variables
-    signs = function(bufnr, client_id)
-      local ok, result = pcall(vim.api.nvim_buf_get_var, bufnr, "show_signs")
-      -- No buffer local variable set, so just enable by default
-      if not ok then
-        return true
-      end
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-      return result
-    end,
-    -- Disable a feature
-    update_in_insert = false
-    --virtual_text = true
+local lsp_flags = {
+  -- This is the default in Nvim 0.7+
+  debounce_text_changes = 150
+}
+
+require("lspconfig")["pyright"].setup {
+  on_attach = on_attach,
+  flags = lsp_flags
+}
+require("lspconfig")["tsserver"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags
+}
+require("lspconfig")["rust_analyzer"].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  -- Server-specific settings...
+  settings = {
+    ["rust-analyzer"] = {}
   }
-)
+}
 
--- Lua lsp
-local lualsp = require("cfg-lsp.providers.lua")
-lualsp.load(shared_commons.capabilities, shared_commons.on_attach)
--- require("cfg-lsp.providers.vuels")
--- require("cfg-lsp.providers.tsserver")
--- require("cfg-lsp.providers.vimls")
--- require("cfg-lsp.providers.latex")
--- require("cfg-lsp.providers.rust")
---require('cfg-lsp.jdtls')
-require("cfg-lsp.providers.csharp")
--- require("cfg-lsp.providers.intelephense")
-require("cfg-lsp.providers.emmet")
-require("cfg-lsp.providers.texlab")
-require("cfg-lsp.providers.pyright")
-require("cfg-lsp.providers.angular")
-require("cfg-lsp.providers.swift")
--- require("cfg-lsp.providers.grammarly")
-
--- local pid = vim.fn.getpid()
--- -- local omnisharp_bin = "/usr/local/opt/omnisharp-mono/bin/omnisharp"
--- local omnisharp_bin = "/usr/local/opt/omnisharp/libexec/run"
--- require "lspconfig".omnisharp.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)}
--- }
-
---
--- Diagnostics Hover
--- vim.cmd [[autocmd CursorHold,CursorHoldI * lua  vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float()]]
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 
 -- Format on save
 vim.cmd [[

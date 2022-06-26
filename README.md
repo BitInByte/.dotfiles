@@ -70,6 +70,10 @@ Then, you should specify the path to the jdtls in the .zshenv file in order to a
 
 Most of the lsp's require .git in order to be able to find the root directory.
 
+## JavaScript
+
+For js and ts files, we need to have a jsconfig.json file in order to the project be able to know how to auto-import from other files: https://code.visualstudio.com/docs/languages/jsconfig
+
 ## Java
 
 We need to download jdtls in order for it to work.

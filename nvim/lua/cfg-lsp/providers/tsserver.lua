@@ -1,1 +1,4 @@
-require'lspconfig'.tsserver.setup{}
+require'lspconfig'.tsserver.setup{
+    includeCompletionsForImportStatements = true,
+    includeCompletionsForModuleExports = true
+}

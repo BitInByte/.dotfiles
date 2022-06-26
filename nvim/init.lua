@@ -13,8 +13,8 @@ vim.g.mapleader = " "
 require("plugins")
 
 -- LSP
-require("cfg-lsp")
 require("cfg-cmp")
+require("cfg-lsp")
 
 -- TreeSitter
 require("cfg-treesitter")
