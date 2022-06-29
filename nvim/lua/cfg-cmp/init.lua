@@ -57,31 +57,32 @@ cmp.setup(
       --   else
       --     fallback()
       --   end
-      -- end
       ["<Tab>"] = cmp.mapping(
         function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-          elseif vim.fn["vsnip#available"](1) == 1 then
-            feedkey("<Plug>(vsnip-expand-or-jump)", "")
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
           elseif has_words_before() then
             cmp.complete()
           else
-            fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+            fallback()
           end
         end,
         {"i", "s"}
       ),
       ["<S-Tab>"] = cmp.mapping(
-        function()
+        function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-            feedkey("<Plug>(vsnip-jump-prev)", "")
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
           end
         end,
         {"i", "s"}
-      )
+      ) -- end
     },
     formatting = {
       format = require("lspkind").cmp_format(

@@ -1,5 +1,5 @@
 function load(args)
-  require "lspconfig".rls.setup {
+  require "lspconfig".svelte.setup {
     capabilities = args.capabilities,
     on_attach = args.on_attach,
     flags = args.flags

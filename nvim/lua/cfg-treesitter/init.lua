@@ -17,7 +17,8 @@ require "nvim-treesitter.configs".setup {
     "scss",
     "dart",
     "c_sharp",
-    "swift"
+    "swift",
+    "svelte"
   },
   highlight = {
     enable = true

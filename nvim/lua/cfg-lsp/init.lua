@@ -65,23 +65,32 @@ local lsp_flags = {
   debounce_text_changes = 150
 }
 
-require("lspconfig")["pyright"].setup {
-  on_attach = on_attach,
-  flags = lsp_flags
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+local providers_path = "cfg-lsp.providers."
+local lsps_table = {
+  lua_lsp = require(providers_path .. "lua"),
+  angular_lsp = require(providers_path .. "angular"),
+  csharp_lsp = require(providers_path .. "csharp"),
+  emmet_lsp = require(providers_path .. "emmet"),
+  intelephense_lsp = require(providers_path .. "intelephense"),
+  latex_lsp = require(providers_path .. "latex"),
+  python_lsp = require(providers_path .. "pyright"),
+  rust_lsp = require(providers_path .. "rust"),
+  swift_lsp = require(providers_path .. "swift"),
+  texlab_lsp = require(providers_path .. "texlab"),
+  tsserver_lsp = require(providers_path .. "tsserver"),
+  vimls_lsp = require(providers_path .. "vimls"),
+  vuels_lsp = require(providers_path .. "vuels"),
+  svelte_lsp = require(providers_path .. "svelte")
 }
-require("lspconfig")["tsserver"].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = lsp_flags
-}
-require("lspconfig")["rust_analyzer"].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-  -- Server-specific settings...
-  settings = {
-    ["rust-analyzer"] = {}
+
+for key, _ in next, lsps_table, nil do
+  lsps_table[key].load {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = lsp_flags
   }
-}
+end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
@@ -127,6 +136,7 @@ vim.cmd [[
     autocmd BufWritePre *.tex lua vim.lsp.buf.formatting_sync(nil, 1000)
     autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)
     autocmd BufWritePre *.json lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.svelte lua vim.lsp.buf.formatting_sync(nil, 1000)
 ]]
 
 -- Enable codelens

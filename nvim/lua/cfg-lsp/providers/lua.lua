@@ -19,10 +19,10 @@ table.insert(runtime_path, "lua/?/init.lua")
 
 local lualsp = {}
 
-function lualsp.load(capabilities, on_attach)
+function lualsp.load(args)
   require "lspconfig".sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
-    capabilities = capabilities,
+    capabilities = args.capabilities,
     settings = {
       Lua = {
         runtime = {
@@ -45,7 +45,8 @@ function lualsp.load(capabilities, on_attach)
         }
       }
     },
-    on_attach = on_attach
+    on_attach = args.on_attach,
+    flags = args.flags
   }
 end
 
