@@ -15,7 +15,17 @@ return require("packer").startup(
     use "mfussenegger/nvim-jdtls" -- java
     -- use "OmniSharp/omnisharp-vim"
     use "lervag/vimtex" -- vimtex
-    use "glepnir/lspsaga.nvim" -- popups
+    use(
+      {
+        "glepnir/lspsaga.nvim",
+        branch = "main"
+        -- config = function()
+        --   local saga = require("lspsaga")
+        --
+        --   saga.init_lsp_saga({})
+        -- end
+      }
+    ) -- popup
     use "ray-x/lsp_signature.nvim" -- show args info
     -- use 'github/copilot.vim'
 

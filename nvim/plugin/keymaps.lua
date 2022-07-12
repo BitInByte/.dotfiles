@@ -40,33 +40,97 @@ vim.api.nvim_set_keymap("n", "<leader>flr", "<cmd>Telescope lsp_references<CR>",
 vim.api.nvim_set_keymap("n", "<leader>ft", "<cmd>TodoTelescope<CR>", {silent = true})
 
 -- lspsaga
-vim.api.nvim_set_keymap("n", "<leader>sa", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", {silent = true})
-vim.api.nvim_set_keymap("n", "<leader>sk", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", {silent = true})
-vim.api.nvim_set_keymap(
+-- lsp finder to find the cursor word definition and reference
+vim.keymap.set("n", "sh", require("lspsaga.finder").lsp_finder, {silent = true, noremap = true})
+-- or use command LspSagaFinder
+vim.keymap.set("n", "sh", "<cmd>Lspsaga lsp_finder<CR>", {silent = true, noremap = true})
+local action = require("lspsaga.codeaction")
+
+-- code action
+vim.keymap.set("n", "<leader>sa", action.code_action, {silent = true, noremap = true})
+vim.keymap.set(
+  "v",
+  "<leader>sa",
+  function()
+    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-U>", true, false, true))
+    action.range_code_action()
+  end,
+  {silent = true, noremap = true}
+)
+-- or use command
+-- vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true,noremap = true })
+-- vim.keymap.set("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true,noremap = true })
+-- show hover doc
+vim.keymap.set("n", "sk", require("lspsaga.hover").render_hover_doc, {silent = true})
+-- or use command
+-- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+
+local action = require("lspsaga.action")
+-- scroll down hover doc or scroll in definition preview
+vim.keymap.set(
   "n",
-  "<leader>ss",
-  "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>",
+  "<C-f>",
+  function()
+    action.smart_scroll_with_saga(1)
+  end,
   {silent = true}
 )
-vim.api.nvim_set_keymap("n", "<leader>sr", "<cmd>lua require('lspsaga.rename').rename()<CR>", {silent = true})
-vim.api.nvim_set_keymap(
+-- scroll up hover doc
+vim.keymap.set(
   "n",
-  "<leader>sp",
-  "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>",
+  "<C-b>",
+  function()
+    action.smart_scroll_with_saga(-1)
+  end,
   {silent = true}
 )
-vim.api.nvim_set_keymap(
+-- show signature help
+vim.keymap.set("n", "ss", require("lspsaga.signaturehelp").signature_help, {silent = true, noremap = true})
+-- or command
+-- vim.keymap.set("n", "gs", "<Cmd>Lspsaga signature_help<CR>", { silent = true,noremap = true })
+-- rename
+vim.keymap.set("n", "sr", require("lspsaga.rename").lsp_rename, {silent = true, noremap = true})
+-- or command
+-- vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true,noremap = true })
+-- close rename win use <C-c> in insert mode or `q` in normal mode or `:q`
+-- preview definition
+vim.keymap.set("n", "sd", require("lspsaga.definition").preview_definition, {silent = true, noremap = true})
+-- or use command
+-- vim.keymap.set("n", "sd", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>cd", require("lspsaga.diagnostic").show_line_diagnostics, { silent = true,noremap = true })
+-- vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true,noremap= true })
+
+-- jump diagnostic
+vim.keymap.set("n", "[e", require("lspsaga.diagnostic").goto_prev, {silent = true, noremap = true})
+vim.keymap.set("n", "]e", require("lspsaga.diagnostic").goto_next, {silent = true, noremap = true})
+-- or use command
+-- vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true, noremap = true })
+-- float terminal also you can pass the cli command in open_float_terminal function
+local term = require("lspsaga.floaterm")
+
+-- float terminal also you can pass the cli command in open_float_terminal function
+vim.keymap.set(
   "n",
-  "<leader>st",
-  "<cmd>lua require('lspsaga.floaterm').open_float_terminal()<CR>",
+  "<A-d>",
+  function()
+    term.open_float_terminal("custom_cli_command")
+  end,
+  {silent = true, noremap = true}
+)
+vim.keymap.set(
+  "t",
+  "<A-d>",
+  function()
+    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true))
+    term.close_float_terminal()
+  end,
   {silent = true}
 )
-vim.api.nvim_set_keymap(
-  "n",
-  "<C-c>",
-  "<C-\\><C-n>:lua require('lspsaga.floaterm').close_float_terminal()<CR>",
-  {silent = true}
-)
+
+-- or use command
+-- vim.keymap.set("n", "<A-d>", "<cmd>Lspsaga open_floaterm custom_cli_command<CR>", { silent = true,noremap = true })
+-- vim.keymap.set("t", "<A-d>", "<C-\\><C-n><cmd>Lspsaga close_floaterm<CR>", { silent = true,noremap =true })
 
 -- Buffer Move
 vim.api.nvim_set_keymap("n", "<C-h>", ":bprev<CR>", {silent = true})
@@ -92,3 +156,4 @@ vim.api.nvim_set_keymap("", "Q", "<Nop>", {silent = true})
 vim.api.nvim_set_keymap("n", "<leader>g", ":Neogit<CR>", {silent = true})
 
 vim.api.nvim_set_keymap("n", "<leader>at", "<cmd>Angtoggle toggle<CR>", {silent = true})
+vim.api.nvim_set_keymap("n", "<leader>as", "<cmd>Angtoggle test_toggle<CR>", {silent = true})
