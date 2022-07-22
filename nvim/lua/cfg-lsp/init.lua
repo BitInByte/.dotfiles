@@ -82,6 +82,7 @@ local lsps_table = {
   vimls_lsp = require(providers_path .. "vimls"),
   vuels_lsp = require(providers_path .. "vuels"),
   svelte_lsp = require(providers_path .. "svelte")
+  -- eslint = require(providers_path .. "eslint")
 }
 
 for key, _ in next, lsps_table, nil do

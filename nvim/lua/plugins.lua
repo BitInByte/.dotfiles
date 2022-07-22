@@ -28,6 +28,7 @@ return require("packer").startup(
     ) -- popup
     use "ray-x/lsp_signature.nvim" -- show args info
     -- use 'github/copilot.vim'
+    use "styled-components/vim-styled-components"
 
     -- CMP
     use "hrsh7th/cmp-nvim-lsp"

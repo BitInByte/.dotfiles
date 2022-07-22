@@ -13,7 +13,7 @@ vim.o.completeopt = "menu,menuone,noselect"
 -- %% Sources %%
 -- local luasnip = require "luasnip"
 -- local lspkind = require('lspkind')
-
+local luasnip = require("luasnip")
 local cmp = require "cmp"
 cmp.setup(
   {
@@ -57,6 +57,32 @@ cmp.setup(
       --   else
       --     fallback()
       --   end
+      -- ["<Tab>"] = cmp.mapping(
+      --   function(fallback)
+      --     if cmp.visible() then
+      --       cmp.select_next_item()
+      --     elseif luasnip.expand_or_jumpable() then
+      --       luasnip.expand_or_jump()
+      --     elseif has_words_before() then
+      --       cmp.complete()
+      --     else
+      --       fallback()
+      --     end
+      --   end,
+      --   {"i", "s"}
+      -- ),
+      -- ["<S-Tab>"] = cmp.mapping(
+      --   function(fallback)
+      --     if cmp.visible() then
+      --       cmp.select_prev_item()
+      --     elseif luasnip.jumpable(-1) then
+      --       luasnip.jump(-1)
+      --     else
+      --       fallback()
+      --     end
+      --   end,
+      --   {"i", "s"}
+      -- ) -- end
       ["<Tab>"] = cmp.mapping(
         function(fallback)
           if cmp.visible() then
@@ -82,7 +108,7 @@ cmp.setup(
           end
         end,
         {"i", "s"}
-      ) -- end
+      )
     },
     formatting = {
       format = require("lspkind").cmp_format(
