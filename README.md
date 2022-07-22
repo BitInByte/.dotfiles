@@ -39,6 +39,7 @@ This config only works with Neovim +0.5. It is almost 100% Lua and ViM doesn't s
 
 ### Packer
 In order to be able to benefit from the lazyloading, packer need to be synchronized and/or compiled to create the lazy loading file. Trust me, it's a huge difference on startup time, I've discovered in my hard way.
+Also, the config tag on packer config only works if we synchronize or compile the packer.
 
 ### Oh My ZSH
 
