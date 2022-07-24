@@ -174,5 +174,7 @@ return require("packer").startup(
       "BitInByte/angtoggle-nvim"
       -- branch = "development-v0"
     }
+    -- Chars on the end of the line
+    use("tjdevries/cyclist.vim")
   end
 )
