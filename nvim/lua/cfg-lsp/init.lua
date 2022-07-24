@@ -149,4 +149,5 @@ vim.cmd [[
     autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
 ]]
 
+-- Enable eslint and prettier
 require("cfg-lsp.null-ls")

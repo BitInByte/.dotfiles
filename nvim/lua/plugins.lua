@@ -27,7 +27,6 @@ return require("packer").startup(
     ) -- popup
     use "ray-x/lsp_signature.nvim" -- show args info
     -- use 'github/copilot.vim'
-    -- use "styled-components/vim-styled-components"
     use {
       "jose-elias-alvarez/null-ls.nvim",
       requires = {{"nvim-lua/plenary.nvim"}}
@@ -174,6 +173,7 @@ return require("packer").startup(
       "BitInByte/angtoggle-nvim"
       -- branch = "development-v0"
     }
+
     -- Chars on the end of the line
     use("tjdevries/cyclist.vim")
   end
