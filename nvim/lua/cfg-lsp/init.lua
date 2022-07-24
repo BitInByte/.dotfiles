@@ -54,6 +54,10 @@ local on_attach = function(client, bufnr)
       end
     }
   )
+  if client.name == "tsserver" then
+    client.server_capabilities.document_formatting = false -- 0.7 and earlier
+  -- client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
+  end
 end
 
 -- Add additional capabilities supported by nvim-cmp
@@ -144,3 +148,5 @@ vim.cmd [[
 vim.cmd [[
     autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
 ]]
+
+require("cfg-lsp.null-ls")

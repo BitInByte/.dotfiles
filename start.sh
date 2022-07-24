@@ -58,6 +58,7 @@ backupmacos() {
   cp -r ~/.config/nvim/plugin ./nvim/plugin/
   cp -r ~/.config/nvim/ftplugin ./nvim/ftplugin/
   cp -r ~/.config/nvim/lua ./nvim/lua/
+  cp -r ~/.config/nvim/after ./nvim/after/
   cp ~/.config/nvim/init.lua ./nvim/
   cp ~/.hyper.js .
   cp ~/.zshrc .

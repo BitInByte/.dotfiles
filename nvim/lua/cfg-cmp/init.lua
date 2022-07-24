@@ -11,8 +11,6 @@ end
 vim.o.completeopt = "menu,menuone,noselect"
 
 -- %% Sources %%
--- local luasnip = require "luasnip"
--- local lspkind = require('lspkind')
 local luasnip = require("luasnip")
 local cmp = require "cmp"
 cmp.setup(
@@ -40,49 +38,6 @@ cmp.setup(
           select = true
         }
       ),
-      -- ["<Tab>"] = function(fallback)
-      --   if cmp.visible() then
-      --     cmp.select_next_item()
-      --   elseif luasnip.expand_or_jumpable() then
-      --     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
-      --   else
-      --     fallback()
-      --   end
-      -- end,
-      -- ["<S-Tab>"] = function(fallback)
-      --   if cmp.visible() then
-      --     cmp.select_prev_item()
-      --   elseif luasnip.jumpable(-1) then
-      --     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
-      --   else
-      --     fallback()
-      --   end
-      -- ["<Tab>"] = cmp.mapping(
-      --   function(fallback)
-      --     if cmp.visible() then
-      --       cmp.select_next_item()
-      --     elseif luasnip.expand_or_jumpable() then
-      --       luasnip.expand_or_jump()
-      --     elseif has_words_before() then
-      --       cmp.complete()
-      --     else
-      --       fallback()
-      --     end
-      --   end,
-      --   {"i", "s"}
-      -- ),
-      -- ["<S-Tab>"] = cmp.mapping(
-      --   function(fallback)
-      --     if cmp.visible() then
-      --       cmp.select_prev_item()
-      --     elseif luasnip.jumpable(-1) then
-      --       luasnip.jump(-1)
-      --     else
-      --       fallback()
-      --     end
-      --   end,
-      --   {"i", "s"}
-      -- ) -- end
       ["<Tab>"] = cmp.mapping(
         function(fallback)
           if cmp.visible() then
@@ -136,7 +91,7 @@ cmp.setup(
         -- {name = "rg"},
         {name = "luasnip"}, -- For luasnip users.
         -- { name = 'vsnip' }, -- For vsnip users.
-        {name = "ultisnips"}, -- For ultisnips users.
+        -- {name = "ultisnips"}, -- For ultisnips users.
         -- { name = 'snippy' }, -- For snippy users.
         {name = "nvim_lua"},
         {name = "path"},

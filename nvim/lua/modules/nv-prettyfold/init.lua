@@ -61,9 +61,9 @@ require("pretty-fold").setup {
   }
 }
 -- require("pretty-fold.preview").setup()
-require("pretty-fold.preview").setup {
-  key = "h" -- choose 'h' or 'l' key
-}
+-- require("pretty-fold.preview").setup {
+-- key = "h" -- choose 'h' or 'l' key
+-- }
 
 -- Save folds
 -- vim.cmd [[

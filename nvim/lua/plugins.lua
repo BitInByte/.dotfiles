@@ -1,13 +1,12 @@
--- Ensure packer is installed in the pc
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap =
-    fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
-end
+-- This file can be loaded by calling `lua require('plugins')` from your init.vim
+
+-- Only required if you have packer configured as `opt`
+vim.cmd [[packadd packer.nvim]]
 
 return require("packer").startup(
   function(use)
+    -- Packer can manage itself
+    use "wbthomason/packer.nvim"
     -- My plugins here
 
     -- LSP
@@ -28,7 +27,11 @@ return require("packer").startup(
     ) -- popup
     use "ray-x/lsp_signature.nvim" -- show args info
     -- use 'github/copilot.vim'
-    use "styled-components/vim-styled-components"
+    -- use "styled-components/vim-styled-components"
+    use {
+      "jose-elias-alvarez/null-ls.nvim",
+      requires = {{"nvim-lua/plenary.nvim"}}
+    }
 
     -- CMP
     use "hrsh7th/cmp-nvim-lsp"
@@ -50,8 +53,8 @@ return require("packer").startup(
     use "L3MON4D3/LuaSnip"
     use "saadparwaiz1/cmp_luasnip"
     use "rafamadriz/friendly-snippets"
-    use "SirVer/ultisnips"
-    use "quangnguyen30192/cmp-nvim-ultisnips"
+    -- use "SirVer/ultisnips"
+    -- use "quangnguyen30192/cmp-nvim-ultisnips"
 
     -- File Explorer
     use {
@@ -68,18 +71,17 @@ return require("packer").startup(
     use(
       {
         "rose-pine/neovim",
-        as = "rose-pine",
-        config = function()
-          --   -- Options (see available options below)
-          -- vim.g.rose_pine_variant = "base"
-          --
-          --   -- Load colorscheme after options
-          -- vim.cmd("colorscheme rose-pine")
-        end
+        as = "rose-pine"
+        -- config = function()
+        --   -- Options (see available options below)
+        -- vim.g.rose_pine_variant = "base"
+        --
+        --   -- Load colorscheme after options
+        -- vim.cmd("colorscheme rose-pine")
+        -- end
       }
     )
     use "folke/tokyonight.nvim"
-
     -- use "kaicataldo/material.vim"
     use "marko-cerovac/material.nvim"
 
@@ -102,14 +104,6 @@ return require("packer").startup(
     use {"akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"}
 
     -- Status Line
-    --[[ use {
-      'glepnir/galaxyline.nvim',
-        branch = 'main',
-        -- your statusline
-        --config = function() require'my_statusline' end,
-        -- some optional icons
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    } ]]
     use {
       "nvim-lualine/lualine.nvim",
       requires = {"kyazdani42/nvim-web-devicons", opt = true}
@@ -150,12 +144,17 @@ return require("packer").startup(
 
     -- Folding utility
     use {
-      "anuvyklack/pretty-fold.nvim",
-      requires = "anuvyklack/nvim-keymap-amend", -- only for preview
-      config = function()
-        require("pretty-fold").setup()
-        require("pretty-fold.preview").setup()
-      end
+      "anuvyklack/pretty-fold.nvim"
+      -- config = function()
+      --   require("pretty-fold").setup()
+      -- end
+    }
+    use {
+      "anuvyklack/fold-preview.nvim",
+      requires = "anuvyklack/keymap-amend.nvim"
+      -- config = function()
+      --   require("fold-preview").setup()
+      -- end
     }
     -- Symbols and tags outline window tree
     use("simrat39/symbols-outline.nvim")
@@ -164,10 +163,10 @@ return require("packer").startup(
     -- TODO: Test
     use {
       "folke/todo-comments.nvim",
-      requires = "nvim-lua/plenary.nvim",
-      config = function()
-        require("todo-comments").setup {}
-      end
+      requires = "nvim-lua/plenary.nvim"
+      -- config = function()
+      --   require("todo-comments").setup {}
+      -- end
     }
 
     -- Angular Toggle
@@ -175,11 +174,5 @@ return require("packer").startup(
       "BitInByte/angtoggle-nvim"
       -- branch = "development-v0"
     }
-
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if packer_bootstrap then
-      require("packer").sync()
-    end
   end
 )
