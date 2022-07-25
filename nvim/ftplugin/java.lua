@@ -1,4 +1,5 @@
-local shared_commons = require("cfg-lsp.sharedcommons")
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
@@ -29,7 +30,7 @@ local config = {
     java = {}
   },
   root_dir = require("jdtls.setup").find_root({".git", "mvnw", "gradlew"}),
-  capabilities = shared_commons.capabilities
+  capabilities = capabilities
 }
 require("jdtls").start_or_attach(config)
 require "lsp_signature".on_attach() -- Note: add in lsp client on-attach

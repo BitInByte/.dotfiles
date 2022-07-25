@@ -86,18 +86,17 @@ cmp.setup(
     sources = cmp.config.sources(
       {
         {name = "nvim_lsp"},
-        {name = "buffer"},
-        -- {name = "buffer", keyword_length = 5},
+        {name = "buffer", keyword_length = 5},
         -- {name = "rg"},
         {name = "luasnip"}, -- For luasnip users.
         -- { name = 'vsnip' }, -- For vsnip users.
         -- {name = "ultisnips"}, -- For ultisnips users.
         -- { name = 'snippy' }, -- For snippy users.
-        {name = "nvim_lua"},
+        {name = "nvim_lua", ft = "lua"},
         {name = "path"},
-        {name = "spell"},
+        -- {name = "spell"},
         {name = "calc"},
-        {name = "cmp_tabnine"}
+        {name = "cmp_tabnine", keyword_length = 5}
       }
     )
   }
@@ -131,3 +130,15 @@ cmp.setup.cmdline(
 
 -- Use friendly snippets
 require("luasnip.loaders.from_vscode").lazy_load()
+
+-- Limit this beast
+local tabnine = require("cmp_tabnine.config")
+tabnine:setup(
+  {
+    max_lines = 1000,
+    max_num_results = 20,
+    sort = true,
+    run_on_every_keystroke = true,
+    snippet_placeholder = ".."
+  }
+)

@@ -66,7 +66,7 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150
+  debounce_text_changes = nil
 }
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
