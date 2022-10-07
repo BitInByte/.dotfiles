@@ -123,6 +123,9 @@ In order to use conda command, we need to perform the following command, after a
 ## Web Development
 We need to install some stuff regarding web development. emmet-ls, tserver and intelephense from npm.
 
+## NV-DAP
+It needs to get installed the javascript debugger and it uses the firefox. Refer to the dap documentation
+
 ### Treesiter Commands
 
 For treesitter, only for neovim, you can install language interpreter by :TSInstall <language>
