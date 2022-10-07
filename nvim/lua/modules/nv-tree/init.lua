@@ -16,7 +16,7 @@ require "nvim-tree".setup {
   update_cwd = false,
   view = {
     width = 30,
-    height = 30,
+    -- height = 30,
     side = "left",
     preserve_window_proportions = false,
     number = false,
@@ -97,3 +97,6 @@ require "nvim-tree".setup {
 -- silent - command will not be echoed in the command line
 -- noremap - non recursive map
 vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", {silent = true})
+vim.keymap.set("n", "<leader>mn", require("nvim-tree.api").marks.navigate.next)
+vim.keymap.set("n", "<leader>mp", require("nvim-tree.api").marks.navigate.prev)
+vim.keymap.set("n", "<leader>ms", require("nvim-tree.api").marks.navigate.select)

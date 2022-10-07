@@ -37,3 +37,4 @@ vim.opt.foldenable = false -- Disable automatic fold on launch
 vim.opt.clipboard = "unnamedplus" -- Allow yank to clipboard
 vim.wo.spell = false -- Enable/Disable spell
 vim.bo.spelllang = "en_us" -- Set spell dictionary
+vim.opt.mouse = ""

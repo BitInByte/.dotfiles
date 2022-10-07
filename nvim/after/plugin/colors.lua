@@ -15,3 +15,5 @@
 vim.g.material_style = "deep ocean"
 -- vim.g.material_style = "lighter"
 vim.cmd("colorscheme material")
+
+-- vim.cmd [[colorscheme moonlight]]

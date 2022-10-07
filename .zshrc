@@ -82,6 +82,7 @@ plugins=(
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -120,6 +121,7 @@ alias lg='lazygit'
 alias ls='exa --icons'
 alias cloudssh='kitty +kitten ssh adminuser@13.69.176.183'
 alias nv='nvim'
+alias nvconf='nvim ~/.config/nvim'
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

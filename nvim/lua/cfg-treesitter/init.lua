@@ -21,10 +21,17 @@ require "nvim-treesitter.configs".setup {
     "svelte"
   },
   highlight = {
-    enable = true
+    enable = true,
+    additional_vim_regex_highlighting = {"php"}
     -- disable = { "dart" }
   },
   indent = {
     enable = true
   }
 }
+
+vim.cmd([[
+  set nofoldenable
+  set foldmethod=expr
+  set foldexpr=nvim_treesitter#foldexpr()
+]])

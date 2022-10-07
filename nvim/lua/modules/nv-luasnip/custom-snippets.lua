@@ -73,3 +73,27 @@ ls.add_snippets(
     )
   }
 )
+
+-- ls.add_snippets(
+--   "javascriptreact",
+--   "javascript",
+--   {
+--     s(
+--       "log",
+--       {
+--         t(
+--           {
+--             "console.log("
+--           }
+--         ),
+--         i(0),
+--         t(
+--           {
+--             ");"
+--           }
+--         )
+--       }
+--     )
+--   }
+-- )
+-- ls.filetype_extend("javascriptreact", {"javascript"})

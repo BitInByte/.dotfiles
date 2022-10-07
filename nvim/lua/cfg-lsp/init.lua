@@ -1,3 +1,5 @@
+local navic = require("nvim-navic")
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = {noremap = true, silent = true}
@@ -9,6 +11,9 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  if navic.is_available then
+    navic.attach(client, bufnr)
+  end
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -66,7 +71,7 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
-  debounce_text_changes = nil
+  debounce_text_changes = 150
 }
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
@@ -85,7 +90,11 @@ local lsps_table = {
   tsserver_lsp = require(providers_path .. "tsserver"),
   vimls_lsp = require(providers_path .. "vimls"),
   vuels_lsp = require(providers_path .. "vuels"),
-  svelte_lsp = require(providers_path .. "svelte")
+  svelte_lsp = require(providers_path .. "svelte"),
+  css = require(providers_path .. "css"),
+  json = require(providers_path .. "json"),
+  php = require(providers_path .. "php"),
+  php = require(providers_path .. "dockerls")
   -- eslint = require(providers_path .. "eslint")
 }
 
@@ -125,6 +134,19 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
   }
 )
 
+vim.diagnostic.config(
+  {
+    virtual_text = false,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = false,
+    float = {
+      border = "rounded"
+    }
+  }
+)
+
 vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 
 -- Format on save
@@ -142,6 +164,8 @@ vim.cmd [[
     autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)
     autocmd BufWritePre *.json lua vim.lsp.buf.formatting_sync(nil, 1000)
     autocmd BufWritePre *.svelte lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.css lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.scss lua vim.lsp.buf.formatting_sync(nil, 1000)
 ]]
 
 -- Enable codelens
@@ -151,3 +175,9 @@ vim.cmd [[
 
 -- Enable eslint and prettier
 require("cfg-lsp.null-ls")
+
+vim.cmd [[
+let g:completion_enable_snippet = 'snippets.nvim'
+set iskeyword=@,48-57,_,192-255,$
+
+]]

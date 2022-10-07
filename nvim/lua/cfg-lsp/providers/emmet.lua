@@ -5,9 +5,9 @@ function load(args)
   -- args.capabilities.textDocument.completion.completionItem.snippetSupport = true
   require("lspconfig").emmet_ls.setup(
     {
-      -- on_attach = on_attach,
+      on_attach = on_attach,
       capabilities = args.capabilities,
-      filetypes = {"html", "css", "typescriptreact", "javascriptreact", "php", "javascript"},
+      filetypes = {"html", "typescriptreact", "javascriptreact", "php", "javascript", "css"},
       flags = flags
     }
   )

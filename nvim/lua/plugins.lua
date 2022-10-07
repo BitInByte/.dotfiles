@@ -31,6 +31,8 @@ return require("packer").startup(
       "jose-elias-alvarez/null-ls.nvim",
       requires = {{"nvim-lua/plenary.nvim"}}
     }
+    use "mfussenegger/nvim-dap" -- debugger
+    use {"rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}}
 
     -- CMP
     use "hrsh7th/cmp-nvim-lsp"
@@ -54,6 +56,7 @@ return require("packer").startup(
     use "rafamadriz/friendly-snippets"
     -- use "SirVer/ultisnips"
     -- use "quangnguyen30192/cmp-nvim-ultisnips"
+    use "norcalli/snippets.nvim"
 
     -- File Explorer
     use {
@@ -110,7 +113,8 @@ return require("packer").startup(
 
     -- Comment Utility
     use {
-      "numToStr/Comment.nvim"
+      "numToStr/Comment.nvim",
+      requires = "JoosepAlviste/nvim-ts-context-commentstring"
       -- config = function()
       --   require("Comment").setup()
       -- end
@@ -121,10 +125,15 @@ return require("packer").startup(
     use "windwp/nvim-ts-autotag"
 
     -- Info on the cursor location
-    use {
+    --[[ use {
       "SmiteshP/nvim-gps",
       requires = "nvim-treesitter/nvim-treesitter"
+    } ]]
+    use {
+      "SmiteshP/nvim-navic",
+      requires = "neovim/nvim-lspconfig"
     }
+    -- use {"fgheng/winbar.nvim"}
 
     -- Indentation lines
     use "lukas-reineke/indent-blankline.nvim"
@@ -137,6 +146,13 @@ return require("packer").startup(
       -- end
     }
     use {"TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim"}
+    use {
+      "akinsho/git-conflict.nvim",
+      tag = "*",
+      config = function()
+        require("git-conflict").setup()
+      end
+    }
 
     -- Scrollbar
     use("petertriho/nvim-scrollbar")
