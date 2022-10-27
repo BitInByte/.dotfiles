@@ -10,7 +10,15 @@ return require("packer").startup(
     -- My plugins here
 
     -- LSP
-    use "neovim/nvim-lspconfig"
+    -- use "neovim/nvim-lspconfig"
+    -- use {"williamboman/mason.nvim"}
+    use {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "jayp0521/mason-null-ls.nvim",
+      "jayp0521/mason-nvim-dap.nvim",
+      "neovim/nvim-lspconfig"
+    }
     use "mfussenegger/nvim-jdtls" -- java
     -- use "OmniSharp/omnisharp-vim"
     use "lervag/vimtex" -- vimtex

@@ -1,3 +1,4 @@
+require("cfg-lsp.mason")
 local navic = require("nvim-navic")
 
 -- Mappings.
@@ -11,6 +12,15 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  require "lsp_signature".on_attach(
+    {
+      bind = true, -- This is mandatory, otherwise border config won't get registered.
+      handler_opts = {
+        border = "rounded"
+      }
+    },
+    bufnr
+  )
   if navic.is_available then
     navic.attach(client, bufnr)
   end
@@ -96,7 +106,7 @@ local lsps_table = {
   css = require(providers_path .. "css"),
   json = require(providers_path .. "json"),
   php = require(providers_path .. "php"),
-  php = require(providers_path .. "dockerls")
+  dockerls = require(providers_path .. "dockerls")
   -- eslint = require(providers_path .. "eslint")
 }
 
@@ -131,24 +141,23 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
       return result
     end,
     -- Disable a feature
-    update_in_insert = false
+    update_in_insert = true
     --virtual_text = true
   }
 )
 
-vim.diagnostic.config(
+--[[ vim.diagnostic.config(
   {
     virtual_text = false,
     signs = true,
     underline = true,
-    update_in_insert = false,
+    update_in_insert = true,
     severity_sort = false,
     float = {
       border = "rounded"
     }
   }
-)
-
+) ]]
 vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 
 -- Format on save

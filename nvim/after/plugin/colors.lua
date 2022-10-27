@@ -10,10 +10,10 @@
 -- require('moonlight').set()
 -- Rose pine being enabled on the packer
 
--- vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[colorscheme tokyonight]]
 
 vim.g.material_style = "deep ocean"
 -- vim.g.material_style = "lighter"
-vim.cmd("colorscheme material")
+-- vim.cmd("colorscheme material")
 
 -- vim.cmd [[colorscheme moonlight]]

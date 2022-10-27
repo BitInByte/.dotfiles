@@ -73,3 +73,6 @@ vim.api.nvim_set_keymap("n", "<leader>g", ":Neogit<CR>", {silent = true})
 
 vim.api.nvim_set_keymap("n", "<leader>at", "<cmd>Angtoggle toggle<CR>", {silent = true})
 vim.api.nvim_set_keymap("n", "<leader>as", "<cmd>Angtoggle test_toggle<CR>", {silent = true})
+
+-- Settings toggle
+vim.api.nvim_set_keymap("n", "<leader>sr", ":set norelativenumber!<CR>", {silent = true})
