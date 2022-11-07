@@ -50,7 +50,7 @@ return require("packer").startup(function(use)
 		--   saga.init_lsp_saga({})
 		-- end
 	}) -- popup
-	use("ray-x/lsp_signature.nvim") -- show args info
+	-- use("ray-x/lsp_signature.nvim") -- show args info
 	-- use 'github/copilot.vim'
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
@@ -73,7 +73,7 @@ return require("packer").startup(function(use)
 	use("onsails/lspkind-nvim")
 
 	-- Until there is not support for all formatters on nvim lsp
-	use("mhartington/formatter.nvim")
+	-- use("mhartington/formatter.nvim")
 
 	-- Snippets stuff
 	use("L3MON4D3/LuaSnip")
@@ -87,6 +87,7 @@ return require("packer").startup(function(use)
 	use({
 		"kyazdani42/nvim-tree.lua",
 		requires = "kyazdani42/nvim-web-devicons",
+		tag = "nightly",
 		-- config = function()
 		--   require "nvim-tree".setup {}
 		-- end
@@ -98,13 +99,6 @@ return require("packer").startup(function(use)
 	use({
 		"rose-pine/neovim",
 		as = "rose-pine",
-		-- config = function()
-		--   -- Options (see available options below)
-		-- vim.g.rose_pine_variant = "base"
-		--
-		--   -- Load colorscheme after options
-		-- vim.cmd("colorscheme rose-pine")
-		-- end
 	})
 	use("folke/tokyonight.nvim")
 	-- use "kaicataldo/material.vim"
@@ -121,10 +115,10 @@ return require("packer").startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 
 	-- TreeSitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
+	  use({
+	  	"nvim-treesitter/nvim-treesitter",
+	  	run = ":TSUpdate",
+	  })
 
 	-- Buffer Line
 	use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
@@ -197,7 +191,7 @@ return require("packer").startup(function(use)
 	-- 	-- end
 	-- })
 	-- Symbols and tags outline window tree
-	use("simrat39/symbols-outline.nvim")
+	-- use("simrat39/symbols-outline.nvim")
 
 	-- ToDo comment highlight
 	-- TODO: Test
@@ -210,10 +204,10 @@ return require("packer").startup(function(use)
 	})
 
 	-- Angular Toggle
-	use({
-		"BitInByte/angtoggle-nvim",
-		-- branch = "development-v0"
-	})
+	-- use({
+	-- 	"BitInByte/angtoggle-nvim",
+	-- 	-- branch = "development-v0"
+	-- })
 
 	-- Chars on the end of the line
 	use("tjdevries/cyclist.vim")

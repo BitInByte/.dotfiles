@@ -14,17 +14,18 @@ local keymap = vim.keymap
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-	require("lsp_signature").on_attach({
-		bind = true, -- This is mandatory, otherwise border config won't get registered.
-		handler_opts = {
-			border = "rounded",
-		},
-	}, bufnr)
+	-- require("lsp_signature").on_attach({
+	-- 	bind = true, -- This is mandatory, otherwise border config won't get registered.
+	-- 	handler_opts = {
+	-- 		border = "rounded",
+	-- 	},
+	-- }, bufnr)
 	if navic.is_available then
 		navic.attach(client, bufnr)
 	end
 	-- Enable completion triggered by <c-x><c-o>
 	-- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -109,7 +110,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lsp_flags = {
 	-- This is the default in Nvim 0.7+
-	debounce_text_changes = 500,
+	debounce_text_changes = 150,
     allow_incremental_sync = true
 }
 
@@ -171,17 +172,17 @@ end
 -- })
 
 --[[ vim.diagnostic.config(
-  {
-    virtual_text = false,
-    signs = true,
-    underline = true,
-    update_in_insert = true,
-    severity_sort = false,
-    float = {
-      border = "rounded"
-    }
-  }
-) ]]
+--   {
+--     virtual_text = false,
+--     signs = true,
+--     underline = true,
+--     update_in_insert = true,
+--     severity_sort = false,
+--     float = {
+--       border = "rounded"
+--     }
+--   }
+-- ) ]]
 -- vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 
 -- Format on save

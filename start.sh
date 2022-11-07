@@ -67,7 +67,8 @@ backupmacos() {
   cp ~/.p10k.zsh .
   cp ~/Library/Application\ Support/lazygit/config.yml .
   cp ~/.config/kitty/kitty.conf .
-  cp ~/.config/alacritty/alacritty.yml .
+  # cp ~/.config/alacritty/alacritty.yml .
+  cp ~/.alacritty.yml .
 
   rm ./nvim/plugin/packer_compiled.lua
 }
