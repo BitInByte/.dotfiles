@@ -10,7 +10,13 @@ vim.opt.termguicolors = true
 -- empty setup using defaults
 local status, nvim_tree = pcall(require, "nvim-tree")
 if not status then
-    return
+	return
 end
 
-nvim_tree.setup()
+nvim_tree.setup({
+	actions = {
+		open_file = {
+			quit_on_open = true,
+		},
+	},
+})
