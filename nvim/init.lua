@@ -8,21 +8,9 @@
 -- Author: BitInByte (jopecodes.dev)
 -- Remap Leader Key
 vim.g.mapleader = " "
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
--- Configs
-require("plugins")
-
--- LSP
-require("cfg-cmp")
-require("cfg-lsp")
-
--- TreeSitter
-require("cfg-treesitter")
-
--- Sources & Plugins Options
-require("modules")
-
--- Themes Supported Configuration
-require("themes")
+-- Require my modules
+require("plugins") -- packer plugins manager
+require("core") -- core functionality such as (LSP, CMP and so on)
+require("modules") -- util plugins
+require("themes") -- colorscheme

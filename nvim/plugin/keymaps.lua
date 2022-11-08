@@ -76,3 +76,11 @@ vim.api.nvim_set_keymap("n", "<leader>as", "<cmd>Angtoggle test_toggle<CR>", {si
 
 -- Settings toggle
 vim.api.nvim_set_keymap("n", "<leader>sr", ":set norelativenumber!<CR>", {silent = true})
+
+-- Tree maps
+-- silent - command will not be echoed in the command line
+-- noremap - non recursive map
+vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", { silent = true })
+vim.keymap.set("n", "<leader>mn", require("nvim-tree.api").marks.navigate.next)
+vim.keymap.set("n", "<leader>mp", require("nvim-tree.api").marks.navigate.prev)
+vim.keymap.set("n", "<leader>ms", require("nvim-tree.api").marks.navigate.select)
