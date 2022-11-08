@@ -1,0 +1,6 @@
+services:
+  ubuntu:
+    build: .
+    ports:
+      - 8888
+    container_name: foxy_container
