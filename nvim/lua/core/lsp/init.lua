@@ -59,6 +59,7 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<space>f", function()
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
+	--[[ keymap.set("n", "<space>lA", vim.lsp.buf.format, bufopts) ]]
 
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -83,6 +84,7 @@ local providers_path = "core.lsp.providers."
 local lsps_table = {
 	lua_lsp = require(providers_path .. "lua"),
 	tsserver_lsp = require(providers_path .. "tsserver"),
+	json_lsp = require(providers_path .. "json"),
 }
 
 for key, _ in next, lsps_table, nil do
