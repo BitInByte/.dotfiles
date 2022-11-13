@@ -47,7 +47,7 @@ return packer.startup(function(use)
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 		"onsails/lspkind-nvim",
 	})
-	use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
+	-- use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
 
 	use({ "jose-elias-alvarez/typescript.nvim" })
 
@@ -121,7 +121,12 @@ return packer.startup(function(use)
 		"lewis6991/gitsigns.nvim",
 		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
 	})
+
+	-- { Git Conflict Tool}
 	use({ "akinsho/git-conflict.nvim", tag = "*" })
+
+	-- { Git Diff Tool}
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	-- { Folds }
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })

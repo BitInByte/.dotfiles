@@ -85,6 +85,7 @@ local lsps_table = {
 	lua_lsp = require(providers_path .. "lua"),
 	tsserver_lsp = require(providers_path .. "tsserver"),
 	json_lsp = require(providers_path .. "json"),
+	cssls = require(providers_path .. "cssls"),
 }
 
 for key, _ in next, lsps_table, nil do

@@ -11,6 +11,9 @@ vim.api.nvim_set_keymap("n", "<leader>,", ":so ~/.config/nvim/init.lua<CR>", { s
 -- Splitting Remaps
 vim.api.nvim_set_keymap("n", "<leader>tt", ":sp<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>tT", ":vsp<CR>", { silent = true })
+-- Panes Resizing
+vim.api.nvim_set_keymap("n", "<leader>>", ":vertical resize -10<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader><", ":vertical resize +10<CR>", { silent = true })
 
 -- Move Lines
 vim.api.nvim_set_keymap("n", "<C-j>", ":m .+1<CR>==", { silent = true, noremap = true })
