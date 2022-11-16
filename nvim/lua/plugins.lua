@@ -50,6 +50,7 @@ return packer.startup(function(use)
 	-- use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
 
 	use({ "jose-elias-alvarez/typescript.nvim" })
+	use("lervag/vimtex")
 
 	-- Formatters and linters support
 	use({
@@ -146,6 +147,11 @@ return packer.startup(function(use)
 
 	-- { Hash Colors }
 	use({ "norcalli/nvim-colorizer.lua" })
+	-- {Term Utility}
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

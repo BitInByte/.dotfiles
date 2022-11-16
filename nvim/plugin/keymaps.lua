@@ -95,3 +95,7 @@ vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", { silent = true })
 vim.keymap.set("n", "<leader>mn", require("nvim-tree.api").marks.navigate.next)
 vim.keymap.set("n", "<leader>mp", require("nvim-tree.api").marks.navigate.prev)
 vim.keymap.set("n", "<leader>ms", require("nvim-tree.api").marks.navigate.select)
+
+-- Terminal
+vim.api.nvim_set_keymap("n", "<leader>tv", ":ToggleTerm<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>tf", ":ToggleTerm direction=float<CR>", { silent = true })
