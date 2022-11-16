@@ -87,6 +87,7 @@ local lsps_table = {
 	json_lsp = require(providers_path .. "json"),
 	cssls_lsp = require(providers_path .. "cssls"),
 	latex_lsp = require(providers_path .. "latex"),
+	dartls_lsp = require(providers_path .. "dartls"),
 }
 
 for key, _ in next, lsps_table, nil do
@@ -101,14 +102,14 @@ vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
 vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
 
 local border = {
-	{ "🭽", "FloatBorder" },
-	{ "▔", "FloatBorder" },
-	{ "🭾", "FloatBorder" },
-	{ "▕", "FloatBorder" },
-	{ "🭿", "FloatBorder" },
-	{ "▁", "FloatBorder" },
-	{ "🭼", "FloatBorder" },
-	{ "▏", "FloatBorder" },
+	{ "╭", "FloatBorder" },
+	{ "─", "FloatBorder" },
+	{ "╮", "FloatBorder" },
+	{ "│", "FloatBorder" },
+	{ "╯", "FloatBorder" },
+	{ "─", "FloatBorder" },
+	{ "╰", "FloatBorder" },
+	{ "│", "FloatBorder" },
 }
 
 -- LSP settings (for overriding per client)
