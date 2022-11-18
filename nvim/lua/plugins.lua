@@ -104,6 +104,12 @@ return packer.startup(function(use)
 		"numToStr/Comment.nvim",
 		requires = "JoosepAlviste/nvim-ts-context-commentstring",
 	})
+	use({
+		"danymat/neogen",
+		requires = "nvim-treesitter/nvim-treesitter",
+		-- Uncomment next line if you want to follow only stable versions
+		-- tag = "*"
+	})
 
 	-- { Lines }
 	use({
