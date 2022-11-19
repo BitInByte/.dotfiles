@@ -63,7 +63,8 @@ backupmacos() {
   cp ~/.hyper.js .
   cp ~/.zshrc .
   cp ~/.zshenv .
-  cp ~/.tmux.conf .
+  cp ~/.tmux.*.conf .
+  cp ~/.tmux*.conf .
   cp ~/.p10k.zsh .
   cp ~/Library/Application\ Support/lazygit/config.yml .
   cp ~/.config/kitty/kitty.conf .
