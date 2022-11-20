@@ -174,6 +174,20 @@ And then to run:
 ssh -p 2022 root@localhost
 ```
 
+## Brewfile
+
+To backup installed packages:
+
+```zsh
+brew bundle dump
+```
+
+To install from brew file:
+
+```zsh
+brew bundle
+```
+
 <!-- To install zathura, we need to install the meson: -->
 <!-- ```Python -->
 <!-- pip3 install meson -->
