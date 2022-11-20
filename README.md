@@ -29,7 +29,7 @@ This config only works with Neovim +0.8. It is almost 100% Lua and ViM doesn't s
 
 ### Terminal/Homebrew
 
-1. Tmux | Alcritty
+1. Tmux | Kitty
 <!-- 2. Cascadia code font (To got the most of this config, use a patched font from nerd fonts) -->
 2. Oh My ZSH
 3. Powerlevel10k (terminal)
@@ -159,6 +159,20 @@ brew install zathura-pdf-poppler
 ```
 
 We also need to follow some steps that are in the zathura brew github page.
+
+## Docker
+
+Ubuntu needs to be composed with the following command:
+
+```zsh
+docker compose up -d
+```
+
+And then to run:
+
+```zsh
+ssh -p 2022 root@localhost
+```
 
 <!-- To install zathura, we need to install the meson: -->
 <!-- ```Python -->

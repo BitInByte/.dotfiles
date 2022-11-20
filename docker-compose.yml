@@ -2,5 +2,5 @@ services:
   ubuntu:
     build: .
     ports:
-      - 8888
+      - "2022:22"
     container_name: foxy_container

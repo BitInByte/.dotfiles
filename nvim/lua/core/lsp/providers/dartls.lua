@@ -11,7 +11,13 @@ function M.load(args)
 	-- 	capabilities = args.capabilities,
 	-- 	flags = args.flags,
 	-- })
-	flutter_tools.setup({}) -- use defaults
+	flutter_tools.setup({
+		lsp = {
+			on_attach = args.on_attach,
+			capabilities = args.capabilities,
+			flags = args.flags,
+		},
+	}) -- use defaults
 end
 
 return M
