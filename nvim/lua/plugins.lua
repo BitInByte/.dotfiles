@@ -32,6 +32,8 @@ return packer.startup(function(use)
 		"williamboman/mason-lspconfig.nvim",
 		"jayp0521/mason-null-ls.nvim",
 		"jayp0521/mason-nvim-dap.nvim",
+		"mfussenegger/nvim-dap",
+		"rcarriga/nvim-dap-ui",
 	})
 
 	-- LSP Sources && Modules
@@ -90,6 +92,7 @@ return packer.startup(function(use)
 
 	-- { Colorscheme }
 	use({ "bluz71/vim-nightfly-colors" })
+	use({ "catppuccin/vim", as = "catppuccin" })
 
 	-- { Fuzzy Finders }
 	use({
@@ -109,6 +112,10 @@ return packer.startup(function(use)
 		requires = "nvim-treesitter/nvim-treesitter",
 		-- Uncomment next line if you want to follow only stable versions
 		-- tag = "*"
+	})
+	use({
+		"kkoomen/vim-doge",
+		run = ":call doge#install()",
 	})
 
 	-- { Lines }
