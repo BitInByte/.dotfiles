@@ -4,7 +4,7 @@ call cyclist#add_listchar_option_set('limited', {
         \ 'tab': '» ',
         \ 'trail': '·',
         \ 'extends': '<',
-        \ 'precedes': '>',    
+        \ 'precedes': '>',
         \ 'conceal': '┊',
         \ 'nbsp': '␣',
         \ })
@@ -15,9 +15,8 @@ call cyclist#add_listchar_option_set('busy', {
         \ 'space': '␣',
         \ 'trail': '-',
         \ 'extends': '☛',
-        \ 'precedes': '☚',    
+        \ 'precedes': '☚',
         \ 'conceal': '┊',
         \ 'nbsp': '☠',
         \ })
-
 ]])

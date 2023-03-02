@@ -145,3 +145,5 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+export PATH="$PATH:$HOME/development/flutter/bin"

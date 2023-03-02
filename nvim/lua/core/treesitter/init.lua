@@ -5,7 +5,7 @@ end
 
 treesitter.setup({
 	-- A list of parser names, or "all"
-	ensure_installed = { "lua", "vim" },
+	ensure_installed = { "lua", "vim", "sql" },
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,
@@ -47,8 +47,8 @@ treesitter.setup({
 			enable = true,
 			enable_autocmd = false,
 		},
-		autotag = {
-			enable = true,
-		},
+	},
+	autotag = {
+		enable = true,
 	},
 })

@@ -32,6 +32,8 @@ return packer.startup(function(use)
 		"williamboman/mason-lspconfig.nvim",
 		"jayp0521/mason-null-ls.nvim",
 		"jayp0521/mason-nvim-dap.nvim",
+		"mfussenegger/nvim-dap",
+		"rcarriga/nvim-dap-ui",
 	})
 
 	-- LSP Sources && Modules
@@ -47,9 +49,11 @@ return packer.startup(function(use)
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 		"onsails/lspkind-nvim",
 	})
-	use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
+	-- use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
 
 	use({ "jose-elias-alvarez/typescript.nvim" })
+	use("lervag/vimtex")
+	use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	-- Formatters and linters support
 	use({
@@ -88,6 +92,7 @@ return packer.startup(function(use)
 
 	-- { Colorscheme }
 	use({ "bluz71/vim-nightfly-colors" })
+	use({ "catppuccin/vim", as = "catppuccin" })
 
 	-- { Fuzzy Finders }
 	use({
@@ -101,6 +106,16 @@ return packer.startup(function(use)
 	use({
 		"numToStr/Comment.nvim",
 		requires = "JoosepAlviste/nvim-ts-context-commentstring",
+	})
+	use({
+		"danymat/neogen",
+		requires = "nvim-treesitter/nvim-treesitter",
+		-- Uncomment next line if you want to follow only stable versions
+		-- tag = "*"
+	})
+	use({
+		"kkoomen/vim-doge",
+		run = ":call doge#install()",
 	})
 
 	-- { Lines }
@@ -121,7 +136,12 @@ return packer.startup(function(use)
 		"lewis6991/gitsigns.nvim",
 		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
 	})
+
+	-- { Git Conflict Tool}
 	use({ "akinsho/git-conflict.nvim", tag = "*" })
+
+	-- { Git Diff Tool}
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	-- { Folds }
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
@@ -141,6 +161,11 @@ return packer.startup(function(use)
 
 	-- { Hash Colors }
 	use({ "norcalli/nvim-colorizer.lua" })
+	-- {Term Utility}
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
