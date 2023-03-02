@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "sumneko_lua", "tsserver", "jdtls" },
+	ensure_installed = { "lua_ls", "tsserver", "jdtls" },
 	automatic_installation = true,
 })
 require("mason-nvim-dap").setup({
