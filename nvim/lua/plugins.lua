@@ -138,10 +138,13 @@ return packer.startup(function(use)
 	})
 
 	-- { Git Conflict Tool}
-	use({ "akinsho/git-conflict.nvim", tag = "*" })
+	-- use({ "akinsho/git-conflict.nvim", tag = "*" })
 
 	-- { Git Diff Tool}
-	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+	-- use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+
+	-- { Git Hero }
+	use({ "tpope/vim-fugitive" })
 
 	-- { Folds }
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
