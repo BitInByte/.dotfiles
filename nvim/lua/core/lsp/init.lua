@@ -60,7 +60,6 @@ local on_attach = function(client, bufnr)
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
 	--[[ keymap.set("n", "<space>lA", vim.lsp.buf.format, bufopts) ]]
-
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
@@ -88,6 +87,8 @@ local lsps_table = {
 	cssls_lsp = require(providers_path .. "cssls"),
 	latex_lsp = require(providers_path .. "latex"),
 	dartls_lsp = require(providers_path .. "dartls"),
+	vue_lsp = require(providers_path .. "vue"),
+	eslint_lsp = require(providers_path .. "eslint"),
 }
 
 for key, _ in next, lsps_table, nil do
