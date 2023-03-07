@@ -122,6 +122,9 @@ alias ls='exa --icons'
 alias cloudssh='kitty +kitten ssh adminuser@13.69.176.183'
 alias nv='nvim'
 alias nvconf='nvim ~/.config/nvim'
+alias srv3='ssh dockeraccess@192.168.178.102'
+alias debug='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222'
+alias tmuxa='tmux a -t '
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -147,3 +150,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="$PATH:$HOME/development/flutter/bin"
+export PATH="/opt/homebrew/opt/node@16/bin:$PATH"

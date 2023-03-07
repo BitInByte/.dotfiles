@@ -1,10 +1,10 @@
 backup:
 	echo "Backing up Configs..."
-	@rm -r ./nvim || :
+	@rm -rf ./nvim || :
 	@mkdir -p ./nvim || :
-	@cp -r $(HOME)/.config/nvim . || :
-	@rm -r ./nvim/undodir
-	@rm -r ./nvim/.luarc.json
+	@cp -rf $(HOME)/.config/nvim . || :
+	@rm -rf ./nvim/undodir || :
+	@rm -rf ./nvim/.luarc.json || :
 	@rm ./nvim/plugin/packer_compiled.lua || :
 	@cp $(HOME)/.hyper.js . || :
 	@cp $(HOME)/.zshrc . || :
@@ -14,4 +14,6 @@ backup:
 	@cp $(HOME)/Library/Application\ Support/lazygit/config.yml . || :
 	@cp $(HOME)/.config/kitty/kitty.conf . || :
 	@cp $(HOME)/.alacritty.yml . || :
+	@rm -rf ./Brewfile || :
+	@brew bundle dump || :
 	echo "Backup completed..."

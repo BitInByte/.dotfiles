@@ -61,6 +61,20 @@ return packer.startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
+	-- Tell me my problem
+	-- Lua
+	use({
+		"folke/trouble.nvim",
+		requires = "nvim-tree/nvim-web-devicons",
+		config = function()
+			require("trouble").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
+
 	-- Bar with position
 	use({
 		"SmiteshP/nvim-navic",
@@ -138,10 +152,13 @@ return packer.startup(function(use)
 	})
 
 	-- { Git Conflict Tool}
-	use({ "akinsho/git-conflict.nvim", tag = "*" })
+	-- use({ "akinsho/git-conflict.nvim", tag = "*" })
 
 	-- { Git Diff Tool}
-	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+	-- use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+
+	-- { Git Hero }
+	use({ "tpope/vim-fugitive" })
 
 	-- { Folds }
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
@@ -161,11 +178,18 @@ return packer.startup(function(use)
 
 	-- { Hash Colors }
 	use({ "norcalli/nvim-colorizer.lua" })
+
 	-- {Term Utility}
 	use({
 		"akinsho/toggleterm.nvim",
 		tag = "*",
 	})
+
+	-- { Motions }
+	use({ "easymotion/vim-easymotion" })
+
+	-- { UndoMeThis }
+	use("mbbill/undotree")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
