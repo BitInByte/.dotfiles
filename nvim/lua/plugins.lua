@@ -178,6 +178,7 @@ return packer.startup(function(use)
 
 	-- { Hash Colors }
 	use({ "norcalli/nvim-colorizer.lua" })
+
 	-- {Term Utility}
 	use({
 		"akinsho/toggleterm.nvim",
