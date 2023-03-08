@@ -1,3 +1,8 @@
+local status, cokeline = pcall(require, "cokeline")
+if not status then
+	return
+end
+
 local is_picking_focus = require("cokeline/mappings").is_picking_focus
 local is_picking_close = require("cokeline/mappings").is_picking_close
 local get_hex = require("cokeline/utils").get_hex
@@ -44,7 +49,7 @@ local high = catppccn_colors.blue
 
 -- separator_style = { "", "" },
 
-require("cokeline").setup({
+cokeline.setup({
 	default_hl = {
 		fg = function(buffer)
 			if buffer.is_focused then

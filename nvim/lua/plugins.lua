@@ -110,6 +110,9 @@ return packer.startup(function(use)
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("Mofiqul/dracula.nvim")
 
+	-- { Pane helper }
+	use("sunjon/shade.nvim")
+
 	-- { Fuzzy Finders }
 	use({
 		"nvim-telescope/telescope.nvim",
