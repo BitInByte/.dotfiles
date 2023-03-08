@@ -15,7 +15,8 @@ local colors = {
 }
 
 local function lspClients()
-	local msg = "No Active Lsp"
+	-- local msg = "No Active Lsp"
+	local msg = ""
 	local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
 	local clients = vim.lsp.get_active_clients()
 	if next(clients) == nil then
@@ -37,6 +38,8 @@ lualine.setup({
 		theme = "auto",
 		component_separators = "|",
 		section_separators = { left = "", right = "" },
+		always_divide_middle = false,
+		globalstatus = false,
 	},
 	-- We only have 6 sections
 	sections = {
@@ -46,9 +49,13 @@ lualine.setup({
 			{ "mode", separator = { left = "" }, right_padding = 2 },
 		},
 		lualine_b = { "filename", "branch", { "diagnostics", sources = { "nvim_diagnostic" } } },
+		lualine_c = {},
 		-- lualine_c = {  {gpsLocation, cond = isGpsAvailable}},
-		lualine_x = { { lspClients, icon = " LSP:" } },
-		lualine_y = { "fileformat", "filetype", "progress" },
+		-- lualine_x = { { lspClients, icon = " LSP:" } },
+		-- lualine_x = { { lspClients, icon = "ﴞ" } },
+		-- lualine_y = { { lspClients, icon = "ﴞ" }, "fileformat", "filetype", "progress" },
+		lualine_x = {},
+		lualine_y = { { lspClients, icon = "喇" }, "tabs", "filetype", "progress" },
 		lualine_z = {
 			{ "location", separator = { right = "" }, left_padding = 2 },
 		},
@@ -62,5 +69,10 @@ lualine.setup({
 		lualine_z = { "location" },
 	},
 	tabline = {},
-	extensions = {},
+	extensions = {
+		"nvim-tree",
+		"fugitive",
+		"quickfix",
+		"toggleterm",
+	},
 })

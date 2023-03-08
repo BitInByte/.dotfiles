@@ -106,7 +106,9 @@ return packer.startup(function(use)
 
 	-- { Colorscheme }
 	use({ "bluz71/vim-nightfly-colors" })
-	use({ "catppuccin/vim", as = "catppuccin" })
+	-- use({ "catppuccin/vim", as = "catppuccin" })
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("Mofiqul/dracula.nvim")
 
 	-- { Fuzzy Finders }
 	use({
@@ -137,7 +139,15 @@ return packer.startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
+	-- use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
+	use({ "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons" })
+	use({
+		"noib3/nvim-cokeline",
+		requires = "kyazdani42/nvim-web-devicons", -- If you want devicons
+		-- config = function()
+		-- 	-- require("cokeline").setup()
+		-- end,
+	})
 
 	-- { Tag }
 	use({
