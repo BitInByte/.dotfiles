@@ -46,9 +46,10 @@ lualine.setup({
 		-- In each section we can add as much components
 		-- as we want
 		lualine_a = {
-			{ "mode", separator = { left = "" }, right_padding = 2 },
+			{ "mode", separator = { left = "" }, right_padding = 2, icon = "" },
 		},
-		lualine_b = { "filename", "branch", { "diagnostics", sources = { "nvim_diagnostic" } } },
+		-- lualine_b = { "filename", { "branch", icon = "" }, { "diagnostics", sources = { "nvim_diagnostic" } } },
+		lualine_b = { "filename", { "branch", icon = "" }, { "diagnostics", sources = { "nvim_diagnostic" } } },
 		lualine_c = {},
 		-- lualine_c = {  {gpsLocation, cond = isGpsAvailable}},
 		-- lualine_x = { { lspClients, icon = " LSP:" } },
