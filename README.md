@@ -25,7 +25,8 @@ This config only works with Neovim +0.8. It is almost 100% Lua and ViM doesn't s
 3. ripgrep: https://github.com/BurntSushi/ripgrep => used in Telescope
 <!-- 4. Patched Cascadia Code Font (Nerd Fonts) (Old font) -->
 4. Patched Victor Mono Font (Nerd Fonts)
-5. MacTex
+5. Patched IBM Plex Mono Font (Nerd Fonts) (Blex Mono)
+6. MacTex
 
 ### Terminal/Homebrew
 
@@ -198,3 +199,7 @@ brew bundle
 <!-- Then, we need to install girara, zathura and zathura-pdf-popler. We only need to follow the steps on the website. -->
 <!---->
 <!-- Then, we need to download Zathura and build it with meson and ninja. -->
+
+## Fonts
+
+To install a patched font, download all of the fonts you want to use (at least regular, italic and bold) and on the folder where you downloaded them, select all of them, right click of the mouse on the selection and then open. This will ensure that all of the fonts are grouped installed and linked
