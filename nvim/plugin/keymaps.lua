@@ -47,7 +47,9 @@ vim.api.nvim_set_keymap("n", "<leader>dw", "<cmd>lua require'dapui'.toggle()<CR>
 -- vim.api.nvim_set_keymap("n", "<C-h>", ":bprev<CR>", { silent = true })
 -- vim.api.nvim_set_keymap("n", "<C-l>", ":bnext<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "[b", ":bprev<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<Tab>", ":bprev<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "]b", ":bnext<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<S-Tab>", ":bnext<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "[B", ":bfirst<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "]B", ":blast<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>bd", ":bd<CR>", { silent = true })
@@ -110,3 +112,10 @@ vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = tr
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 -- vim.api.nvim_set_keymap("n", "<silent>ff", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent = true })
+
+vim.keymap.set("n", "<leader>mc", MiniMap.close)
+vim.keymap.set("n", "<leader>mf", MiniMap.toggle_focus)
+vim.keymap.set("n", "<leader>mo", MiniMap.open)
+vim.keymap.set("n", "<leader>mr", MiniMap.refresh)
+-- vim.keymap.set("n", "<leader>ms", MiniMap.toggle_side)
+vim.keymap.set("n", "<leader>mt", MiniMap.toggle)
