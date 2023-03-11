@@ -104,6 +104,9 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- { Where am I? }
+	use("echasnovski/mini.map")
+
 	-- { Colorscheme }
 	use({ "bluz71/vim-nightfly-colors" })
 	-- use({ "catppuccin/vim", as = "catppuccin" })

@@ -112,3 +112,10 @@ vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = tr
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 -- vim.api.nvim_set_keymap("n", "<silent>ff", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent = true })
+
+vim.keymap.set("n", "<leader>mc", MiniMap.close)
+vim.keymap.set("n", "<leader>mf", MiniMap.toggle_focus)
+vim.keymap.set("n", "<leader>mo", MiniMap.open)
+vim.keymap.set("n", "<leader>mr", MiniMap.refresh)
+-- vim.keymap.set("n", "<leader>ms", MiniMap.toggle_side)
+vim.keymap.set("n", "<leader>mt", MiniMap.toggle)
