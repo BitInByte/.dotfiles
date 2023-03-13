@@ -8,7 +8,7 @@
 -- Author: Dev Jay (jopecodes.dev)
 -- Remap Leader Key
 vim.g.mapleader = " "
--- require("impatient")
+--require("impatient")
 
 -- -- Require my modules
 require("plugins") -- lazy plugins manager

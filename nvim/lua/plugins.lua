@@ -1,7 +1,7 @@
-local status, lazy = pcall(require, "lazy")
-if not status then
-	return
-end
+-- local status, lazy = pcall(require, "lazy")
+-- if not status then
+-- 	return
+-- end
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -14,11 +14,11 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
-vim.lazy.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 local opts = {}
 
-lazy.setup({
+require("lazy").setup({
 	-- {  LSP  }
 	-- Mason - helper to install needed lsps
 	{
@@ -43,16 +43,16 @@ lazy.setup({
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 		"onsails/lspkind-nvim",
 	},
-	-- use({ "tzachar/cmp-tabnine", build = "./install.sh", dependecies = "hrsh7th/nvim-cmp" })
+	-- use({ "tzachar/cmp-tabnine", build = "./install.sh", dependencies = "hrsh7th/nvim-cmp" })
 
 	{ "jose-elias-alvarez/typescript.nvim" },
 	{ "lervag/vimtex" },
-	{ "akinsho/flutter-tools.nvim", dependecies = "nvim-lua/plenary.nvim" },
+	{ "akinsho/flutter-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 
 	-- Formatters and linters support
 	{
 		"jose-elias-alvarez/null-ls.nvim",
-		dependecies = { { "nvim-lua/plenary.nvim" } },
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 
 	-- { UI }
@@ -63,7 +63,7 @@ lazy.setup({
 		-- 		-- add any lazyions here
 		-- 	})
 		-- end,
-		dependecies = {
+		dependencies = {
 			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
 			-- lazyIONAL:
@@ -77,7 +77,7 @@ lazy.setup({
 	-- Lua
 	{
 		"folke/trouble.nvim",
-		dependecies = "nvim-tree/nvim-web-devicons",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("trouble").setup({
 				-- your configuration comes here
@@ -90,7 +90,7 @@ lazy.setup({
 	-- Bar with position
 	{
 		"SmiteshP/nvim-navic",
-		dependecies = "neovim/nvim-lspconfig",
+		dependencies = { "neovim/nvim-lspconfig" },
 	},
 
 	-- { Snippets }
@@ -102,21 +102,22 @@ lazy.setup({
 
 	-- { File Explorer }
 	{
-		"kyazdani42/nvim-tree.lua",
-		dependecies = "kyazdani42/nvim-web-devicons",
+		"nvim-tree/nvim-tree.lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		version = "nightly",
 	},
 
 	-- { TreeSitter }
-	{ { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" } },
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
 	-- { Where am I? }
-	{ "echasnovski/mini.map" },
+	-- { "echasnovski/mini.map" },
+	{ "echasnovski/mini.map", version = false },
 
 	-- { Colorscheme }
 	{ "bluz71/vim-nightfly-colors" },
 	-- use({ "catppuccin/vim", as = "catppuccin" })
-	{ "catppuccin/nvim", as = "catppuccin" },
+	{ "catppuccin/nvim", name = "catppuccin" },
 	{ "Mofiqul/dracula.nvim" },
 
 	-- { Pane helper }
@@ -127,17 +128,17 @@ lazy.setup({
 		"nvim-telescope/telescope.nvim",
 		version = "0.1.0",
 		-- or                            , branch = '0.1.x',
-		dependecies = { { "nvim-lua/plenary.nvim" } },
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 
 	-- { Comments }
 	{
 		"numToStr/Comment.nvim",
-		dependecies = "JoosepAlviste/nvim-ts-context-commentstring",
+		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
 	},
 	{
 		"danymat/neogen",
-		dependecies = "nvim-treesitter/nvim-treesitter",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		-- Uncomment next line if you want to follow only stable versions
 		-- version = "*"
 	},
@@ -149,13 +150,13 @@ lazy.setup({
 	-- { Lines }
 	{
 		"nvim-lualine/lualine.nvim",
-		dependecies = { "kyazdani42/nvim-web-devicons", lazy = true },
+		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
 	},
-	-- use({ "akinsho/bufferline.nvim", version = "v3.*", dependecies = "nvim-tree/nvim-web-devicons" })
-	{ "akinsho/bufferline.nvim", dependecies = "nvim-tree/nvim-web-devicons" },
+	-- use({ "akinsho/bufferline.nvim", version = "v3.*", dependencies = "nvim-tree/nvim-web-devicons" })
+	{ "akinsho/bufferline.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{
 		"noib3/nvim-cokeline",
-		dependecies = "kyazdani42/nvim-web-devicons", -- If you want devicons
+		dependencies = { "nvim-tree/nvim-web-devicons" }, -- If you want devicons
 		-- config = function()
 		-- 	-- require("cokeline").setup()
 		-- end,
@@ -164,7 +165,7 @@ lazy.setup({
 	-- { version }
 	{
 		"windwp/nvim-autopairs",
-		"windwp/nvim-ts-autoversion",
+		-- "windwp/nvim-ts-autoversion",
 	},
 
 	-- { Git Signs }
@@ -173,11 +174,16 @@ lazy.setup({
 		-- version = 'release' -- To use the latest release (do not use this if you build Neovim nightly or dev builds!)
 	},
 
+	-- { Mark Signs }
+	{
+		"chentoast/marks.nvim",
+	},
+
 	-- { Git Conflict Tool}
 	-- use({ "akinsho/git-conflict.nvim", version = "*" })
 
 	-- { Git Diff Tool}
-	-- use({ "sindrets/diffview.nvim", dependecies = "nvim-lua/plenary.nvim" })
+	-- use({ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" })
 
 	-- { Git Hero }
 	{ "tpope/vim-fugitive" },
@@ -186,17 +192,19 @@ lazy.setup({
 	{ "tpope/vim-surround" },
 
 	-- { Folds }
-	{ "kevinhwang91/nvim-ufo", dependecies = "kevinhwang91/promise-async" },
+	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
 
 	-- { TODO }
 	-- TODO: test
 	{
 		"folke/todo-comments.nvim",
-		dependecies = "nvim-lua/plenary.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 
 	-- { Cyclist }
-	{ "tjdevries/cyclist.vim" },
+	{
+		"tjdevries/cyclist.vim",
+	},
 
 	-- { Cache plugins }
 	{ "lewis6991/impatient.nvim" },
