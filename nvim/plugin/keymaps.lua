@@ -34,6 +34,7 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>fc", builtin.command_history, {})
 vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
+vim.keymap.set("n", "<leader>fm", builtin.marks, {})
 
 -- Debugger
 vim.api.nvim_set_keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { silent = true })
