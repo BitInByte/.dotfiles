@@ -1,43 +1,37 @@
-local status, packer = pcall(require, "packer")
+local status, lazy = pcall(require, "lazy")
 if not status then
 	return
 end
 
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-		vim.cmd([[packadd packer.nvim]])
-		return true
-	end
-	return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
-local packer_bootstrap = ensure_packer()
+vim.lazy.rtp:prepend(lazypath)
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
+local opts = {}
 
-return packer.startup(function(use)
-	use("wbthomason/packer.nvim")
-
+lazy.setup({
 	-- {  LSP  }
 	-- Mason - helper to install needed lsps
-	use({
+	{
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"jayp0521/mason-null-ls.nvim",
 		"jayp0521/mason-nvim-dap.nvim",
 		"mfussenegger/nvim-dap",
 		"rcarriga/nvim-dap-ui",
-	})
+	},
 
 	-- LSP Sources && Modules
-	use({
+	{
 		"neovim/nvim-lspconfig",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
@@ -48,42 +42,42 @@ return packer.startup(function(use)
 		"hrsh7th/cmp-nvim-lua",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 		"onsails/lspkind-nvim",
-	})
-	-- use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
+	},
+	-- use({ "tzachar/cmp-tabnine", build = "./install.sh", dependecies = "hrsh7th/nvim-cmp" })
 
-	use({ "jose-elias-alvarez/typescript.nvim" })
-	use("lervag/vimtex")
-	use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
+	{ "jose-elias-alvarez/typescript.nvim" },
+	{ "lervag/vimtex" },
+	{ "akinsho/flutter-tools.nvim", dependecies = "nvim-lua/plenary.nvim" },
 
 	-- Formatters and linters support
-	use({
+	{
 		"jose-elias-alvarez/null-ls.nvim",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
+		dependecies = { { "nvim-lua/plenary.nvim" } },
+	},
 
 	-- { UI }
-	use({
+	{
 		"folke/noice.nvim",
 		-- config = function()
 		-- 	require("noice").setup({
-		-- 		-- add any options here
+		-- 		-- add any lazyions here
 		-- 	})
 		-- end,
-		requires = {
+		dependecies = {
 			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
+			-- lazyIONAL:
 			--   `nvim-notify` is only needed, if you want to use the notification view.
 			--   If not available, we use `mini` as the fallback
 			"rcarriga/nvim-notify",
 		},
-	})
+	},
 
 	-- Tell me my problem
 	-- Lua
-	use({
+	{
 		"folke/trouble.nvim",
-		requires = "nvim-tree/nvim-web-devicons",
+		dependecies = "nvim-tree/nvim-web-devicons",
 		config = function()
 			require("trouble").setup({
 				-- your configuration comes here
@@ -91,146 +85,134 @@ return packer.startup(function(use)
 				-- refer to the configuration section below
 			})
 		end,
-	})
+	},
 
 	-- Bar with position
-	use({
+	{
 		"SmiteshP/nvim-navic",
-		requires = "neovim/nvim-lspconfig",
-	})
+		dependecies = "neovim/nvim-lspconfig",
+	},
 
 	-- { Snippets }
-	use({
+	{
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
-	})
+	},
 
 	-- { File Explorer }
-	use({
+	{
 		"kyazdani42/nvim-tree.lua",
-		requires = "kyazdani42/nvim-web-devicons",
-		tag = "nightly",
-	})
+		dependecies = "kyazdani42/nvim-web-devicons",
+		version = "nightly",
+	},
 
 	-- { TreeSitter }
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-			ts_update()
-		end,
-	})
+	{ { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" } },
 
 	-- { Where am I? }
-	use("echasnovski/mini.map")
+	{ "echasnovski/mini.map" },
 
 	-- { Colorscheme }
-	use({ "bluz71/vim-nightfly-colors" })
+	{ "bluz71/vim-nightfly-colors" },
 	-- use({ "catppuccin/vim", as = "catppuccin" })
-	use({ "catppuccin/nvim", as = "catppuccin" })
-	use("Mofiqul/dracula.nvim")
+	{ "catppuccin/nvim", as = "catppuccin" },
+	{ "Mofiqul/dracula.nvim" },
 
 	-- { Pane helper }
-	use("sunjon/shade.nvim")
+	{ "sunjon/shade.nvim" },
 
 	-- { Fuzzy Finders }
-	use({
+	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
+		version = "0.1.0",
 		-- or                            , branch = '0.1.x',
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
+		dependecies = { { "nvim-lua/plenary.nvim" } },
+	},
 
 	-- { Comments }
-	use({
+	{
 		"numToStr/Comment.nvim",
-		requires = "JoosepAlviste/nvim-ts-context-commentstring",
-	})
-	use({
+		dependecies = "JoosepAlviste/nvim-ts-context-commentstring",
+	},
+	{
 		"danymat/neogen",
-		requires = "nvim-treesitter/nvim-treesitter",
+		dependecies = "nvim-treesitter/nvim-treesitter",
 		-- Uncomment next line if you want to follow only stable versions
-		-- tag = "*"
-	})
-	use({
+		-- version = "*"
+	},
+	{
 		"kkoomen/vim-doge",
-		run = ":call doge#install()",
-	})
+		build = ":call doge#install()",
+	},
 
 	-- { Lines }
-	use({
+	{
 		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
-	-- use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
-	use({ "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons" })
-	use({
+		dependecies = { "kyazdani42/nvim-web-devicons", lazy = true },
+	},
+	-- use({ "akinsho/bufferline.nvim", version = "v3.*", dependecies = "nvim-tree/nvim-web-devicons" })
+	{ "akinsho/bufferline.nvim", dependecies = "nvim-tree/nvim-web-devicons" },
+	{
 		"noib3/nvim-cokeline",
-		requires = "kyazdani42/nvim-web-devicons", -- If you want devicons
+		dependecies = "kyazdani42/nvim-web-devicons", -- If you want devicons
 		-- config = function()
 		-- 	-- require("cokeline").setup()
 		-- end,
-	})
+	},
 
-	-- { Tag }
-	use({
+	-- { version }
+	{
 		"windwp/nvim-autopairs",
-		"windwp/nvim-ts-autotag",
-	})
+		"windwp/nvim-ts-autoversion",
+	},
 
 	-- { Git Signs }
-	use({
+	{
 		"lewis6991/gitsigns.nvim",
-		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
-	})
+		-- version = 'release' -- To use the latest release (do not use this if you build Neovim nightly or dev builds!)
+	},
 
 	-- { Git Conflict Tool}
-	-- use({ "akinsho/git-conflict.nvim", tag = "*" })
+	-- use({ "akinsho/git-conflict.nvim", version = "*" })
 
 	-- { Git Diff Tool}
-	-- use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+	-- use({ "sindrets/diffview.nvim", dependecies = "nvim-lua/plenary.nvim" })
 
 	-- { Git Hero }
-	use({ "tpope/vim-fugitive" })
+	{ "tpope/vim-fugitive" },
 
 	-- { Surround me this }
-	use({ "tpope/vim-surround" })
+	{ "tpope/vim-surround" },
 
 	-- { Folds }
-	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+	{ "kevinhwang91/nvim-ufo", dependecies = "kevinhwang91/promise-async" },
 
 	-- { TODO }
 	-- TODO: test
-	use({
+	{
 		"folke/todo-comments.nvim",
-		requires = "nvim-lua/plenary.nvim",
-	})
+		dependecies = "nvim-lua/plenary.nvim",
+	},
 
 	-- { Cyclist }
-	use({ "tjdevries/cyclist.vim" })
+	{ "tjdevries/cyclist.vim" },
 
 	-- { Cache plugins }
-	use({ "lewis6991/impatient.nvim" })
+	{ "lewis6991/impatient.nvim" },
 
 	-- { Hash Colors }
-	use({ "norcalli/nvim-colorizer.lua" })
+	{ "norcalli/nvim-colorizer.lua" },
 
 	-- {Term Utility}
-	use({
+	{
 		"akinsho/toggleterm.nvim",
-		tag = "*",
-	})
+		version = "*",
+	},
 
 	-- { Motions }
-	use({ "easymotion/vim-easymotion" })
+	{ "easymotion/vim-easymotion" },
 
 	-- { UndoMeThis }
-	use("mbbill/undotree")
-
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if packer_bootstrap then
-		require("packer").sync()
-	end
-end)
+	{ "mbbill/undotree" },
+}, opts)
