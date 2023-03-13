@@ -176,6 +176,9 @@ return packer.startup(function(use)
 	-- { Git Hero }
 	use({ "tpope/vim-fugitive" })
 
+	-- { Surround me this }
+	use({ "tpope/vim-surround" })
+
 	-- { Folds }
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
