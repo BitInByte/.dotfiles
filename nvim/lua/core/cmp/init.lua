@@ -85,7 +85,6 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
@@ -102,8 +101,20 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "calc" },
 		{ name = "nvim_lsp_signature_help" },
+		-- { name = "buffer" },
 	}, {
-		{ name = "buffer" },
+		{
+			name = "buffer",
+			option = {
+				get_bufnrs = function()
+					local bufs = {}
+					for _, win in ipairs(vim.api.nvim_list_wins()) do
+						bufs[vim.api.nvim_win_get_buf(win)] = true
+					end
+					return vim.tbl_keys(bufs)
+				end,
+			},
+		},
 	}),
 	formatting = {
 		fields = { "kind", "abbr" },
