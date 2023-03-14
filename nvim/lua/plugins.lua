@@ -165,7 +165,7 @@ require("lazy").setup({
 	-- { version }
 	{
 		"windwp/nvim-autopairs",
-		-- "windwp/nvim-ts-autoversion",
+		"windwp/nvim-ts-autotag",
 	},
 
 	-- { Git Signs }
