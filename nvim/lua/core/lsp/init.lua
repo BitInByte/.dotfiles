@@ -1,12 +1,14 @@
-local status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status then
-	return
-end
+-- local status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+-- if not status then
+-- 	return
+-- end
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-local status_navic, navic = pcall(require, "nvim-navic")
-if not status_navic then
-	return
-end
+-- local status_navic, navic = pcall(require, "nvim-navic")
+-- if not status_navic then
+-- 	return
+-- end
+local navic = require("nvim-navic")
 
 -- if you want to set up formatting on save, you can use this as a callback
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -24,11 +26,11 @@ local keymap = vim.keymap
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap = true, silent = true }
-keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
-keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
+local mappingOpts = { noremap = true, silent = true }
+keymap.set("n", "<space>e", vim.diagnostic.open_float, mappingOpts)
+keymap.set("n", "[d", vim.diagnostic.goto_prev, mappingOpts)
+keymap.set("n", "]d", vim.diagnostic.goto_next, mappingOpts)
+keymap.set("n", "<space>q", vim.diagnostic.setloclist, mappingOpts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -91,27 +93,58 @@ local lsps_table = {
 	eslint_lsp = require(providers_path .. "eslint"),
 }
 
+-- LSP settings (for overriding per client)
+-- local test = "test"
+-- local handlers = {
+-- 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+-- 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+-- }
+
 for key, _ in next, lsps_table, nil do
 	lsps_table[key].load({
 		capabilities = capabilities,
 		on_attach = on_attach,
 		flags = lsp_flags,
+		-- handlers = handlers,
 	})
 end
 
-vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
-vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
+vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=NONE]])
+-- vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
 
-local border = {
-	{ "╭", "FloatBorder" },
-	{ "─", "FloatBorder" },
-	{ "╮", "FloatBorder" },
-	{ "│", "FloatBorder" },
-	{ "╯", "FloatBorder" },
-	{ "─", "FloatBorder" },
-	{ "╰", "FloatBorder" },
-	{ "│", "FloatBorder" },
-}
+-- To instead override globally
+-- local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+-- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+-- 	opts = opts or {}
+-- 	opts.border = opts.border or "rounded"
+-- 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
+-- end
+local test = "test"
+vim.diagnostic.config({
+	underline = true,
+	signs = true,
+	-- virtual_text = false,
+	severity_sort = true,
+	float = {
+		focusable = true,
+		style = "minimal",
+		border = "rounded",
+		source = "always",
+		-- header = "",
+		-- prefix = "",
+	},
+})
+
+-- local border = {
+-- 	{ "╭", "FloatBorder" },
+-- 	{ "─", "FloatBorder" },
+-- 	{ "╮", "FloatBorder" },
+-- 	{ "│", "FloatBorder" },
+-- 	{ "╯", "FloatBorder" },
+-- 	{ "─", "FloatBorder" },
+-- 	{ "╰", "FloatBorder" },
+-- 	{ "│", "FloatBorder" },
+-- }
 
 -- LSP settings (for overriding per client)
 -- local handlers = {
@@ -120,9 +153,10 @@ local border = {
 -- }
 --
 -- To instead override globally
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-	opts = opts or {}
-	opts.border = opts.border or border
-	return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
+-- local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+-- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+-- 	opts = opts or {}
+-- 	opts.border = opts.border or border
+-- 	-- opts.border = "rounded"
+-- 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
+-- end

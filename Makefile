@@ -8,7 +8,7 @@ backup:
 	@rm ./nvim/plugin/packer_compiled.lua || :
 	@cp $(HOME)/.hyper.js . || :
 	@cp $(HOME)/.zshrc . || :
-	@cp $(HOME)/.zshenv . || :
+	# @cp $(HOME)/.zshenv . || :
 	@cp $(HOME)/.tmux*.conf . || :
 	@cp $(HOME)/.p10k.zsh . || :
 	@cp $(HOME)/Library/Application\ Support/lazygit/config.yml . || :

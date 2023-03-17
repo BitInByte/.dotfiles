@@ -1,6 +1,15 @@
-local status, toggleterm = pcall(require, "toggleterm")
-if not status then
-	return
-end
+-- local status, toggleterm = pcall(require, "toggleterm")
+-- if not status then
+-- 	return
+-- end
 
-toggleterm.setup()
+return {
+	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		config = function()
+            local toggleterm = require("toggleterm")
+			toggleterm.setup()
+		end,
+	},
+}
