@@ -1,22 +1,30 @@
-local status, cmp = pcall(require, "cmp")
-if not status then
-	return
-end
+print("Loading cmp")
+-- local status, cmp = pcall(require, "cmp")
+-- if not status then
+-- 	return
+-- end
+local cmp = require("cmp")
 
-local status_luasnip, luasnip = pcall(require, "luasnip")
-if not status_luasnip then
-	return
-end
+-- local status_luasnip, luasnip = pcall(require, "luasnip")
+-- if not status_luasnip then
+-- 	return
+-- end
 
-local status_lspkind, lspkind = pcall(require, "lspkind")
-if not status_lspkind then
-	return
-end
+local luasnip = require("luasnip")
 
-local status_luasnip_loaders, luasnip_loaders = pcall(require, "luasnip.loaders.from_vscode")
-if not status_luasnip_loaders then
-	return
-end
+-- local status_lspkind, lspkind = pcall(require, "lspkind")
+-- if not status_lspkind then
+-- 	return
+-- end
+
+local lspkind = require("lspkind")
+
+-- local status_luasnip_loaders, luasnip_loaders = pcall(require, "luasnip.loaders.from_vscode")
+-- if not status_luasnip_loaders then
+-- 	return
+-- end
+
+local luasnip_loaders = require("luasnip.loaders.from_vscode")
 
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))

@@ -1,4 +1,9 @@
-vim.cmd([[
+return {
+
+	{
+		"tjdevries/cyclist.vim",
+		config = function()
+			vim.cmd([[
 call cyclist#add_listchar_option_set('limited', {
         \ 'eol': '↲',
         \ 'tab': '» ',
@@ -20,3 +25,6 @@ call cyclist#add_listchar_option_set('busy', {
         \ 'nbsp': '☠',
         \ })
 ]])
+		end,
+	},
+}

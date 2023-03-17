@@ -9,6 +9,7 @@ require("mason-nvim-dap").setup({
 	automatic_setup = true,
 })
 require("mason-null-ls").setup({
-	ensure_installed = { "stylua", "eslint_d", "prettierd" },
+	-- ensure_installed = { "stylua", "eslint_d", "prettierd", "prettier" },
+	ensure_installed = { "stylua", "prettier" },
 	automatic_installation = true,
 })

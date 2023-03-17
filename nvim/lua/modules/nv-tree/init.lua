@@ -1,22 +1,25 @@
--- examples for your init.lua
-
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
-
 -- empty setup using defaults
-local status, nvim_tree = pcall(require, "nvim-tree")
-if not status then
-	return
-end
+return {
 
-nvim_tree.setup({
-	actions = {
-		open_file = {
-			quit_on_open = true,
-		},
+	{
+		"nvim-tree/nvim-tree.lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		version = "nightly",
+		config = function()
+			-- disable netrw at the very start of your init.lua (strongly advised)
+			vim.g.loaded_netrw = 1
+			vim.g.loaded_netrwPlugin = 1
+
+			-- set termguicolors to enable highlight groups
+			vim.opt.termguicolors = true
+
+			require("nvim-tree").setup({
+				actions = {
+					open_file = {
+						quit_on_open = true,
+					},
+				},
+			})
+		end,
 	},
-})
+}

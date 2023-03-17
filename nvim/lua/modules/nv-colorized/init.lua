@@ -1,6 +1,14 @@
-local status, colorized = pcall(require, "colorized")
-if not status then
-	return
-end
+-- local status, colorized = pcall(require, "colorized")
+-- if not status then
+-- 	return
+-- end
 
-colorized.setup()
+return {
+
+	{
+		"norcalli/nvim-colorizer.lua",
+		setup = function()
+			require("colorized").setup()
+		end,
+	},
+}

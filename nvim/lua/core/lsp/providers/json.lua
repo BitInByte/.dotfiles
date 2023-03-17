@@ -1,12 +1,12 @@
-local status, lspconfig = pcall(require, "lspconfig")
-if not status then
-	return
-end
+-- local status, lspconfig = pcall(require, "lspconfig")
+-- if not status then
+-- 	return
+-- end
 
 local M = {}
 
 function M.load(args)
-	lspconfig.jsonls.setup({
+	require("lspconfig").jsonls.setup({
 		capabilities = args.capabilities,
 	})
 end

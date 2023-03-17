@@ -1,13 +1,15 @@
-local status, dap = pcall(require, "dap")
-if not status then
-	return
-end
+-- local status, dap = pcall(require, "dap")
+-- if not status then
+-- 	return
+-- end
+--
+-- local status_dap_ui, dap_ui = pcall(require, "dapui")
+-- if not status_dap_ui then
+-- 	return
+-- end
 
-local status_dap_ui, dap_ui = pcall(require, "dapui")
-if not status_dap_ui then
-	return
-end
-
+local dap = require("dap")
+local dap_ui = require("dapui")
 -- -- local dap = require("dap")
 -- dap.adapters.firefox = {
 -- 	type = "executable",

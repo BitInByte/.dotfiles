@@ -1,12 +1,14 @@
-local status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status then
-	return
-end
+-- local status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+-- if not status then
+-- 	return
+-- end
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-local status_navic, navic = pcall(require, "nvim-navic")
-if not status_navic then
-	return
-end
+-- local status_navic, navic = pcall(require, "nvim-navic")
+-- if not status_navic then
+-- 	return
+-- end
+local navic = require("nvim-navic")
 
 -- if you want to set up formatting on save, you can use this as a callback
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
