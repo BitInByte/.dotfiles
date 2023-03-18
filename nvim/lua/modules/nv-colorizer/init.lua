@@ -3,12 +3,12 @@
 -- 	return
 -- end
 
+-- #000000
 return {
-
 	{
 		"norcalli/nvim-colorizer.lua",
-		setup = function()
-			require("colorized").setup()
+		config = function()
+			require("colorizer").setup()
 		end,
 	},
 }

@@ -44,13 +44,4 @@ return {
 		},
 	},
 	-- use({ "tzachar/cmp-tabnine", build = "./install.sh", dependencies = "hrsh7th/nvim-cmp" })
-
-	-- config = function()
-	--        vim.cmd[[echo "Loading lsp"]]
-	-- 	require("core.mason") -- lsp management
-	-- 	require("core.cmp") -- completion
-	-- 	require("core.lsp") -- lsp engine
-	-- 	require("core.null-ls") -- formaters management
-	-- 	require("core.dap") -- debuggers management
-	-- end,
 }
