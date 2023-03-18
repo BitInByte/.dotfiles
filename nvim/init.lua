@@ -12,7 +12,7 @@ vim.g.mapleader = " "
 
 -- -- Require my modules
 require("plugins") -- lazy plugins manager
-require("core") -- core functionality such as (LSP, CMP and so on)
+-- require("core") -- core functionality such as (LSP, CMP and so on)
 -- require("modules") -- util plugins
 require("themes") -- colorscheme
 

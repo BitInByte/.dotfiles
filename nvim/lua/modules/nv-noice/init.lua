@@ -20,7 +20,7 @@ return {
 			"rcarriga/nvim-notify",
 		},
 		config = function()
-            local noice = require("noice")
+			local noice = require("noice")
 			noice.setup({
 				-- add any options here
 			})
@@ -31,6 +31,8 @@ return {
 					vim.api.nvim_win_set_config(win, { focusable = false })
 				end,
 			})
+
+			vim.opt.termguicolors = true
 		end,
 	},
 }
