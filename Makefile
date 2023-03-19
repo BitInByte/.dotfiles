@@ -3,6 +3,8 @@ backup:
 	@rm -rf ./nvim || :
 	@mkdir -p ./nvim || :
 	@cp -rf $(HOME)/.config/nvim . || :
+	@cp -rf $(HOME)/.config/yabai . || :
+	@cp -rf $(HOME)/.config/skhd . || :
 	@rm -rf ./nvim/undodir || :
 	@rm -rf ./nvim/.luarc.json || :
 	@rm ./nvim/plugin/packer_compiled.lua || :
