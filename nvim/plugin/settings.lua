@@ -38,10 +38,12 @@ vim.opt.foldenable = false -- Disable automatic fold on launch
 vim.opt.clipboard = "unnamedplus" -- Allow yank to clipboard
 vim.wo.spell = false -- Enable/Disable spell
 vim.bo.spelllang = "en_us" -- Set spell dictionary
-vim.opt.mouse = ""
+vim.opt.mouse = "" -- Oh cmon... Get the hell off of my house
 
 -- Folds
 vim.o.foldcolumn = "1" -- '0' is not bad
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
+
+vim.opt.termguicolors = true
