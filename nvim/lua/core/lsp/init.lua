@@ -91,6 +91,7 @@ local lsps_table = {
 	dartls_lsp = require(providers_path .. "dartls"),
 	vue_lsp = require(providers_path .. "vue"),
 	eslint_lsp = require(providers_path .. "eslint"),
+	angular_lsp = require(providers_path .. "angular"),
 }
 
 -- LSP settings (for overriding per client)

@@ -1,4 +1,3 @@
-print("Loading cmp")
 -- local status, cmp = pcall(require, "cmp")
 -- if not status then
 -- 	return
