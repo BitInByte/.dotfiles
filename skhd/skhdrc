@@ -27,7 +27,8 @@ shift + alt - space : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
 # Toggle fullscreen
 # shift + alt - m : yabai -m window --toggle zoom-fullscreen
-shift + alt - f : yabai -m window --toggle zoom-fullscreen
+# shift + alt - f : yabai -m window --toggle zoom-fullscreen
+alt - f : yabai -m window --toggle zoom-fullscreen
 
 # Balance out tree of windows (resize to ocuupy same area)
 shift + alt - e : yabai -m space --balance
@@ -66,10 +67,10 @@ ctrl + alt - q : brew services stop yabai
 ctrl + alt - s : brew services start yabai
 
 # increase window size
-ctrl + alt - left : yabai -m window --resize left:-20:0 || yabai -m window --resize right:-20:0
-ctrl + alt - right : yabai -m window --resize right:20:0 || yabai -m window --resize left:20:0
-ctrl + alt - down : yabai -m window --resize bottom:0:20 || yabai -m window --resize top:0:20
-ctrl + alt - up : yabai -m window --resize top:0:-20 || yabai -m window --resize bottom:0:-20
+ctrl + alt - left : yabai -m window --resize left:-30:0 || yabai -m window --resize right:-30:0
+ctrl + alt - right : yabai -m window --resize right:30:0 || yabai -m window --resize left:30:0
+ctrl + alt - down : yabai -m window --resize bottom:0:30 || yabai -m window --resize top:0:30
+ctrl + alt - up : yabai -m window --resize top:0:-30 || yabai -m window --resize bottom:0:-30
 
 # decrease window size
 # ctrl + cmd - a : yabai -m window --resize left:20:0
