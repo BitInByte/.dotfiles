@@ -29,6 +29,7 @@ shift + alt - space : yabai -m window --toggle float --grid 4:4:1:1:2:2
 # shift + alt - m : yabai -m window --toggle zoom-fullscreen
 # shift + alt - f : yabai -m window --toggle zoom-fullscreen
 alt - f : yabai -m window --toggle zoom-fullscreen
+shift + alt - f : yabai -m window --toggle native-fullscreen
 
 # Balance out tree of windows (resize to ocuupy same area)
 shift + alt - e : yabai -m space --balance

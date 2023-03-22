@@ -15,6 +15,15 @@
 
 This config only works with Neovim +0.8. It is almost 100% Lua and ViM doesn't support it.
 
+## Window Manager
+This config uses yabai to manage windows in similar way as awesome wm in arch linux. There are some settings that need to be changed though. In order to be able to use it, we need to first, create a couple of workspaces (in my case I have 4 which i think is enough) and then enable the following settings:
+
+keyboard => keyboard shortcuts => Mission Control => mission control => enable all switch to desktop options.
+accessibility => display => reduce motion on
+
+Then, in order to use raycast which is way faster than spotlight, we need to disable spotlight. To do so, we disable the follow settings:
+
+keyboard => keyboard shortcuts => spotlight => disable all options
 ## External Dependencies
 
 ### Neovim
@@ -39,10 +48,10 @@ This config only works with Neovim +0.8. It is almost 100% Lua and ViM doesn't s
 6. LazyDocker
 7. Zathura PDF
 
-### Packer
-
-In order to be able to benefit from the lazyloading, packer need to be synchronized and/or compiled to create the lazy loading file. Trust me, it's a huge difference on startup time, I've discovered in my hard way.
-Also, the config tag on packer config only works if we synchronize or compile the packer.
+<!-- ### Packer -->
+<!---->
+<!-- In order to be able to benefit from the lazyloading, packer need to be synchronized and/or compiled to create the lazy loading file. Trust me, it's a huge difference on startup time, I've discovered in my hard way. -->
+<!-- Also, the config tag on packer config only works if we synchronize or compile the packer. -->
 
 ### Oh My ZSH
 

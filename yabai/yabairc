@@ -4,11 +4,11 @@ yabai -m config layout bsp
 yabai -m config window_placement second_child
 
 # padding
-yabai -m config top_padding 4
-yabai -m config bottom_padding 4
-yabai -m config left_padding 4
-yabai -m config right_padding 4
-yabai -m config window_gap 4
+yabai -m config top_padding 8
+yabai -m config bottom_padding 8
+yabai -m config left_padding 8
+yabai -m config right_padding 8
+yabai -m config window_gap 8
 
 # mouse settings
 yabai -m config mouse_follows_focus on
@@ -25,6 +25,10 @@ yabai -m mouse_drop_action swap
 # Disable specific apps
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Discord$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Music$" manage=off
 # yabai -m rule --add app="^Karabiner-Elements$" manage=off
 
 
