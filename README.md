@@ -20,10 +20,15 @@ This config uses yabai to manage windows in similar way as awesome wm in arch li
 
 keyboard => keyboard shortcuts => Mission Control => mission control => enable all switch to desktop options.
 accessibility => display => reduce motion on
+Desktop & Dock => Mission Control => Automatically arrange spaces based on most recent use => disable
 
 Then, in order to use raycast which is way faster than spotlight, we need to disable spotlight. To do so, we disable the follow settings:
 
 keyboard => keyboard shortcuts => spotlight => disable all options
+
+This config also uses sketchybar. In order for you to use it, you just only need to install sketchybar and automatically hide the native menu bar:
+
+desktop & dock => Menu Bar => Automatically hide and show applications
 ## External Dependencies
 
 ### Neovim
