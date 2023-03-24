@@ -2,11 +2,11 @@
 
 defaults=(
   updates=when_shown
-  icon.font="BlexMono Nerd Font:Bold:14.0"  \
+  icon.font="$FONT:Bold:14.0"  \
   icon.color=$ICON_COLOR
   icon.padding_left=4
   icon.padding_right=4
-  label.font="BlexMono Nerd Font:Bold:16.0" \
+  label.font="$FONT:Bold:16.0" \
   label.color=$LABEL_COLOR
   label.padding_left=4
   label.padding_right=4
