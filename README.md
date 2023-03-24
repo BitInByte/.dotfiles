@@ -31,6 +31,21 @@ This config also uses sketchybar. In order for you to use it, you just only need
 desktop & dock => Menu Bar => Automatically hide and show applications
 ## External Dependencies
 
+### Terminal/Homebrew
+
+1. Tmux | Kitty
+2. IBM Plex Font (Patched nerd font)
+<!-- 2. Cascadia code font (To got the most of this config, use a patched font from nerd fonts) -->
+2. Oh My ZSH
+3. Powerlevel10k (terminal)
+4. Ranger
+5. LazyGit
+6. LazyDocker
+7. Zathura PDF
+8. Sketchybar
+9. Yabai
+10. Raycast
+
 ### Neovim
 
 1. Neovim nightly (+0.8)
@@ -42,16 +57,6 @@ desktop & dock => Menu Bar => Automatically hide and show applications
 5. Patched IBM Plex Mono Font (Nerd Fonts) (Blex Mono)
 6. MacTex
 
-### Terminal/Homebrew
-
-1. Tmux | Kitty
-<!-- 2. Cascadia code font (To got the most of this config, use a patched font from nerd fonts) -->
-2. Oh My ZSH
-3. Powerlevel10k (terminal)
-4. Ranger
-5. LazyGit
-6. LazyDocker
-7. Zathura PDF
 
 <!-- ### Packer -->
 <!---->
