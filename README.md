@@ -20,11 +20,31 @@ This config uses yabai to manage windows in similar way as awesome wm in arch li
 
 keyboard => keyboard shortcuts => Mission Control => mission control => enable all switch to desktop options.
 accessibility => display => reduce motion on
+Desktop & Dock => Mission Control => Automatically arrange spaces based on most recent use => disable
 
 Then, in order to use raycast which is way faster than spotlight, we need to disable spotlight. To do so, we disable the follow settings:
 
 keyboard => keyboard shortcuts => spotlight => disable all options
+
+This config also uses sketchybar. In order for you to use it, you just only need to install sketchybar and automatically hide the native menu bar:
+
+desktop & dock => Menu Bar => Automatically hide and show applications
 ## External Dependencies
+
+### Terminal/Homebrew
+
+1. Tmux | Kitty
+2. IBM Plex Font (Patched nerd font)
+<!-- 2. Cascadia code font (To got the most of this config, use a patched font from nerd fonts) -->
+2. Oh My ZSH
+3. Powerlevel10k (terminal)
+4. Ranger
+5. LazyGit
+6. LazyDocker
+7. Zathura PDF
+8. Sketchybar
+9. Yabai
+10. Raycast
 
 ### Neovim
 
@@ -37,16 +57,6 @@ keyboard => keyboard shortcuts => spotlight => disable all options
 5. Patched IBM Plex Mono Font (Nerd Fonts) (Blex Mono)
 6. MacTex
 
-### Terminal/Homebrew
-
-1. Tmux | Kitty
-<!-- 2. Cascadia code font (To got the most of this config, use a patched font from nerd fonts) -->
-2. Oh My ZSH
-3. Powerlevel10k (terminal)
-4. Ranger
-5. LazyGit
-6. LazyDocker
-7. Zathura PDF
 
 <!-- ### Packer -->
 <!---->
