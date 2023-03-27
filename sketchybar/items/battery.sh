@@ -9,7 +9,7 @@ sketchybar --add item battery right                            \
                         label.padding_right=9 \
                         label.padding_left=6 \
                         label.color=$BLACK \
-                        background.color=0xFFC9DDFF \
+                        background.color=$GREEN \
                         background.height=21 \
                         background.padding_right=2 \
            --subscribe battery system_woke power_source_change

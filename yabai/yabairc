@@ -18,16 +18,16 @@ yabai -m config right_padding 8
 yabai -m config window_gap 8
 
 # mouse settings
-yabai -m config mouse_follows_focus on
+# yabai -m config mouse_follows_focus on
 
-yabai -m config mouse_modifier alt
+# yabai -m config mouse_modifier alt
 
 # left click + drag
-yabai -m config mouse_action1 move
+# yabai -m config mouse_action1 move
 # right click + drag
-yabai -m config mouse_action2 resize
+# yabai -m config mouse_action2 resize
 
-yabai -m mouse_drop_action swap
+# yabai -m mouse_drop_action swap
 
 # Disable specific apps
 yabai -m rule --add app="^System Settings$" manage=off
