@@ -1,3 +1,0 @@
-return {
-	-- { "easymotion/vim-easymotion" },
-}
