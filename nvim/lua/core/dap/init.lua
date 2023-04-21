@@ -8,7 +8,7 @@
 -- 	return
 -- end
 
-local dap = require("dap")
+-- local dap = require("dap")
 local dap_ui = require("dapui")
 -- -- local dap = require("dap")
 
@@ -85,17 +85,36 @@ dap_ui.setup({
 	},
 })
 -- require("mason-nvim-dap").setup_handlers({})
-require("mason-nvim-dap").setup({
-	automatic_installation = true,
-	handlers = {
-		function(config)
-			-- all sources with no handler get passed here
 
-			-- Keep original functionality
-			require("mason-nvim-dap").default_setup(config)
-		end,
-	},
-})
+-- dap.adapters.firefox = {
+-- 	type = "executable",
+-- 	command = "node",
+-- 	-- args = {os.getenv('HOME') .. '/path/to/vscode-firefox-debug/dist/adapter.bundle.js'},
+-- }
+--
+-- dap.configurations.typescript = {
+-- 	{
+-- 		name = "Debug with Firefox",
+-- 		type = "firefox",
+-- 		request = "launch",
+-- 		reAttach = true,
+-- 		url = "http://localhost:3000",
+-- 		webRoot = "${workspaceFolder}",
+-- 		firefoxExecutable = "/usr/bin/firefox",
+-- 	},
+-- }
+
+-- require("mason-nvim-dap").setup({
+-- 	automatic_installation = true,
+-- 	handlers = {
+-- 		function(config)
+-- 			-- all sources with no handler get passed here
+--
+-- 			-- Keep original functionality
+-- 			require("mason-nvim-dap").default_setup(config)
+-- 		end,
+-- 	},
+-- })
 
 vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
 vim.fn.sign_define("DapStopped", { text = "🟡", texthl = "", linehl = "", numhl = "" })

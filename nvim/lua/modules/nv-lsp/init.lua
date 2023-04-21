@@ -17,6 +17,7 @@ return {
 			{ "lervag/vimtex" },
 			{ "akinsho/flutter-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 		},
+		build = ":MasonUpdate", -- :MasonUpdate updates registry contents
 		config = function()
 			require("core.mason") -- lsp management
 			-- Lsp needs to be loaded after mason in order for
@@ -28,7 +29,8 @@ return {
 	},
 
 	{
-		"jay-babu/mason-null-ls.nvim",
+		-- "jay-babu/mason-null-ls.nvim",
+		"jayp0521/mason-null-ls.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -41,8 +43,9 @@ return {
 		end,
 	},
 
-	"mfussenegger/nvim-dap",
-	"rcarriga/nvim-dap-ui",
+	{ "mfussenegger/nvim-dap", dependencies = {
+		"rcarriga/nvim-dap-ui",
+	} },
 
 	-- LSP Sources && Modules
 	{
