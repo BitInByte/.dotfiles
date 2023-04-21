@@ -15,6 +15,29 @@
 
 This config only works with Neovim +0.8. It is almost 100% Lua and ViM doesn't support it.
 
+Previously this config used yank to clipboard out of the box with no need to use registers.
+Now, this feature is removed from the config. Since registers handle this out of the box, just use the + register.
+you can yank like this:
+```
+"+yy
+```
+And paste it like this:
+```
+"+p
+```
+
+You can also access the register from command line: 
+```
+:reg +
+```
+
+And from insert mode: 
+```
+<C-r>+
+```
+
+The author plans to create a youtube video explaining how registers works.
+
 ## Window Manager
 This config uses yabai to manage windows in similar way as awesome wm in arch linux. There are some settings that need to be changed though. In order to be able to use it, we need to first, create a couple of workspaces (in my case I have 4 which i think is enough) and then enable the following settings:
 
