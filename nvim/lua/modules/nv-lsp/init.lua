@@ -2,16 +2,16 @@ return {
 
 	{
 		"neovim/nvim-lspconfig",
-		config = function()
-			require("core.lsp") -- lsp engine
-		end,
+		-- config = function()
+		-- 	-- require("core.lsp") -- lsp engine
+		-- end,
 	},
 
 	{
 		"williamboman/mason.nvim",
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
-			"jayp0521/mason-null-ls.nvim",
+			-- "jayp0521/mason-null-ls.nvim",
 			"jayp0521/mason-nvim-dap.nvim",
 			{ "jose-elias-alvarez/typescript.nvim" },
 			{ "lervag/vimtex" },
@@ -19,10 +19,28 @@ return {
 		},
 		config = function()
 			require("core.mason") -- lsp management
-			require("core.null-ls") -- formaters management
+			-- Lsp needs to be loaded after mason in order for
+			-- automatic_installation to work
+			require("core.lsp") -- lsp engine
+			-- require("core.null-ls") -- formaters management
 			require("core.dap") -- debuggers management
 		end,
 	},
+
+	{
+		"jay-babu/mason-null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"jose-elias-alvarez/null-ls.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			-- require("your.null-ls.config") -- require your null-ls config here (example below)
+			require("core.null-ls") -- formaters management
+		end,
+	},
+
 	"mfussenegger/nvim-dap",
 	"rcarriga/nvim-dap-ui",
 

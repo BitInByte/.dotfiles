@@ -80,6 +80,9 @@ desktop & dock => Menu Bar => Automatically hide and show applications
 5. Patched IBM Plex Mono Font (Nerd Fonts) (Blex Mono)
 6. MacTex
 
+To install a new LSP, you just only need to go to lua => core => lsp => providers and copy the boilerplate file using the name of your lsp you want to use.
+Then, you need to update the lsps table in lsp => init.lua with that file you just created and that's it. Just restart neovim and Mason will install everything for you out of the box. Don't forget to also use the on_attach from args that boilerplate file already forwards.
+
 
 <!-- ### Packer -->
 <!---->

@@ -92,6 +92,7 @@ local lsps_table = {
 	vue_lsp = require(providers_path .. "vue"),
 	eslint_lsp = require(providers_path .. "eslint"),
 	angular_lsp = require(providers_path .. "angular"),
+	clang_lsp = require(providers_path .. "clang"),
 }
 
 -- LSP settings (for overriding per client)

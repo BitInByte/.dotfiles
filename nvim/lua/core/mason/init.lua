@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "tsserver", "jdtls", "angularls", "bashls" },
+	-- ensure_installed = { "lua_ls", "tsserver", "jdtls", "angularls", "bashls" },
 	automatic_installation = true,
 })
 require("mason-nvim-dap").setup({
@@ -10,6 +10,6 @@ require("mason-nvim-dap").setup({
 })
 require("mason-null-ls").setup({
 	-- ensure_installed = { "stylua", "eslint_d", "prettierd", "prettier" },
-	ensure_installed = { "stylua", "prettier" },
+	-- ensure_installed = { "stylua", "prettier" },
 	automatic_installation = true,
 })
