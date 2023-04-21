@@ -60,16 +60,16 @@ vim.api.nvim_set_keymap("n", "<leader>be", ":ls :b<CR>", { silent = true })
 -- vim.api.nvim_set_keymap("n", "<C-p>", ":tabprevious<CR>", { silent = true })
 
 -- Yank to clipboard
-vim.api.nvim_set_keymap("v", "<leader>y", "+y", { silent = true })
-vim.api.nvim_set_keymap("n", "<leader>y", "+yg_", { silent = true })
-vim.api.nvim_set_keymap("n", "<leader>y", "+y", { silent = true })
-vim.api.nvim_set_keymap("n", "<leader>yy", "+yy", { silent = true })
+-- vim.api.nvim_set_keymap("v", "<leader>y", "+y", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>y", "+yg_", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>y", "+y", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>yy", "+yy", { silent = true })
 
 -- Paste from clipboad
-vim.api.nvim_set_keymap("n", "<leader>p", "+p", { silent = true })
-vim.api.nvim_set_keymap("n", "<leader>P", "+P", { silent = true })
-vim.api.nvim_set_keymap("v", "<leader>p", "+p", { silent = true })
-vim.api.nvim_set_keymap("v", "<leader>P", "+P", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>p", "+p", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>P", "+P", { silent = true })
+-- vim.api.nvim_set_keymap("v", "<leader>p", "+p", { silent = true })
+-- vim.api.nvim_set_keymap("v", "<leader>P", "+P", { silent = true })
 
 -- disable ex mode
 vim.api.nvim_set_keymap("", "Q", "<Nop>", { silent = true })

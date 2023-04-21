@@ -31,8 +31,10 @@ return {
 					vim.api.nvim_win_set_config(win, { focusable = false })
 				end,
 			})
-
-			vim.opt.termguicolors = true
 		end,
+		-- init = function()
+		-- 	vim.opt.termguicolors = true
+		-- 	vim.opt.laststatus = 3 -- Status bar always on bottom (shared)
+		-- end,
 	},
 }

@@ -134,7 +134,7 @@ dap_ui.setup({
 		max_value_lines = 100, -- Can be integer or nil.
 	},
 })
-require("mason-nvim-dap").setup_handlers({})
+-- require("mason-nvim-dap").setup_handlers({})
 
 -- require("mason-nvim-dap").setup_handlers({
 -- 	function(source_name)
