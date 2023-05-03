@@ -9,8 +9,8 @@ return {
 		"echasnovski/mini.map",
 		version = false,
 		config = function()
-            local minimap = require("mini.map")
-local autocmd = vim.api.nvim_create_autocmd
+			local minimap = require("mini.map")
+			local autocmd = vim.api.nvim_create_autocmd
 			minimap.setup(
 				-- No need to copy this inside `setup()`. Will be used automatically.
 				{

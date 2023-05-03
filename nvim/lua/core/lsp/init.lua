@@ -10,18 +10,6 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 -- end
 local navic = require("nvim-navic")
 
--- if you want to set up formatting on save, you can use this as a callback
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local lsp_formatting = function(bufnr)
-	vim.lsp.buf.format({
-		filter = function(client)
-			-- apply whatever logic you want (in this example, we'll only use null-ls)
-			return client.name == "null-ls"
-		end,
-		bufnr = bufnr,
-	})
-end
-
 local keymap = vim.keymap
 
 -- Mappings.
@@ -31,6 +19,13 @@ keymap.set("n", "<space>e", vim.diagnostic.open_float, mappingOpts)
 keymap.set("n", "[d", vim.diagnostic.goto_prev, mappingOpts)
 keymap.set("n", "]d", vim.diagnostic.goto_next, mappingOpts)
 keymap.set("n", "<space>q", vim.diagnostic.setloclist, mappingOpts)
+
+-- vim.api.nvim_create_autocmd("LspAttach", {
+-- 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+-- 	callback = function(ev, client)
+-- 		print(client)
+-- 	end,
+-- })
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -61,17 +56,7 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<space>bf", function()
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
-	--[[ keymap.set("n", "<space>lA", vim.lsp.buf.format, bufopts) ]]
-	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
-			buffer = bufnr,
-			callback = function()
-				lsp_formatting(bufnr)
-			end,
-		})
-	end
+	-- keymap.set("n", "<space>lA", vim.lsp.buf.format, bufopts)
 end
 
 local lsp_flags = {
@@ -92,6 +77,7 @@ local lsps_table = {
 	vue_lsp = require(providers_path .. "vue"),
 	eslint_lsp = require(providers_path .. "eslint"),
 	angular_lsp = require(providers_path .. "angular"),
+	clang_lsp = require(providers_path .. "clang"),
 }
 
 -- LSP settings (for overriding per client)

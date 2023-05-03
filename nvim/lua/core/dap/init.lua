@@ -8,59 +8,9 @@
 -- 	return
 -- end
 
-local dap = require("dap")
+-- local dap = require("dap")
 local dap_ui = require("dapui")
 -- -- local dap = require("dap")
--- dap.adapters.firefox = {
--- 	type = "executable",
--- 	command = "node",
--- 	args = { os.getenv("HOME") .. "/.config/nvim/debuggers/vscode-firefox-debug/dist/adapter.bundle.js" },
--- }
---
--- dap.configurations.javascriptreact = {
--- 	{
--- 		name = "Debug with Firefox",
--- 		type = "firefox",
--- 		request = "launch",
--- 		reAttach = true,
--- 		url = "http://localhost:3000",
--- 		webRoot = "${workspaceFolder}",
--- 		firefoxExecutable = "/Applications/Firefox.app/Contents/MacOS/firefox-bin",
--- 	},
--- }
--- dap.configurations.javascript = {
--- 	{
--- 		name = "Debug with Firefox",
--- 		type = "firefox",
--- 		request = "launch",
--- 		reAttach = true,
--- 		url = "http://localhost:3000",
--- 		webRoot = "${workspaceFolder}",
--- 		firefoxExecutable = "/Applications/Firefox.app/Contents/MacOS/firefox-bin",
--- 	},
--- }
--- dap.configurations.typescript = {
--- 	{
--- 		name = "Debug with Firefox",
--- 		type = "firefox",
--- 		request = "launch",
--- 		reAttach = true,
--- 		url = "http://localhost:3000",
--- 		webRoot = "${workspaceFolder}",
--- 		firefoxExecutable = "/Applications/Firefox.app/Contents/MacOS/firefox-bin",
--- 	},
--- }
--- dap.configurations.typescriptreact = {
--- 	{
--- 		name = "Debug with Firefox",
--- 		type = "firefox",
--- 		request = "launch",
--- 		reAttach = true,
--- 		url = "http://localhost:3000",
--- 		webRoot = "${workspaceFolder}",
--- 		firefoxExecutable = "/Applications/Firefox.app/Contents/MacOS/firefox-bin",
--- 	},
--- }
 
 dap_ui.setup({
 	icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
@@ -136,87 +86,34 @@ dap_ui.setup({
 })
 -- require("mason-nvim-dap").setup_handlers({})
 
--- require("mason-nvim-dap").setup_handlers({
--- 	function(source_name)
--- 		-- all sources with no handler get passed here
+-- dap.adapters.firefox = {
+-- 	type = "executable",
+-- 	command = "node",
+-- 	-- args = {os.getenv('HOME') .. '/path/to/vscode-firefox-debug/dist/adapter.bundle.js'},
+-- }
 --
--- 		-- Keep original functionality of `automatic_setup = true`
--- 		require("mason-nvim-dap.automatic_setup")(source_name)
--- 	end,
--- 	firefox = function(source_name)
--- 		dap.adapters.firefox = {
--- 			type = "executable",
--- 			command = "node",
--- 			-- args = { os.getenv("HOME") .. "/.config/nvim/debuggers/vscode-firefox-debug/dist/adapter.bundle.js" },
--- 			args = {
--- 				os.getenv("HOME") .. "~/.local/share/nvim/mason/packages/firefox-debug-adapter/dist/adapter.bundle.js",
--- 			},
--- 		}
+-- dap.configurations.typescript = {
+-- 	{
+-- 		name = "Debug with Firefox",
+-- 		type = "firefox",
+-- 		request = "launch",
+-- 		reAttach = true,
+-- 		url = "http://localhost:3000",
+-- 		webRoot = "${workspaceFolder}",
+-- 		firefoxExecutable = "/usr/bin/firefox",
+-- 	},
+-- }
+
+-- require("mason-nvim-dap").setup({
+-- 	automatic_installation = true,
+-- 	handlers = {
+-- 		function(config)
+-- 			-- all sources with no handler get passed here
 --
--- 		dap.configurations.javascriptreact = {
--- 			{
--- 				name = "Debug with Firefox",
--- 				type = "firefox",
--- 				request = "launch",
--- 				reAttach = true,
--- 				url = "http://localhost:3000",
--- 				webRoot = "${workspaceFolder}",
--- 				firefoxExecutable = "/Applications/Firefox.app/Contents/MacOS/firefox-bin",
--- 			},
--- 		}
--- 		dap.configurations.javascript = {
--- 			{
--- 				name = "Debug with Firefox",
--- 				type = "firefox",
--- 				request = "launch",
--- 				reAttach = true,
--- 				url = "http://localhost:3000",
--- 				webRoot = "${workspaceFolder}",
--- 				firefoxExecutable = "/Applications/Firefox.app/Contents/MacOS/firefox-bin",
--- 			},
--- 		}
--- 		dap.configurations.typescript = {
--- 			{
--- 				name = "Debug with Firefox",
--- 				type = "firefox",
--- 				request = "launch",
--- 				reAttach = true,
--- 				url = "http://localhost:3000",
--- 				webRoot = "${workspaceFolder}",
--- 				firefoxExecutable = "/Applications/Firefox.app/Contents/MacOS/firefox-bin",
--- 			},
--- 		}
--- 		dap.configurations.typescriptreact = {
--- 			{
--- 				name = "Debug with Firefox",
--- 				type = "firefox",
--- 				request = "launch",
--- 				reAttach = true,
--- 				url = "http://localhost:3000",
--- 				webRoot = "${workspaceFolder}",
--- 				firefoxExecutable = "/Applications/Firefox.app/Contents/MacOS/firefox-bin",
--- 			},
--- 		}
--- 	end,
--- 	-- python = function(source_name)
--- 	--     dap.adapters.python = {
--- 	--      type = "executable",
--- 	--      command = "/usr/bin/python3",
--- 	--      args = {
--- 	--       "-m",
--- 	--       "debugpy.adapter",
--- 	--      },
--- 	--     }
--- 	--
--- 	--     dap.configurations.python = {
--- 	--      {
--- 	--       type = "python",
--- 	--       request = "launch",
--- 	--       name = "Launch file",
--- 	--       program = "${file}", -- This configuration will launch the current file if used.
--- 	--      },
--- 	--     }
--- 	-- end,
+-- 			-- Keep original functionality
+-- 			require("mason-nvim-dap").default_setup(config)
+-- 		end,
+-- 	},
 -- })
 
 vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })

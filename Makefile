@@ -6,6 +6,7 @@ backup:
 	@cp -rf $(HOME)/.config/yabai . || :
 	@cp -rf $(HOME)/.config/skhd . || :
 	@cp -rf $(HOME)/.config/sketchybar . || :
+	@cp -rf $(HOME)/.config/tmuxinator . || :
 	@rm -rf ./nvim/undodir || :
 	@rm -rf ./nvim/.luarc.json || :
 	@rm ./nvim/plugin/packer_compiled.lua || :

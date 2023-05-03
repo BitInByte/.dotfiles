@@ -38,6 +38,9 @@ yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Music$" manage=off
 yabai -m rule --add app="^OpenVPN Connect$" manage=off
 yabai -m rule --add app="^Terminal$" manage=off
+yabai -m rule --add app="^Mail$" manage=off
+yabai -m rule --add app="^Calendar$" manage=off
+yabai -m rule --add app="^Notes$" manage=off
 # yabai -m rule --add app="^Karabiner-Elements$" manage=off
 
 
