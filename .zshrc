@@ -10,6 +10,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR='nvim'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -122,10 +123,12 @@ alias ls='exa --icons'
 alias cloudssh='kitty +kitten ssh adminuser@13.69.176.183'
 alias nv='nvim'
 alias nvconf='nvim ~/.config/nvim'
+alias srv1='ssh dockeraccess@192.168.178.100'
 alias srv3='ssh dockeraccess@192.168.178.102'
 alias debug='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222'
 alias tmuxa='tmux a -t'
 alias tmuxn='tmux new -s'
+alias mux=tmuxinator
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -152,3 +155,7 @@ unset __conda_setup
 
 export PATH="$PATH:$HOME/development/flutter/bin"
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

@@ -2,6 +2,11 @@ return {
 
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			{ "jose-elias-alvarez/typescript.nvim" },
+			{ "lervag/vimtex" },
+			{ "akinsho/flutter-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+		},
 		-- config = function()
 		-- 	-- require("core.lsp") -- lsp engine
 		-- end,
@@ -13,9 +18,6 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			-- "jayp0521/mason-null-ls.nvim",
 			"jayp0521/mason-nvim-dap.nvim",
-			{ "jose-elias-alvarez/typescript.nvim" },
-			{ "lervag/vimtex" },
-			{ "akinsho/flutter-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 		},
 		build = ":MasonUpdate", -- :MasonUpdate updates registry contents
 		config = function()
@@ -35,6 +37,7 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 			"jose-elias-alvarez/null-ls.nvim",
+			-- "jose-elias-alvarez/null-ls.nvim",
 			"nvim-lua/plenary.nvim",
 		},
 		config = function()
