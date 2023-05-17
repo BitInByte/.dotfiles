@@ -2,7 +2,7 @@
 
 sketchybar --add item clock right                              \
            --set clock   update_freq=10                        \
-                         icon=                                \
+                         icon=                               \
                          icon.padding_left=8 \
                         icon.color=$BAR_COLOR \
                         icon.padding_right=0 \

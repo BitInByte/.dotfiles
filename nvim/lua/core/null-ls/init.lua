@@ -37,6 +37,8 @@ null_ls.setup({
         -- 	end,
         -- }),
         formatting.prettierd,
+        formatting.phpcsfixer,
+        formatting.blade_formatter,
         -- formatting.prettier,
         -- require("typescript.extensions.null-ls.code-actions"),
     },

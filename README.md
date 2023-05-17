@@ -18,20 +18,25 @@ This config only works with Neovim +0.8. It is almost 100% Lua and ViM doesn't s
 Previously this config used yank to clipboard out of the box with no need to use registers.
 Now, this feature is removed from the config. Since registers handle this out of the box, just use the + register.
 you can yank like this:
+
 ```
 "+yy
 ```
+
 And paste it like this:
+
 ```
 "+p
 ```
 
-You can also access the register from command line: 
+You can also access the register from command line:
+
 ```
 :reg +
 ```
 
-And from insert mode: 
+And from insert mode:
+
 ```
 <C-r>+
 ```
@@ -39,6 +44,7 @@ And from insert mode:
 The author plans to create a youtube video explaining how registers works.
 
 ## Window Manager
+
 This config uses yabai to manage windows in similar way as awesome wm in arch linux. There are some settings that need to be changed though. In order to be able to use it, we need to first, create a couple of workspaces (in my case I have 4 which i think is enough) and then enable the following settings:
 
 keyboard => keyboard shortcuts => Mission Control => mission control => enable all switch to desktop options.
@@ -52,6 +58,7 @@ keyboard => keyboard shortcuts => spotlight => disable all options
 This config also uses sketchybar. In order for you to use it, you just only need to install sketchybar and automatically hide the native menu bar:
 
 desktop & dock => Menu Bar => Automatically hide and show applications
+
 ## External Dependencies
 
 ### Terminal/Homebrew
@@ -59,15 +66,16 @@ desktop & dock => Menu Bar => Automatically hide and show applications
 1. Tmux | Kitty
 2. IBM Plex Font (Patched nerd font)
 <!-- 2. Cascadia code font (To got the most of this config, use a patched font from nerd fonts) -->
-2. Oh My ZSH
-3. Powerlevel10k (terminal)
-4. Ranger
-5. LazyGit
-6. LazyDocker
-7. Zathura PDF
-8. Sketchybar
-9. Yabai
-10. Raycast
+3. Oh My ZSH
+4. Powerlevel10k (terminal)
+5. Ranger
+6. LazyGit
+7. LazyDocker
+8. Zathura PDF
+9. Sketchybar
+10. Yabai
+11. Raycast
+12. MacTex (For latex - install from official webpage)
 
 ### Neovim
 
@@ -82,7 +90,6 @@ desktop & dock => Menu Bar => Automatically hide and show applications
 
 To install a new LSP, you just only need to go to lua => core => lsp => providers and copy the boilerplate file using the name of your lsp you want to use.
 Then, you need to update the lsps table in lsp => init.lua with that file you just created and that's it. Just restart neovim and Mason will install everything for you out of the box. Don't forget to also use the on_attach from args that boilerplate file already forwards.
-
 
 <!-- ### Packer -->
 <!---->
@@ -171,81 +178,4 @@ pip install pillow ranger-fm
 
 ## Anaconda
 
-In order to use conda command, we need to perform the following command, after anaconda installation:
-
-```zsh
-~/opt/anaconda3/bin/conda init zsh
-```
-
-<!-- ## Web Development -->
-<!---->
-<!-- We need to install some stuff regarding web development. emmet-ls, tserver and intelephense from npm. -->
-
-## NV-DAP
-
-It needs to get installed the javascript debugger and it uses the firefox. Refer to the dap documentation.
-Found out that chrome works better that firefox to debug.
-
-<!-- ### Treesiter Commands -->
-<!---->
-<!-- For treesitter, only for neovim, you can install language interpreter by :TSInstall <language> -->
-
-## Treesitter
-
-Tressitter will also detect a new filetype and download the parser by itself.
-
-### Zathura PDF
-
-To install zathura, we need to install poppler.
-
-Then, we can install zathura like this:
-
-```zsh
-brew install zathura --with-synctex
-brew install zathura-pdf-poppler
-```
-
-We also need to follow some steps that are in the zathura brew github page.
-
-## Docker
-
-Ubuntu needs to be composed with the following command:
-
-```zsh
-docker compose up -d
-```
-
-And then to run:
-
-```zsh
-ssh -p 2022 root@localhost
-```
-
-## Brewfile
-
-To backup installed packages:
-
-```zsh
-brew bundle dump
-```
-
-To install from brew file:
-
-```zsh
-brew bundle
-```
-
-<!-- To install zathura, we need to install the meson: -->
-<!-- ```Python -->
-<!-- pip3 install meson -->
-<!-- ``` -->
-<!---->
-<!-- We also need to install popler, we can install it from the homebrew. -->
-<!---->
-<!-- Then, we need to install girara, zathura and zathura-pdf-popler. We only need to follow the steps on the website. -->
-<!---->
-<!-- Then, we need to download Zathura and build it with meson and ninja. -->
-
-## Fonts
-
-To install a patched font, download all of the fonts you want to use (at least regular, italic and bold) and on the folder where you downloaded them, select all of them, right click of the mouse on the selection and then open. This will ensure that all of the fonts are grouped installed and linked
+In order to use conda command, we need to perform the following command, after a
