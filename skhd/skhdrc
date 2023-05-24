@@ -6,14 +6,25 @@ alt - k : yabai -m window --focus north
 alt - h : yabai -m window --focus west
 alt - l : yabai -m window --focus east
 
-alt - tab : yabai -m window --focus next || yabai -m window --focus prev
+# Wrong behaviour because it reaches the end and 
+# toggles between last and before last
+# alt - tab : yabai -m window --focus next || yabai -m window --focus prev
+#
+# Correct behaviour
+# Reaches the end and start on first again
+alt - tab : yabai -m window --focus next || yabai -m window --focus first
+shift + alt - tab : yabai -m window --focus prev || yabai -m window --focus last
+# alt - tab : yabai -m window --focus next
+# shift + alt - tab : yabai -m window --focus prev
+#
+# Test
 # alt - tab : yabai -m window --focus "$(yabai -m query --windows | jq -re "sort_by(.display, .space, .frame.x, .frame.y, .id) | map(select(.\"is-visible\" == true and .role != \"AXUnknown\")) | reverse | nth(index(map(select(.\"has-focus\" == true))) - 1).id")"
 # alt - tab : yabai -m window --focus "$(yabai -m query --windows --space | jq -re "[sort_by(.id, .frame) | reverse | .[] | select(.role == \"AXWindow\" and .subrole == \"AXStandardWindow\") | .id] | nth(index($(yabai -m query --windows --window | jq -re ".id")) - 1)")"
 # alt + shift - tab : yabai -m window --focus prev || yabai -m window --focus next
 
 # change focus between external displays (left and right)
-alt - H : yabai -m display --focus west
-alt - L : yabai -m display --focus east
+shift + ctrl + alt - h : yabai -m display --focus west
+shift + ctrl + alt - l : yabai -m display --focus east
 
 # Modifying the Layout
 shift + alt - r : yabai -m space --rotate 270

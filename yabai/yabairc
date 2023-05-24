@@ -41,6 +41,12 @@ yabai -m rule --add app="^Terminal$" manage=off
 yabai -m rule --add app="^Mail$" manage=off
 yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
+yabai -m rule --add app="^Font Book$" manage=off
+yabai -m rule --add app="^Maps$" manage=off
+yabai -m rule --add app="^Docker Desktop$" manage=off
+yabai -m rule --add app="^Installer$" manage=off
+yabai -m rule --add app="^Books$" manage=off
 # yabai -m rule --add app="^Karabiner-Elements$" manage=off
 
 

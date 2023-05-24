@@ -128,7 +128,8 @@ alias srv3='ssh dockeraccess@192.168.178.102'
 alias debug='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222'
 alias tmuxa='tmux a -t'
 alias tmuxn='tmux new -s'
-alias mux=tmuxinator
+alias mux='tmuxinator'
+alias cat='bat'
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -159,3 +160,6 @@ export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
