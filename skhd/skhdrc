@@ -13,6 +13,7 @@ alt - l : yabai -m window --focus east
 # Correct behaviour
 # Reaches the end and start on first again
 alt - tab : yabai -m window --focus next || yabai -m window --focus first
+shift + alt - tab : yabai -m window --focus prev || yabai -m window --focus last
 # alt - tab : yabai -m window --focus next
 # shift + alt - tab : yabai -m window --focus prev
 #
