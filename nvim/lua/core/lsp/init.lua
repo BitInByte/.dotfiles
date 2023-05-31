@@ -19,6 +19,7 @@ keymap.set("n", "<space>e", vim.diagnostic.open_float, mappingOpts)
 keymap.set("n", "[d", vim.diagnostic.goto_prev, mappingOpts)
 keymap.set("n", "]d", vim.diagnostic.goto_next, mappingOpts)
 keymap.set("n", "<space>q", vim.diagnostic.setloclist, mappingOpts)
+-- keymap.set("n", "<space>q", '<cmd', mappingOpts)
 
 -- vim.api.nvim_create_autocmd("LspAttach", {
 -- 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -54,7 +55,13 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 	keymap.set("n", "<space>bf", function()
-		vim.lsp.buf.format({ async = true })
+		-- vim.lsp.buf.format({ async = false })
+		vim.lsp.buf.format({
+			async = false,
+			filter = function(cli)
+				return cli.name == "null-ls"
+			end,
+		})
 	end, bufopts)
 	-- keymap.set("n", "<space>lA", vim.lsp.buf.format, bufopts)
 end
@@ -78,6 +85,8 @@ local lsps_table = {
 	eslint_lsp = require(providers_path .. "eslint"),
 	angular_lsp = require(providers_path .. "angular"),
 	clang_lsp = require(providers_path .. "clang"),
+	php_lsp = require(providers_path .. "php"),
+	tailwind = require(providers_path .. "tailwind"),
 }
 
 -- LSP settings (for overriding per client)
