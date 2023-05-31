@@ -36,10 +36,10 @@ null_ls.setup({
         -- 		-- )
         -- 	end,
         -- }),
-        formatting.prettierd,
+        -- formatting.prettierd,
         formatting.phpcsfixer,
         formatting.blade_formatter,
-        -- formatting.prettier,
+        formatting.prettier,
         -- require("typescript.extensions.null-ls.code-actions"),
     },
     -- you can reuse a shared lspconfig on_attach callback here
@@ -53,7 +53,9 @@ null_ls.setup({
                     -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
                     -- vim.lsp.buf.formatting_sync()
                     vim.lsp.buf.format({ bufnr = bufnr })
+                    print("File formated with prettier")
                 end,
+                desc = "[lsp] format on save",
             })
         end
     end,
