@@ -1,17 +1,4 @@
 return {
-
-    {
-        "neovim/nvim-lspconfig",
-        dependencies = {
-            { "jose-elias-alvarez/typescript.nvim" },
-            { "lervag/vimtex" },
-            { "akinsho/flutter-tools.nvim",        dependencies = { "nvim-lua/plenary.nvim" } },
-        },
-        -- config = function()
-        -- 	-- require("core.lsp") -- lsp engine
-        -- end,
-    },
-
     {
         "williamboman/mason.nvim",
         dependencies = {
@@ -28,9 +15,22 @@ return {
             -- Lsp needs to be loaded after mason in order for
             -- automatic_installation to work
             require("core.lsp") -- lsp engine
+            require("core.cmp") -- completion
             require("core.dap") -- debuggers management
             require("core.null-ls") -- formaters management
         end,
+    },
+
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            { "jose-elias-alvarez/typescript.nvim" },
+            { "lervag/vimtex" },
+            { "akinsho/flutter-tools.nvim",        dependencies = { "nvim-lua/plenary.nvim" } },
+        },
+        -- config = function()
+        -- 	-- require("core.lsp") -- lsp engine
+        -- end,
     },
 
     {
@@ -59,9 +59,9 @@ return {
     -- LSP Sources && Modules
     {
         "hrsh7th/nvim-cmp",
-        config = function()
-            require("core.cmp") -- completion
-        end,
+        -- config = function()
+        --     require("core.cmp") -- completion
+        -- end,
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
