@@ -21,6 +21,9 @@ return {
         },
         build = ":MasonUpdate", -- :MasonUpdate updates registry contents
         config = function()
+            -- Everything related to LSP need to have the following order
+            -- Mason should be first and then lsp and lastly all of the others
+            -- If we change this order, can lead to not expected behaviour
             require("core.mason") -- lsp management
             -- Lsp needs to be loaded after mason in order for
             -- automatic_installation to work
