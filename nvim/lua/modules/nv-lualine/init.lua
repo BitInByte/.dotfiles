@@ -58,6 +58,7 @@ return {
 					lualine_b = {
 						"filename",
 						{ "branch", icon = "" },
+						-- "diff",
 						{ "diagnostics", sources = { "nvim_diagnostic" } },
 					},
 					lualine_c = {},
@@ -67,7 +68,7 @@ return {
 					-- lualine_y = { { lspClients, icon = "ﴞ" }, "fileformat", "filetype", "progress" },
 					lualine_x = {},
 					-- lualine_y = { { lspClients, icon = "喇" }, "tabs", "filetype", "progress" },
-					lualine_y = { { lspClients, icon = "喇" }, "filetype", "progress" },
+					lualine_y = { { lspClients, icon = "" }, "filetype", "progress", "searchcount" },
 					lualine_z = {
 						{ "location", separator = { right = "" }, left_padding = 2 },
 					},
@@ -99,5 +100,9 @@ return {
 
 			vim.opt.laststatus = 3 -- Status bar always on bottom (shared)
 		end,
+		-- init = function()
+		-- 	vim.opt.laststatus = 3 -- Status bar always on bottom (shared)
+		-- 	vim.opt.termguicolors = true
+		-- end,
 	},
 }
