@@ -1,10 +1,11 @@
--- local status, minimap = pcall(require, "mini.map")
--- if not status then
--- 	return
--- end
-
 return {
-
+	{
+		"echasnovski/mini.indentscope",
+		version = false,
+		config = function()
+			require("mini.indentscope").setup()
+		end,
+	},
 	{
 		"echasnovski/mini.map",
 		version = false,
@@ -55,6 +56,13 @@ return {
 					end)
 				end,
 			})
+		end,
+	},
+	{
+		"echasnovski/mini.cursorword",
+		version = "*",
+		config = function()
+			require("mini.cursorword").setup()
 		end,
 	},
 }
