@@ -1,5 +1,5 @@
 return {
-	{ "bluz71/vim-nightfly-colors" },
-	{ "catppuccin/nvim", name = "catppuccin" },
-	{ "Mofiqul/dracula.nvim" },
+	{ "bluz71/vim-nightfly-colors", lazy = true },
+	{ "catppuccin/nvim", name = "catppuccin", lazy = true },
+	{ "Mofiqul/dracula.nvim", lazy = true },
 }
