@@ -8,6 +8,9 @@
 vim.api.nvim_set_keymap("n", "<leader>.", ":e ~/.config/nvim/init.lua<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>,", ":so ~/.config/nvim/init.lua<CR>", { silent = true })
 
+-- Clean it
+-- vim.api.nvim_set_keymap("n", "<C-l>", ":<C-u>nohlsearch<CR><C-l>", { silent = true })
+
 -- Splitting Remaps
 -- vim.api.nvim_set_keymap("n", "<leader>tt", ":sp<CR>", { silent = true })
 -- vim.api.nvim_set_keymap("n", "<leader>tT", ":vsp<CR>", { silent = true })
@@ -35,6 +38,7 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>fc", builtin.command_history, {})
 vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
 vim.keymap.set("n", "<leader>fm", builtin.marks, {})
+vim.keymap.set("n", '<leader>f"', builtin.registers, {})
 
 -- Debugger
 vim.api.nvim_set_keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { silent = true })
@@ -83,10 +87,11 @@ vim.api.nvim_set_keymap("n", "<leader>g", ":Neogit<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>sn", ":set norelativenumber!<CR>", { silent = true })
 
 -- Tree maps
-vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", { silent = true })
-vim.keymap.set("n", "<leader>mn", require("nvim-tree.api").marks.navigate.next)
-vim.keymap.set("n", "<leader>mp", require("nvim-tree.api").marks.navigate.prev)
-vim.keymap.set("n", "<leader>ms", require("nvim-tree.api").marks.navigate.select)
+vim.api.nvim_set_keymap("n", "<C-t>", ":Neotree float<CR>", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>mn", require("nvim-tree.api").marks.navigate.next)
+-- vim.keymap.set("n", "<leader>mp", require("nvim-tree.api").marks.navigate.prev)
+-- vim.keymap.set("n", "<leader>ms", require("nvim-tree.api").marks.navigate.select)
 
 -- Terminal
 vim.api.nvim_set_keymap("n", "<leader>tv", ":ToggleTerm<CR>", { silent = true })
