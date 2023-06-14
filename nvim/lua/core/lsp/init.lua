@@ -1,14 +1,11 @@
--- local status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
--- if not status then
--- 	return
--- end
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
--- local status_navic, navic = pcall(require, "nvim-navic")
--- if not status_navic then
--- 	return
--- end
 local navic = require("nvim-navic")
+
+local status, builtin = pcall(require, "telescope.builtin")
+if not status then
+	return
+end
 
 local keymap = vim.keymap
 
@@ -19,14 +16,6 @@ keymap.set("n", "<space>e", vim.diagnostic.open_float, mappingOpts)
 keymap.set("n", "[d", vim.diagnostic.goto_prev, mappingOpts)
 keymap.set("n", "]d", vim.diagnostic.goto_next, mappingOpts)
 keymap.set("n", "<space>q", vim.diagnostic.setloclist, mappingOpts)
--- keymap.set("n", "<space>q", '<cmd', mappingOpts)
-
--- vim.api.nvim_create_autocmd("LspAttach", {
--- 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
--- 	callback = function(ev, client)
--- 		print(client)
--- 	end,
--- })
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -41,7 +30,8 @@ local on_attach = function(client, bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+	-- keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+	keymap.set("n", "gd", builtin.lsp_definitions, bufopts)
 	keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 	keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 	keymap.set("n", "<C-s>", vim.lsp.buf.signature_help, bufopts)
@@ -53,7 +43,8 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 	keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 	keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
-	keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+	-- keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+	keymap.set("n", "gr", builtin.lsp_references, bufopts)
 	keymap.set("n", "<space>bf", function()
 		-- vim.lsp.buf.format({ async = false })
 		vim.lsp.buf.format({
@@ -64,6 +55,13 @@ local on_attach = function(client, bufnr)
 		})
 	end, bufopts)
 	-- keymap.set("n", "<space>lA", vim.lsp.buf.format, bufopts)
+	vim.cmd([[
+            augroup lsp_document_highlight
+                autocmd! * <buffer>
+                autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+                autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+            augroup END
+        ]])
 end
 
 local lsp_flags = {
@@ -89,13 +87,6 @@ local lsps_table = {
 	tailwind = require(providers_path .. "tailwind"),
 }
 
--- LSP settings (for overriding per client)
--- local test = "test"
--- local handlers = {
--- 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
--- 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
--- }
-
 for key, _ in next, lsps_table, nil do
 	lsps_table[key].load({
 		capabilities = capabilities,
@@ -106,15 +97,7 @@ for key, _ in next, lsps_table, nil do
 end
 
 vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=NONE]])
--- vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
 
--- To instead override globally
--- local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
--- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
--- 	opts = opts or {}
--- 	opts.border = opts.border or "rounded"
--- 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
--- end
 local test = "test"
 vim.diagnostic.config({
 	underline = true,
@@ -130,29 +113,3 @@ vim.diagnostic.config({
 		-- prefix = "",
 	},
 })
-
--- local border = {
--- 	{ "╭", "FloatBorder" },
--- 	{ "─", "FloatBorder" },
--- 	{ "╮", "FloatBorder" },
--- 	{ "│", "FloatBorder" },
--- 	{ "╯", "FloatBorder" },
--- 	{ "─", "FloatBorder" },
--- 	{ "╰", "FloatBorder" },
--- 	{ "│", "FloatBorder" },
--- }
-
--- LSP settings (for overriding per client)
--- local handlers = {
--- 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
--- 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
--- }
---
--- To instead override globally
--- local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
--- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
--- 	opts = opts or {}
--- 	opts.border = opts.border or border
--- 	-- opts.border = "rounded"
--- 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
--- end
