@@ -58,8 +58,11 @@ local on_attach = function(client, bufnr)
 	vim.cmd([[
             augroup lsp_document_highlight
                 autocmd! * <buffer>
-                autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-                autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+                " autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+                " autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+                  autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
+                  autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+                  autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
             augroup END
         ]])
 end
@@ -84,7 +87,8 @@ local lsps_table = {
 	angular_lsp = require(providers_path .. "angular"),
 	clang_lsp = require(providers_path .. "clang"),
 	php_lsp = require(providers_path .. "php"),
-	tailwind = require(providers_path .. "tailwind"),
+	tailwind_lsp = require(providers_path .. "tailwind"),
+	emmet_lsp = require(providers_path .. "emmet"),
 }
 
 for key, _ in next, lsps_table, nil do
