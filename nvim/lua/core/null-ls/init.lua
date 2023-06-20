@@ -50,7 +50,7 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					vim.notify("Formating with null ls")
+					-- vim.notify("Formating with null ls")
 					-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
 					-- vim.lsp.buf.formatting_sync()
 					-- vim.lsp.buf.format({ bufnr = bufnr })
@@ -62,7 +62,7 @@ null_ls.setup({
 					})
 					-- print("File formated with prettier")
 				end,
-				desc = "[lsp] format on save",
+				-- desc = "[lsp] format on save",
 			})
 		end
 	end,
