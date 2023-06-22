@@ -40,6 +40,7 @@ null_ls.setup({
 		formatting.phpcsfixer,
 		formatting.blade_formatter,
 		formatting.prettier,
+		formatting.gofumpt,
 		-- require("typescript.extensions.null-ls.code-actions"),
 	},
 	-- you can reuse a shared lspconfig on_attach callback here
