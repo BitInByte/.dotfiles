@@ -117,7 +117,7 @@ local lsps_table = {
 for key, _ in next, lsps_table, nil do
 	lsps_table[key].load({
 		capabilities = capabilities,
-		on_attach = on_attach,
+		-- on_attach = on_attach,
 		flags = lsp_flags,
 		-- handlers = handlers,
 	})
