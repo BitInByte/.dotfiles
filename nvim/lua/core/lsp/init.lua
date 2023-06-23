@@ -7,6 +7,11 @@ if not status then
 	return
 end
 
+local utils_status, utils = pcall(require, "core.lsp.utils.format_util")
+if not utils_status then
+	return
+end
+
 local keymap = vim.keymap
 
 -- Mappings.
@@ -24,9 +29,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		local bufnr = ev.buf
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+
 		if client.server_capabilities.documentSymbolProvider then
 			navic.attach(client, bufnr)
 		end
+
 		-- Enable completion triggered by <c-x><c-o>
 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
@@ -53,9 +61,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			-- vim.lsp.buf.format({ async = false })
 			vim.lsp.buf.format({
 				async = false,
-				filter = function(cli)
+				filter = utils.compute_filters(filetype),--[[ function(cli)
 					return cli.name == "null-ls"
-				end,
+				end, ]]
 			})
 		end, bufopts)
 		-- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
