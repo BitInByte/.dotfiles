@@ -17,6 +17,9 @@ M.compute_filters = function(filetype)
 		lua = function(cli)
 			return cli.name == "null-ls"
 		end,
+		go = function(cli)
+			return cli.name == "gopls"
+		end,
 	}
 
 	if filetype_table[filetype] ~= nil then
