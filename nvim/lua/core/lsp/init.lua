@@ -22,6 +22,7 @@ keymap.set("n", "[d", vim.diagnostic.goto_prev, mappingOpts)
 keymap.set("n", "]d", vim.diagnostic.goto_next, mappingOpts)
 keymap.set("n", "<space>q", vim.diagnostic.setloclist, mappingOpts)
 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -84,7 +85,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		--   vim.lsp.buf.format { async = true }
 		-- end, opts)
 
-		vim.cmd([[
+		if client.server_capabilities.documentSymbolProvider then
+			vim.cmd([[
             augroup lsp_document_highlight
                 autocmd! * <buffer>
                 " autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
@@ -94,6 +96,30 @@ vim.api.nvim_create_autocmd("LspAttach", {
                   autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
             augroup END
         ]])
+		end
+
+		if client.supports_method("textDocument/formatting") then
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					-- local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+					-- vim.notify("Formating with null ls")
+					-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+					-- vim.lsp.buf.formatting_sync()
+					-- vim.lsp.buf.format({ bufnr = bufnr })
+					vim.lsp.buf.format({
+						async = false,
+						filter = utils.compute_filters(filetype),--[[ function(cli)
+							return cli.name == "null-ls"
+						end, ]]
+					})
+					-- print("File formated with prettier")
+				end,
+				-- desc = "[lsp] format on save",
+			})
+		end
 	end,
 })
 
