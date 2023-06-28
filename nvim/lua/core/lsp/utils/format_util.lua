@@ -17,8 +17,14 @@ M.compute_filters = function(filetype)
 		lua = function(cli)
 			return cli.name == "null-ls"
 		end,
+		vue = function(cli)
+			return cli.name == "null-ls"
+		end,
 		go = function(cli)
 			return cli.name == "gopls"
+		end,
+		json = function(cli)
+			return cli.name == "null-ls"
 		end,
 	}
 

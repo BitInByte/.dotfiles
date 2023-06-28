@@ -85,7 +85,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		--   vim.lsp.buf.format { async = true }
 		-- end, opts)
 
-		if client.server_capabilities.documentSymbolProvider then
+		-- if client.server_capabilities.documentHighlightProvider then
+		if client.supports_method("textDocument/documentHighlight") then
 			vim.cmd([[
             augroup lsp_document_highlight
                 autocmd! * <buffer>

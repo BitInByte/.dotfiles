@@ -8,7 +8,8 @@ local M = {}
 --- Function to load the params needed for lsp
 ---@param args {} on this case will be on_attach, capabilities and flags
 function M.load(args)
-	require("lspconfig").vuels.setup({
+	-- require("lspconfig").vuels.setup({
+	require("lspconfig").volar.setup({
 		on_attach = args.on_attach,
 		flags = args.flags,
 		capabilities = args.capabilities,
