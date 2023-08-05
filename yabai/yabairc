@@ -48,6 +48,7 @@ yabai -m rule --add app="^Maps$" manage=off
 yabai -m rule --add app="^Docker Desktop$" manage=off
 yabai -m rule --add app="^Installer$" manage=off
 yabai -m rule --add app="^Books$" manage=off
+yabai -m rule --add app="^System Information$" manage=off
 # yabai -m rule --add app="^Karabiner-Elements$" manage=off
 
 

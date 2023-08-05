@@ -53,17 +53,34 @@ windows:
       # synchronize: after
       panes:
         - nv
-        - # 
-        - # 
-  - adib: 
+        -  #
+        -  #
+  - adib:
       root: ~/Documents/data/work/react-portal
-      layout: 3f48,135x38,0,0[135x28,0,0,3,135x9,0,29,4]
+      # layout: 3f48,135x38,0,0[135x28,0,0,3,135x9,0,29,4]
+      layout: 538f,135x38,0,0[135x28,0,0,1,135x9,0,29{67x9,0,29,5,67x9,68,29,7}]
       panes:
         - nv
-        - #
+        -  #
+        - lg
   - toolkit:
       root: ~/Documents/data/work/toolkit-template
-      layout: 3f51,135x38,0,0[135x28,0,0,5,135x9,0,29,6]
+      # layout: 3f51,135x38,0,0[135x28,0,0,5,135x9,0,29,6]
+      layout: 9793,135x38,0,0[135x28,0,0,2,135x9,0,29{67x9,0,29,7,67x9,68,29,8}]
       panes:
         - nv
-        - #
+        -  #
+        - lg
+  - cest:
+      root: ~/Documents/data/work/centralstation
+      layout: 795c,135x38,0,0[135x28,0,0,9,135x9,0,29{67x9,0,29,10,67x9,68,29,11}]
+      panes:
+        - nv
+        -  #
+        - lg
+  - doc-template:
+      root: ~/Documents/data/work/template-designer
+      layout: 21e3,135x38,0,0[135x28,0,0,12,135x9,0,29,13]
+      panes:
+        - nv
+        -  #

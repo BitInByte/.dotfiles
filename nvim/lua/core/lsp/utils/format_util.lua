@@ -13,6 +13,7 @@ M.compute_filters = function(filetype)
 		end,
 		typescriptreact = function(cli)
 			return cli.name == "null-ls"
+			-- return cli.name == ""
 		end,
 		lua = function(cli)
 			return cli.name == "null-ls"
