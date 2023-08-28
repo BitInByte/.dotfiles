@@ -8,6 +8,9 @@
 vim.api.nvim_set_keymap("n", "<leader>.", ":e ~/.config/nvim/init.lua<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>,", ":so ~/.config/nvim/init.lua<CR>", { silent = true })
 
+-- Check unsaved changes
+vim.api.nvim_set_keymap("n", "<leader>w", ":w !diff % -<CR>", { silent = true })
+
 -- Clean it
 -- vim.api.nvim_set_keymap("n", "<C-l>", ":<C-u>nohlsearch<CR><C-l>", { silent = true })
 
