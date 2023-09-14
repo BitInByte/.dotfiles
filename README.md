@@ -139,6 +139,9 @@ Most of the LSPs will be detected from the filetype and if they are being requir
 For js and ts files, we need to have a jsconfig.json file in order to the project be able to know how to auto-import from other files: https://code.visualstudio.com/docs/languages/jsconfig
 Also, the eslint_d and prettierd need to be globally installed and should be configured with it's own config files in order to use them.
 
+Also, the typescript plugin used needs `tsserver` which `mason` in not able to capture.
+Ensure you install the tsserver manually `npm install -g typescript` or via official typescript webpage.
+
 ## Java
 
 We need to download jdtls in order for it to work.
