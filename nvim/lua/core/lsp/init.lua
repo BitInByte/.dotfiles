@@ -7,10 +7,10 @@ if not status then
 	return
 end
 
-local utils_status, utils = pcall(require, "core.lsp.utils.format_util")
-if not utils_status then
-	return
-end
+-- local utils_status, utils = pcall(require, "core.lsp.utils.format_util")
+-- if not utils_status then
+-- 	return
+-- end
 
 local keymap = vim.keymap
 
@@ -58,15 +58,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 		-- keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 		keymap.set("n", "gr", builtin.lsp_references, bufopts)
-		keymap.set("n", "<space>bf", function()
-			-- vim.lsp.buf.format({ async = false })
-			vim.lsp.buf.format({
-				async = false,
-				filter = utils.compute_filters(filetype),--[[ function(cli)
-					return cli.name == "null-ls"
-				end, ]]
-			})
-		end, bufopts)
+		-- keymap.set("n", "<space>bf", function()
+		-- 	-- vim.lsp.buf.format({ async = false })
+		-- 	vim.lsp.buf.format({
+		-- 		async = false,
+		-- 		filter = utils.compute_filters(filetype),--[[ function(cli)
+		-- 			return cli.name == "null-ls"
+		-- 		end, ]]
+		-- 	})
+		-- end, bufopts)
 		-- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
 		-- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 		-- vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -98,29 +98,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
             augroup END
         ]])
 		end
-
-		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = augroup,
-				buffer = bufnr,
-				callback = function()
-					-- local filetype = vim.api.nvim_buf_get_option(0, "filetype")
-					-- vim.notify("Formating with null ls")
-					-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-					-- vim.lsp.buf.formatting_sync()
-					-- vim.lsp.buf.format({ bufnr = bufnr })
-					vim.lsp.buf.format({
-						async = false,
-						filter = utils.compute_filters(filetype),--[[ function(cli)
-							return cli.name == "null-ls"
-						end, ]]
-					})
-					-- print("File formated with prettier")
-				end,
-				-- desc = "[lsp] format on save",
-			})
-		end
 	end,
 })
 
@@ -140,7 +117,7 @@ local lsps_table = {
 	latex_lsp = require(providers_path .. "latex"),
 	dartls_lsp = require(providers_path .. "dartls"),
 	vue_lsp = require(providers_path .. "vue"),
-	eslint_lsp = require(providers_path .. "eslint"),
+	-- eslint_lsp = require(providers_path .. "eslint"),
 	angular_lsp = require(providers_path .. "angular"),
 	clang_lsp = require(providers_path .. "clang"),
 	php_lsp = require(providers_path .. "php"),

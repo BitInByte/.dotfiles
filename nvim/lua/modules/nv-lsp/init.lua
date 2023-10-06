@@ -6,7 +6,7 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"jayp0521/mason-nvim-dap.nvim",
-			"jayp0521/mason-null-ls.nvim",
+			-- "jayp0521/mason-null-ls.nvim",
 
 			-- LSP
 			-- "neovim/nvim-lspconfig",
@@ -36,8 +36,17 @@ return {
 			"rcarriga/nvim-dap-ui",
 
 			-- NULL-LS
-			"jose-elias-alvarez/null-ls.nvim",
+			-- "jose-elias-alvarez/null-ls.nvim",
 			"nvim-lua/plenary.nvim",
+
+			-- Formatter
+			{
+				"stevearc/conform.nvim",
+				opts = {},
+			},
+
+			-- Linters
+			{ "mfussenegger/nvim-lint" },
 		},
 		build = ":MasonUpdate", -- :MasonUpdate updates registry contents
 		config = function()
@@ -50,61 +59,9 @@ return {
 			require("core.lsp") -- lsp engine
 			require("core.cmp") -- completion
 			require("core.dap") -- debuggers management
-			require("core.null-ls") -- formaters management
+			require("core.formatter") -- formatters
+			require("core.linter") -- linters
+			-- require("core.null-ls") -- formaters management
 		end,
 	},
-
-	-- {
-	--     "neovim/nvim-lspconfig",
-	--     dependencies = {
-	--         { "jose-elias-alvarez/typescript.nvim" },
-	--         { "lervag/vimtex" },
-	--         { "akinsho/flutter-tools.nvim",        dependencies = { "nvim-lua/plenary.nvim" } },
-	--     },
-	--     -- config = function()
-	--     -- 	-- require("core.lsp") -- lsp engine
-	--     -- end,
-	-- },
-
-	-- {
-	-- 	-- "jay-babu/mason-null-ls.nvim",
-	-- 	"jayp0521/mason-null-ls.nvim",
-	-- 	event = { "BufReadPre", "BufNewFile" },
-	-- 	dependencies = {
-	-- 		"williamboman/mason.nvim",
-	-- 		"jose-elias-alvarez/null-ls.nvim",
-	-- 		-- "jose-elias-alvarez/null-ls.nvim",
-	-- 		"nvim-lua/plenary.nvim",
-	-- 	},
-	-- 	-- config = function()
-	-- 	-- require("your.null-ls.config") -- require your null-ls config here (example below)
-	-- 	-- require("core.null-ls") -- formaters management
-	-- 	-- end,
-	-- },
-
-	-- {
-	--     "mfussenegger/nvim-dap",
-	--     dependencies = {
-	--         "rcarriga/nvim-dap-ui",
-	--     },
-	-- },
-
-	-- LSP Sources && Modules
-	-- {
-	--     "hrsh7th/nvim-cmp",
-	--     -- config = function()
-	--     --     require("core.cmp") -- completion
-	--     -- end,
-	--     dependencies = {
-	--         "hrsh7th/cmp-nvim-lsp",
-	--         "hrsh7th/cmp-buffer",
-	--         "hrsh7th/cmp-path",
-	--         "hrsh7th/cmp-cmdline",
-	--         "hrsh7th/cmp-calc",
-	--         "hrsh7th/cmp-nvim-lua",
-	--         "hrsh7th/cmp-nvim-lsp-signature-help",
-	--         "onsails/lspkind-nvim",
-	--     },
-	-- },
-	-- use({ "tzachar/cmp-tabnine", build = "./install.sh", dependencies = "hrsh7th/nvim-cmp" })
 }
