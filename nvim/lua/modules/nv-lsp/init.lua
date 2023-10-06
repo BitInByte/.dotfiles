@@ -18,6 +18,7 @@ return {
 			},
 			{ "lervag/vimtex" },
 			{ "akinsho/flutter-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+			{ "mfussenegger/nvim-jdtls" },
 
 			-- CMP
 			"hrsh7th/nvim-cmp",

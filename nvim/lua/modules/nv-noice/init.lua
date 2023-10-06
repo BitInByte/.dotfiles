@@ -6,6 +6,7 @@
 return {
 	{
 		"folke/noice.nvim",
+		event = "VeryLazy",
 		-- config = function()
 		-- 	require("noice").setup({
 		-- 		-- add any lazyions here
@@ -21,16 +22,16 @@ return {
 		},
 		config = function()
 			local noice = require("noice")
-			noice.setup({
-				-- add any options here
-			})
-			-- For noice
-			require("notify").setup({
-				timeout = 1000,
-				on_open = function(win)
-					vim.api.nvim_win_set_config(win, { focusable = false })
-				end,
-			})
+			-- noice.setup({
+			-- 	-- add any options here
+			-- })
+			-- -- For noice
+			-- require("notify").setup({
+			-- 	timeout = 1000,
+			-- 	on_open = function(win)
+			-- 		vim.api.nvim_win_set_config(win, { focusable = false })
+			-- 	end,
+			-- })
 		end,
 		-- init = function()
 		-- 	vim.opt.termguicolors = true

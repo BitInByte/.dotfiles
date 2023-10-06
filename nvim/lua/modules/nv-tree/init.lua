@@ -12,6 +12,12 @@ return {
 		vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 		require("neo-tree").setup({
 			close_if_last_window = true,
+			-- filesystem = {
+			-- 	follow_current_file = {
+			-- 		enabled = true,
+			-- 		leave_dirs_open = true,
+			-- 	},
+			-- },
 			-- sources = {
 			-- 	"document_symbols",
 			-- },
