@@ -2,9 +2,11 @@ return {
 	{
 		"echasnovski/mini.indentscope",
 		version = false,
-		config = function()
-			require("mini.indentscope").setup()
-		end,
+		event = { "BufReadPre", "BufNewFile" },
+		config = true,
+		-- config = function()
+		-- 	require("mini.indentscope").setup()
+		-- end,
 	},
 	{
 		"echasnovski/mini.map",
@@ -61,15 +63,19 @@ return {
 	{
 		"echasnovski/mini.cursorword",
 		version = "*",
-		config = function()
-			require("mini.cursorword").setup()
-		end,
+		event = { "BufReadPre", "BufNewFile" },
+		config = true,
+		-- config = function()
+		-- 	require("mini.cursorword").setup()
+		-- end,
 	},
 	{
 		"echasnovski/mini.files",
 		version = "*",
-		config = function()
-			require("mini.files").setup()
-		end,
+		event = { "BufReadPre", "BufNewFile" },
+		config = true,
+		-- config = function()
+		-- 	require("mini.files").setup()
+		-- end,
 	},
 }

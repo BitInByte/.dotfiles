@@ -33,4 +33,4 @@ vim.keymap.set({ "n", "v" }, "<space>bf", function()
 		async = false,
 		lsp_fallback = true,
 	})
-end)
+end, { desc = "Buffer format" })

@@ -1,6 +1,8 @@
 return {
 	"simrat39/symbols-outline.nvim",
-	config = function()
-		require("symbols-outline").setup()
-	end,
+	event = { "BufReadPre", "BufNewFile" },
+	config = true,
+	-- config = function()
+	-- 	require("symbols-outline").setup()
+	-- end,
 }

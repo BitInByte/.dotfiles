@@ -21,4 +21,4 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 
 vim.keymap.set("n", "<leader>bl", function()
 	lint.try_lint()
-end)
+end, { desc = "Buffer lint" })

@@ -17,9 +17,13 @@ local keymap = vim.keymap
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local mappingOpts = { noremap = true, silent = true }
+mappingOpts.desc = "Diagnostics float"
 keymap.set("n", "<space>e", vim.diagnostic.open_float, mappingOpts)
+mappingOpts.desc = "Diagnostics goto prev"
 keymap.set("n", "[d", vim.diagnostic.goto_prev, mappingOpts)
+mappingOpts.desc = "Diagnostics goto next"
 keymap.set("n", "]d", vim.diagnostic.goto_next, mappingOpts)
+mappingOpts.desc = "Diagnostics goto setloclist"
 keymap.set("n", "<space>q", vim.diagnostic.setloclist, mappingOpts)
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -42,21 +46,33 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Buffer local mappings.
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		local bufopts = { buffer = ev.buf }
+		bufopts.desc = "Diagnostics buffer declarations"
 		keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 		-- keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+		bufopts.desc = "Diagnostics lsp definitions"
 		keymap.set("n", "gd", builtin.lsp_definitions, bufopts)
+		bufopts.desc = "Diagnostics lsp buffer hover"
 		keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+		bufopts.desc = "Diagnostics lsp buffer implementation"
 		keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+		bufopts.desc = "Diagnostics lsp buffer signature help"
 		keymap.set("n", "<C-s>", vim.lsp.buf.signature_help, bufopts)
+		bufopts.desc = "Diagnostics lsp buffer add workspace folder"
 		keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
+		bufopts.desc = "Diagnostics lsp buffer remove workspace folder"
 		keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
+		bufopts.desc = "Diagnostics lsp buffer list workspace folders"
 		keymap.set("n", "<space>wl", function()
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		end, bufopts)
+		bufopts.desc = "Diagnostics lsp buffer type definition"
 		keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
+		bufopts.desc = "Diagnostics lsp buffer rename"
 		keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
+		bufopts.desc = "Diagnostics lsp buffer code action"
 		keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 		-- keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+		bufopts.desc = "Diagnostics lsp references"
 		keymap.set("n", "gr", builtin.lsp_references, bufopts)
 		-- keymap.set("n", "<space>bf", function()
 		-- 	-- vim.lsp.buf.format({ async = false })

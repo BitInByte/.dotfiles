@@ -1,19 +1,15 @@
--- local status, neogen = pcall(require, "neogen")
--- if not status then
--- 	return
--- end
-
 return {
-    {
-        "danymat/neogen",
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
-        -- Uncomment next line if you want to follow only stable versions
-        -- version = "*"
-        config = function()
-            local neogen = require("neogen")
-            neogen.setup({
-                snippet_engine = "luasnip",
-            })
-        end,
-    },
+	-- {
+	"danymat/neogen",
+	event = "InsertEnter",
+	dependencies = { "nvim-treesitter/nvim-treesitter", "L3MON4D3/LuaSnip" },
+	-- Uncomment next line if you want to follow only stable versions
+	-- version = "*"
+	config = function()
+		local neogen = require("neogen")
+		neogen.setup({
+			snippet_engine = "luasnip",
+		})
+	end,
+	-- },
 }

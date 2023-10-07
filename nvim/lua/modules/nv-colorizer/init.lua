@@ -1,14 +1,12 @@
--- local status, colorized = pcall(require, "colorized")
--- if not status then
--- 	return
--- end
-
 -- #000000
 return {
-	{
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
-	},
+	-- {
+	"norcalli/nvim-colorizer.lua",
+	event = { "BufReadPre", "BufNewFile" },
+	-- opts = {},
+	-- config = true, -- equivalent to require("colorizer").setup()
+	config = function()
+		require("colorizer").setup()
+	end,
+	-- },
 }
