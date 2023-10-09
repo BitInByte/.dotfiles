@@ -3,7 +3,8 @@ return {
 	"chentoast/marks.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		require("marks").setup({
+		local marks = require("marks")
+		marks.setup({
 			-- whether to map keybinds or not. default true
 			default_mappings = true,
 			-- which builtin marks to show. default {}

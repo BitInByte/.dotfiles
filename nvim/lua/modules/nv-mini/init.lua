@@ -69,13 +69,15 @@ return {
 		-- 	require("mini.cursorword").setup()
 		-- end,
 	},
-	{
-		"echasnovski/mini.files",
-		version = "*",
-		event = { "BufReadPre", "BufNewFile" },
-		config = true,
-		-- config = function()
-		-- 	require("mini.files").setup()
-		-- end,
-	},
+	-- Deprecating mini.files since having neotree and oil.nvim as
+	-- file explorers and file managers
+	-- {
+	-- 	"echasnovski/mini.files",
+	-- 	version = "*",
+	-- 	event = { "BufReadPre", "BufNewFile" },
+	-- 	config = true,
+	-- 	-- config = function()
+	-- 	-- 	require("mini.files").setup()
+	-- 	-- end,
+	-- },
 }

@@ -49,21 +49,6 @@ vim.api.nvim_set_keymap("i", "<C-k> <Esc>", ":m .-2<CR>==gi", { silent = true, n
 vim.api.nvim_set_keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true })
 vim.api.nvim_set_keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true })
 
--- Telescope
-local status, builtin = pcall(require, "telescope.builtin")
-if not status then
-	return
-end
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
-vim.keymap.set("n", "<leader>fc", builtin.command_history, { desc = "Telescope command history" })
-vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Telescope diagnostics" })
-vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "Telescope marks" })
-vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Telescope lsp document symbols" })
-vim.keymap.set("n", '<leader>f"', builtin.registers, { desc = "Telescope lsp registers" })
-
 -- Debugger
 vim.api.nvim_set_keymap(
 	"n",
@@ -132,7 +117,7 @@ vim.api.nvim_set_keymap("n", "<leader>be", ":ls :b<CR>", { silent = true, desc =
 -- disable ex mode
 vim.api.nvim_set_keymap("", "Q", "<Nop>", { silent = true })
 
-vim.api.nvim_set_keymap("n", "<leader>g", ":Neogit<CR>", { silent = true, desc = "Neogit" })
+-- vim.api.nvim_set_keymap("n", "<leader>g", ":Neogit<CR>", { silent = true, desc = "Neogit" })
 
 -- vim.api.nvim_set_keymap("n", "<leader>at", "<cmd>Angtoggle toggle<CR>", { silent = true })
 -- vim.api.nvim_set_keymap("n", "<leader>as", "<cmd>Angtoggle test_toggle<CR>", { silent = true })

@@ -11,6 +11,20 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local opts = {}
+local opts = {
+	-- Use this colorscheme for the Lazy popup
+	install = {
+		colorscheme = { "nightfly" },
+	},
+	-- Automatic checks for plugin updates and notify
+	checker = {
+		enabled = true,
+		notify = false,
+	},
+	-- detection of any file change on the modules module
+	change_detection = {
+		notify = false,
+	},
+}
 
 require("lazy").setup("modules", opts)

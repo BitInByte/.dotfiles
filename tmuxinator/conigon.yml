@@ -47,14 +47,16 @@ root: ~/Documents/data/work
 windows:
   - post:
       root: ~/Documents/data/work/portal-station
-      layout: 0f86,135x38,0,0[135x28,0,0,0,135x9,0,29{67x9,0,29,1,67x9,68,29,2}]
+      # layout: 0f86,135x38,0,0[135x28,0,0,0,135x9,0,29{67x9,0,29,1,67x9,68,29,2}]
+      layout: 7b94,124x34,0,0[124x26,0,0{62x26,0,0,0,61x26,63,0,14},124x7,0,27{61x7,0,27,5,62x7,62,27,6}]
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
         - nv
+        - cd frontend
         -  #
-        -  #
+        - cd frontend
   - adib:
       root: ~/Documents/data/work/react-portal
       # layout: 3f48,135x38,0,0[135x28,0,0,3,135x9,0,29,4]
@@ -62,7 +64,8 @@ windows:
       panes:
         - nv
         -  #
-        - lg
+        # - lg
+        -  #
   - toolkit:
       root: ~/Documents/data/work/toolkit-template
       # layout: 3f51,135x38,0,0[135x28,0,0,5,135x9,0,29,6]
@@ -70,14 +73,16 @@ windows:
       panes:
         - nv
         -  #
-        - lg
+        # - lg
+        -  #
   - cest:
       root: ~/Documents/data/work/centralstation
       layout: 795c,135x38,0,0[135x28,0,0,9,135x9,0,29{67x9,0,29,10,67x9,68,29,11}]
       panes:
         - nv
         -  #
-        - lg
+        # - lg
+        -  #
   - doc-template:
       root: ~/Documents/data/work/template-designer
       layout: 21e3,135x38,0,0[135x28,0,0,12,135x9,0,29,13]
