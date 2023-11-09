@@ -13,6 +13,7 @@ return {
 			vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 			require("neo-tree").setup({
 				close_if_last_window = true,
+				-- hijack_netrw_behavior = "disabled",
 				-- filesystem = {
 				-- 	follow_current_file = {
 				-- 		enabled = true,
@@ -261,13 +262,15 @@ return {
 	},
 	{
 		"stevearc/oil.nvim",
-		opts = {},
+		-- opts = {},
 		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			local oil = require("oil")
 			-- require("oil").setup()
-			oil.setup()
+			oil.setup({
+				default_file_explorer = false,
+			})
 			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 		end,
 	},

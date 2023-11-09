@@ -12,7 +12,11 @@ return {
 		{
 			"pmizio/typescript-tools.nvim",
 			dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-			opts = {},
+			opts = {
+				settings = {
+					code_lens = "all",
+				},
+			},
 		},
 		{ "lervag/vimtex" },
 		{ "akinsho/flutter-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
@@ -51,19 +55,28 @@ return {
 		{ "mfussenegger/nvim-lint" },
 
 		-- UI Tools
+		-- {
+		-- 	"nvimdev/lspsaga.nvim",
+		-- 	-- config = function()
+		-- 	-- 	require("lspsaga").setup({
+		-- 	-- 		-- symbol_in_winbar = {
+		-- 	-- 		-- 	enable = false,
+		-- 	-- 		-- },
+		-- 	-- 	})
+		-- 	-- end,
+		-- 	dependencies = {
+		-- 		"nvim-treesitter/nvim-treesitter", -- optional
+		-- 		"nvim-tree/nvim-web-devicons", -- optional
+		-- 	},
+		-- },
+
 		{
-			"nvimdev/lspsaga.nvim",
-			config = function()
-				require("lspsaga").setup({
-					-- symbol_in_winbar = {
-					-- 	enable = false,
-					-- },
-				})
-			end,
+			"SmiteshP/nvim-navbuddy",
 			dependencies = {
-				"nvim-treesitter/nvim-treesitter", -- optional
-				"nvim-tree/nvim-web-devicons", -- optional
+				"SmiteshP/nvim-navic",
+				"MunifTanjim/nui.nvim",
 			},
+			opts = { lsp = { auto_attach = true } },
 		},
 	},
 	build = ":MasonUpdate", -- :MasonUpdate updates registry contents

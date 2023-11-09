@@ -1,10 +1,15 @@
 return {
 	-- {
 	"nvim-telescope/telescope.nvim",
-	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-ui-select.nvim" },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope-ui-select.nvim",
+		"LukasPietzschmann/telescope-tabs",
+	},
 	config = function()
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
+		local telescope_tabs = require("telescope-tabs")
 		-- This is your opts table
 		-- require("telescope").setup({
 		telescope.setup({
@@ -37,10 +42,13 @@ return {
 		-- require("telescope").load_extension("harpoon")
 		telescope.load_extension("harpoon")
 
+		telescope_tabs.setup({})
+
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-		vim.keymap.set("n", "<leader>ft", builtin.help_tags, { desc = "Telescope help tags" })
+		vim.keymap.set("n", "<leader>ft", "<cmd>Telescope telescope-tabs list_tabs<cr>", { desc = "Telescope Tabs" })
+		vim.keymap.set("n", "<leader>fp", builtin.help_tags, { desc = "Telescope help tags" })
 		vim.keymap.set("n", "<leader>fc", builtin.command_history, { desc = "Telescope command history" })
 		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Telescope diagnostics" })
 		vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "Telescope marks" })

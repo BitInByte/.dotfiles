@@ -76,8 +76,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		bufopts.desc = "Diagnostics lsp project rename"
 		keymap.set("n", "<space>rp", "<cmd>Lspsaga lsp_rename ++project<CR>", bufopts)
 		bufopts.desc = "Diagnostics lsp buffer code action"
-		-- keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
-		keymap.set("n", "<space>ca", "<cmd>Lspsaga code_action<CR>", bufopts)
+		keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+		-- keymap.set("n", "<space>ca", "<cmd>Lspsaga code_action<CR>", bufopts)
 		-- keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 		bufopts.desc = "Diagnostics lsp references"
 		keymap.set("n", "gr", builtin.lsp_references, bufopts)
@@ -136,13 +136,13 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 local providers_path = "core.lsp.providers."
 local lsps_table = {
 	lua_lsp = require(providers_path .. "lua"),
-	tsserver_lsp = require(providers_path .. "tsserver"),
+	-- tsserver_lsp = require(providers_path .. "tsserver"),
 	json_lsp = require(providers_path .. "json"),
 	cssls_lsp = require(providers_path .. "cssls"),
 	latex_lsp = require(providers_path .. "latex"),
 	dartls_lsp = require(providers_path .. "dartls"),
 	vue_lsp = require(providers_path .. "vue"),
-	-- eslint_lsp = require(providers_path .. "eslint"),
+	eslint_lsp = require(providers_path .. "eslint"),
 	angular_lsp = require(providers_path .. "angular"),
 	clang_lsp = require(providers_path .. "clang"),
 	php_lsp = require(providers_path .. "php"),
@@ -166,7 +166,7 @@ local test = "test"
 vim.diagnostic.config({
 	underline = true,
 	signs = true,
-	-- virtual_text = false,
+	virtual_text = true,
 	severity_sort = true,
 	float = {
 		focusable = true,

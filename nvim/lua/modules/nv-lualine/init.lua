@@ -4,33 +4,33 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { { "nvim-tree/nvim-web-devicons", lazy = true } },
 	config = function()
-            -- stylua: ignore
-            -- local colors = {
-            --     blue = "#80a0ff",
-            --     cyan = "#79dac8",
-            --     black = "#080808",
-            --     white = "#c6c6c6",
-            --     red = "#ff5189",
-            --     violet = "#d183e8",
-            --     grey = "#303030"
-            -- }
+        -- stylua: ignore
+        -- local colors = {
+        --     blue = "#80a0ff",
+        --     cyan = "#79dac8",
+        --     black = "#080808",
+        --     white = "#c6c6c6",
+        --     red = "#ff5189",
+        --     violet = "#d183e8",
+        --     grey = "#303030"
+        -- }
 
-            local function lspClients()
-                -- local msg = "No Active Lsp"
-                local msg = ""
-                local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-                local clients = vim.lsp.get_active_clients()
-                if next(clients) == nil then
-                    return msg
-                end
-                for _, client in ipairs(clients) do
-                    local filetypes = client.config.filetypes
-                    if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                        return client.name
-                    end
-                end
+        local function lspClients()
+            -- local msg = "No Active Lsp"
+            local msg = ""
+            local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+            local clients = vim.lsp.get_active_clients()
+            if next(clients) == nil then
                 return msg
             end
+            for _, client in ipairs(clients) do
+                local filetypes = client.config.filetypes
+                if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                    return client.name
+                end
+            end
+            return msg
+        end
 
 		require("lualine").setup({
 			options = {
@@ -58,25 +58,32 @@ return {
 				},
 				-- lualine_b = { "filename", { "branch", icon = "" }, { "diagnostics", sources = { "nvim_diagnostic" } } },
 				lualine_b = {
-					{
-						"filename",
-						symbols = {
-							-- modified = "[+]", -- Text to show when the file is modified.
-							-- readonly = "[-]", -- Text to show when the file is non-modifiable or readonly.
-							unnamed = "Empty Buffer", -- Text to show for unnamed buffers.
-							newfile = "New File", -- Text to show for newly created file before first write
-						},
-					},
+					-- {
+					-- 	"filename",
+					-- 	symbols = {
+					-- 		-- modified = "[+]", -- Text to show when the file is modified.
+					-- 		-- readonly = "[-]", -- Text to show when the file is non-modifiable or readonly.
+					-- 		unnamed = "Empty Buffer", -- Text to show for unnamed buffers.
+					-- 		newfile = "New File", -- Text to show for newly created file before first write
+					-- 	},
+					-- },
 					{ "branch", icon = "" },
 					-- "diff",
 					{ "diagnostics", sources = { "nvim_diagnostic" } },
 				},
-				lualine_c = {},
+				lualine_c = {
+					-- {
+					--     function()
+					--         return "%="
+					--     end,
+					-- },
+				},
 				-- lualine_c = {  {gpsLocation, cond = isGpsAvailable}},
 				-- lualine_x = { { lspClients, icon = " LSP:" } },
 				-- lualine_x = { { lspClients, icon = "ﴞ" } },
 				-- lualine_y = { { lspClients, icon = "ﴞ" }, "fileformat", "filetype", "progress" },
 				lualine_x = {
+					-- "mason",
 					{
 						require("lazy.status").updates,
 						cond = require("lazy.status").has_updates,
@@ -92,6 +99,9 @@ return {
 					},
 				},
 			},
+			-- When cursor is not on active on
+			-- the pane, it shows this sections
+			-- instead on inactive panes
 			inactive_sections = {
 				lualine_a = {
 					-- {
@@ -116,6 +126,7 @@ return {
 					{
 						"buffers",
 						mode = 2,
+						hide_filename_extension = true,
 						filetype_names = {
 							TelescopePrompt = "Telescope",
 							dashboard = "Dashboard",
@@ -123,6 +134,8 @@ return {
 							lazy = "Lazy",
 							fzf = "FZF",
 							alpha = "Alpha",
+							unnamed = "[Empty Buffer]", -- Text to show for unnamed buffers.
+							newfile = "[New]", -- Text to show for newly created file before first write
 						}, -- Shows specific buffer name for that filetype ( { `filetype` = `buffer_name`, ... } )
 					},
 				},

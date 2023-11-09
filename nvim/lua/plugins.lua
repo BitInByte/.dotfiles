@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 local opts = {
 	-- Use this colorscheme for the Lazy popup
 	install = {
-		colorscheme = { "nightfly" },
+		colorscheme = { "catppuccin-mocha" },
 	},
 	-- Automatic checks for plugin updates and notify
 	checker = {
