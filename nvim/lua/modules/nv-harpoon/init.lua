@@ -7,25 +7,25 @@ return {
 		local keymap = vim.keymap
 		keymap.set(
 			"n",
-			"<leader>hm",
+			"<leader>ham",
 			"<cmd>lua require('harpoon.mark').add_file()<cr>",
 			{ desc = "Mark file with harpoon" }
 		)
 		keymap.set(
 			"n",
-			"<leader>hn",
+			"<leader>han",
 			"<cmd>lua require('harpoon.ui').nav_next()<cr>",
 			{ desc = "Go to next harpoon mark" }
 		)
 		keymap.set(
 			"n",
-			"<leader>hp",
+			"<leader>hap",
 			"<cmd>lua require('harpoon.ui').nav_prev()<cr>",
 			{ desc = "Go to previous harpoon mark" }
 		)
 		keymap.set(
 			"n",
-			"<leader>he",
+			"<leader>hae",
 			"<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
 			{ desc = "Open hapoon file explorer" }
 		)

@@ -5,6 +5,7 @@ return {
 		"williamboman/mason.nvim",
 		-- Mason
 		"williamboman/mason-lspconfig.nvim",
+		"jay-babu/mason-null-ls.nvim",
 		"jayp0521/mason-nvim-dap.nvim",
 
 		-- LSP
@@ -46,16 +47,16 @@ return {
 		"nvim-lua/plenary.nvim",
 
 		-- Formatter
-		{
-			"stevearc/conform.nvim",
-			-- opts = {},
-			config = function()
-				require("core.formatter") -- formatters
-			end,
-		},
+		-- {
+		-- 	"stevearc/conform.nvim",
+		-- 	-- opts = {},
+		-- 	config = function()
+		-- 		require("core.formatter") -- formatters
+		-- 	end,
+		-- },
 
 		-- Linters
-		{ "mfussenegger/nvim-lint" },
+		-- { "mfussenegger/nvim-lint" },
 
 		-- UI Tools
 		-- {
@@ -81,6 +82,10 @@ return {
 			},
 			opts = { lsp = { auto_attach = true } },
 		},
+		-- formatter / linter
+		{
+			"nvimtools/none-ls.nvim",
+		},
 	},
 	build = ":MasonUpdate", -- :MasonUpdate updates registry contents
 	config = function()
@@ -94,7 +99,8 @@ return {
 		require("core.cmp") -- completion
 		require("core.dap") -- debuggers management
 		-- require("core.formatter") -- formatters
-		require("core.linter") -- linters
+		-- require("core.linter") -- linters
+		require("core.none-ls")
 	end,
 	-- },
 }
