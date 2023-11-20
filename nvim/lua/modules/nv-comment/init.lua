@@ -1,3 +1,7 @@
+vim.cmd([[
+" echo 'Hello world'
+]])
+
 return {
 
 	-- {

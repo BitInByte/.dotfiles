@@ -76,6 +76,7 @@ desktop & dock => Menu Bar => Automatically hide and show applications
 10. Yabai
 11. Raycast
 12. MacTex (For latex - install from official webpage)
+13. Z (cd helper)
 
 ### Neovim
 

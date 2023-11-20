@@ -9,18 +9,20 @@ autocmd("TextYankPost", {
 	end,
 })
 
-local folds_group = augroup("FoldPersistence", { clear = true })
-autocmd("BufWinLeave", {
-	group = folds_group,
-	pattern = "*.*",
-	callback = function()
-		vim.cmd.mkview({ mods = { emsg_silent = true } })
-	end,
-})
-autocmd("BufWinEnter", {
-	group = folds_group,
-	pattern = "*.*",
-	callback = function()
-		vim.cmd.loadview({ mods = { emsg_silent = true } })
-	end,
-})
+-- local folds_group = augroup("FoldPersistence", { clear = true })
+-- autocmd("BufWinLeave", {
+-- 	group = folds_group,
+-- 	pattern = "*.*",
+-- 	callback = function()
+-- 		vim.cmd.mkview({ mods = { emsg_silent = true } })
+-- 		-- vim.cmd.mkview()
+-- 	end,
+-- })
+-- autocmd("BufWinEnter", {
+-- 	group = folds_group,
+-- 	pattern = "*.*",
+-- 	callback = function()
+-- 		vim.cmd.loadview({ mods = { emsg_silent = true } })
+-- 		-- vim.cmd.loadview()
+-- 	end,
+-- })

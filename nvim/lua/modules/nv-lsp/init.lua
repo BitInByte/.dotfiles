@@ -48,7 +48,10 @@ return {
 		-- Formatter
 		{
 			"stevearc/conform.nvim",
-			opts = {},
+			-- opts = {},
+			config = function()
+				require("core.formatter") -- formatters
+			end,
 		},
 
 		-- Linters
@@ -90,7 +93,7 @@ return {
 		require("core.lsp") -- lsp engine
 		require("core.cmp") -- completion
 		require("core.dap") -- debuggers management
-		require("core.formatter") -- formatters
+		-- require("core.formatter") -- formatters
 		require("core.linter") -- linters
 	end,
 	-- },

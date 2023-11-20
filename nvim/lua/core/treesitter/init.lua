@@ -45,10 +45,10 @@ require("nvim-treesitter.configs").setup({
 		enable_close_on_slash = false,
 	},
 	tree_docs = { enable = true, spec_config = { jsdoc = {} } },
-	context_commentstring = {
-		enable = true,
-		enable_autocmd = false,
-	},
+	-- context_commentstring = {
+	-- 	enable = true,
+	-- 	enable_autocmd = false,
+	-- },
 	incremental_selection = {
 		enable = true,
 		keymaps = {

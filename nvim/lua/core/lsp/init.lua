@@ -71,10 +71,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 		keymap.set("n", "<space>D", builtin.lsp_type_definitions, bufopts)
 		bufopts.desc = "Diagnostics lsp buffer rename"
-		-- keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
-		keymap.set("n", "<space>rn", "<cmd>Lspsaga rename<CR>", bufopts)
-		bufopts.desc = "Diagnostics lsp project rename"
-		keymap.set("n", "<space>rp", "<cmd>Lspsaga lsp_rename ++project<CR>", bufopts)
+		keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
+		-- keymap.set("n", "<space>rn", "<cmd>Lspsaga rename<CR>", bufopts)
+		-- bufopts.desc = "Diagnostics lsp project rename"
+		-- keymap.set("n", "<space>rp", "<cmd>Lspsaga lsp_rename ++project<CR>", bufopts)
 		bufopts.desc = "Diagnostics lsp buffer code action"
 		keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 		-- keymap.set("n", "<space>ca", "<cmd>Lspsaga code_action<CR>", bufopts)
