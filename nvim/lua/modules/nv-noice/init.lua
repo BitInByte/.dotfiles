@@ -16,17 +16,27 @@ return {
 		"rcarriga/nvim-notify",
 	},
 	config = function()
-		-- local noice = require("noice")
-		-- noice.setup({
-		-- 	-- add any options here
-		-- })
-		-- -- For noice
-		-- require("notify").setup({
-		-- 	timeout = 1000,
-		-- 	on_open = function(win)
-		-- 		vim.api.nvim_win_set_config(win, { focusable = false })
-		-- 	end,
-		-- })
+		local noice = require("noice")
+		noice.setup({
+			-- add any options here
+		})
+		-- For noice
+		require("notify").setup({
+			timeout = 1000,
+			on_open = function(win)
+				vim.api.nvim_win_set_config(win, { focusable = false })
+			end,
+		})
+
+		vim.keymap.set("n", "<leader>nd", function()
+			noice.cmd("dismiss")
+		end, { desc = "Noice dismiss" })
+		vim.keymap.set("n", "<leader>nh", function()
+			noice.cmd("history")
+		end, { desc = "Noice history" })
+		vim.keymap.set("n", "<leader>nt", function()
+			noice.cmd("telescope")
+		end, { desc = "Noice telescope" })
 	end,
 	-- init = function()
 	-- 	vim.opt.termguicolors = true

@@ -41,6 +41,11 @@ vim.api.nvim_set_keymap(
 	{ silent = true, desc = "Vertical pane resize +10" }
 )
 
+-- Remove search highlight
+vim.keymap.set("n", "<space><space>", "<cmd>set nohlsearch<CR>", { desc = "Remove search highlight" })
+
+vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = false, desc = "Normal mode" })
+
 -- Move Lines
 vim.api.nvim_set_keymap("n", "<C-j>", ":m .+1<CR>==", { silent = true, noremap = true })
 vim.api.nvim_set_keymap("n", "<C-k>", ":m .-2<CR>==", { silent = true, noremap = true })
