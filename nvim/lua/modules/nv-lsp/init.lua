@@ -86,6 +86,16 @@ return {
 		{
 			"nvimtools/none-ls.nvim",
 		},
+
+		-- References made easy
+		{
+			"dnlhc/glance.nvim",
+			config = function()
+				require("glance").setup({
+					-- your configuration
+				})
+			end,
+		},
 	},
 	build = ":MasonUpdate", -- :MasonUpdate updates registry contents
 	config = function()
