@@ -83,32 +83,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		keymap.set("n", "gr", builtin.lsp_references, bufopts)
 		bufopts.desc = "Diagnostics document symbols"
 		keymap.set("n", "<space>ls", "<cmd>Telescope lsp_document_symbols<CR>", bufopts)
-		-- keymap.set("n", "<space>bf", function()
-		-- 	-- vim.lsp.buf.format({ async = false })
-		-- 	vim.lsp.buf.format({
-		-- 		async = false,
-		-- 		filter = utils.compute_filters(filetype),--[[ function(cli)
-		-- 			return cli.name == "null-ls"
-		-- 		end, ]]
-		-- 	})
-		-- end, bufopts)
-		-- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-		-- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-		-- vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-		-- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-		-- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-		-- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-		-- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-		-- vim.keymap.set('n', '<space>wl', function()
-		--   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		-- end, opts)
-		-- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-		-- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-		-- vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-		-- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-		-- vim.keymap.set('n', '<space>f', function()
-		--   vim.lsp.buf.format { async = true }
-		-- end, opts)
+
+		-- split definition
+		bufopts.desc = "Diagnostics definition split"
+		keymap.set("n", "<space>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", bufopts)
 
 		-- if client.server_capabilities.documentHighlightProvider then
 		if client.supports_method("textDocument/documentHighlight") then
