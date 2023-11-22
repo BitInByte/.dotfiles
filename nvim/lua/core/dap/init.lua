@@ -84,6 +84,7 @@ dap_ui.setup({
 		max_value_lines = 100, -- Can be integer or nil.
 	},
 })
+require("nvim-dap-virtual-text").setup()
 -- require("mason-nvim-dap").setup_handlers({})
 
 -- dap.adapters.firefox = {
@@ -116,6 +117,51 @@ dap_ui.setup({
 -- 	},
 -- })
 
-vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
-vim.fn.sign_define("DapStopped", { text = "🟡", texthl = "", linehl = "", numhl = "" })
-vim.fn.sign_define("DapBreakpointRejected", { text = "🔵", texthl = "", linehl = "", numhl = "" })
+-- vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
+-- vim.fn.sign_define("DapBreakpoint", { text = "→", texthl = "Error", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticError", linehl = "", numhl = "" })
+-- vim.fn.sign_define("DapStopped", { text = "🟡", texthl = "", linehl = "", numhl = "" })
+-- vim.fn.sign_define("DapStopped", { text = "→", texthl = "Success", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticWarn", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DagnosticInfo", linehl = "", numhl = "" })
+-- vim.fn.sign_define("DapBreakpointRejected", { text = "🔵", texthl = "", linehl = "", numhl = "" })
+-- vim.fn.sign_define("DapBreakpoint", { text = "→", texthl = "Error", linehl = "", numhl = "" })
+-- vim.fn.sign_define("DapStopped", { text = "→", texthl = "Success", linehl = "", numhl = "" })
+
+-- Debugger
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>db",
+	"<cmd>lua require'dap'.toggle_breakpoint()<CR>",
+	{ silent = true, desc = "Dap toggle breakpoint" }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>ds",
+	"<cmd>lua require'dap'.continue()<CR>",
+	{ silent = true, desc = "Dap continue" }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>dd",
+	"<cmd>lua require('dap.ui.widgets').hover()<CR>",
+	{ silent = true, desc = "Dap UI hover" }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>do",
+	"<cmd>lua require'dap'.step_over()<CR>",
+	{ silent = true, desc = "Dap step over" }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>di",
+	"<cmd>lua require'dap'.step_into()<CR>",
+	{ silent = true, desc = "Dap step into" }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>dw",
+	"<cmd>lua require'dapui'.toggle()<CR>",
+	{ silent = true, desc = "Dap UI toggle" }
+)
