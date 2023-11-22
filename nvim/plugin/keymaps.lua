@@ -47,60 +47,47 @@ vim.keymap.set("n", "<space><space>", "<cmd>set nohlsearch<CR>", { desc = "Remov
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = false, desc = "Normal mode" })
 
 -- Move Lines
-vim.api.nvim_set_keymap("n", "<C-j>", ":m .+1<CR>==", { silent = true, noremap = true })
-vim.api.nvim_set_keymap("n", "<C-k>", ":m .-2<CR>==", { silent = true, noremap = true })
-vim.api.nvim_set_keymap("i", "<C-j> <Esc>", ":m .+1<CR>==gi", { silent = true, noremap = true })
-vim.api.nvim_set_keymap("i", "<C-k> <Esc>", ":m .-2<CR>==gi", { silent = true, noremap = true })
-vim.api.nvim_set_keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true })
-vim.api.nvim_set_keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true })
-
--- Debugger
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>db",
-	"<cmd>lua require'dap'.toggle_breakpoint()<CR>",
-	{ silent = true, desc = "Dap toggle breakpoint" }
+	"<C-j>",
+	":m .+1<CR>==",
+	{ silent = true, noremap = true, desc = "Move current line down" }
+)
+vim.api.nvim_set_keymap("n", "<C-k>", ":m .-2<CR>==", { silent = true, noremap = true, desc = "Move current line up" })
+vim.api.nvim_set_keymap(
+	"i",
+	"<C-j> <Esc>",
+	":m .+1<CR>==gi",
+	{ silent = true, noremap = true, desc = "Move current line down" }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>ds",
-	"<cmd>lua require'dap'.continue()<CR>",
-	{ silent = true, desc = "Dap continue" }
+	"i",
+	"<C-k> <Esc>",
+	":m .-2<CR>==gi",
+	{ silent = true, noremap = true, desc = "Move current line up" }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>dd",
-	"<cmd>lua require('dap.ui.widgets').hover()<CR>",
-	{ silent = true, desc = "Dap UI hover" }
+	"v",
+	"<C-j>",
+	":m '>+1<CR>gv=gv",
+	{ silent = true, noremap = true, desc = "Move current line down" }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>do",
-	"<cmd>lua require'dap'.step_over()<CR>",
-	{ silent = true, desc = "Dap step over" }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>di",
-	"<cmd>lua require'dap'.step_into()<CR>",
-	{ silent = true, desc = "Dap step into" }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>dw",
-	"<cmd>lua require'dapui'.toggle()<CR>",
-	{ silent = true, desc = "Dap UI toggle" }
+	"v",
+	"<C-k>",
+	":m '<-2<CR>gv=gv",
+	{ silent = true, noremap = true, desc = "Move current line up" }
 )
 
 -- Buffer Move
 -- vim.api.nvim_set_keymap("n", "<C-h>", ":bprev<CR>", { silent = true })
 -- vim.api.nvim_set_keymap("n", "<C-l>", ":bnext<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "[b", ":bprev<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<S-Tab>", ":bprev<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "]b", ":bnext<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "[B", ":bfirst<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "]B", ":blast<CR>", { silent = true })
+-- vim.api.nvim_set_keymap("n", "[b", ":bprev<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<S-Tab>", ":bprev<CR>", { silent = true, desc = "Previous buffer" })
+-- vim.api.nvim_set_keymap("n", "]b", ":bnext<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { silent = true, desc = "Next buffer" })
+-- vim.api.nvim_set_keymap("n", "[B", ":bfirst<CR>", { silent = true })
+-- vim.api.nvim_set_keymap("n", "]B", ":blast<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>bd", ":bd<CR>", { silent = true, desc = "Buffer delete" })
 -- vim.api.nvim_set_keymap("n", "<leader>be", ":ls<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>be", ":ls :b<CR>", { silent = true, desc = "Buffer list" })
@@ -197,35 +184,3 @@ vim.keymap.set(
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 -- vim.api.nvim_set_keymap("n", "<silent>ff", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent = true })
-
-local MiniMap = require("mini.map")
-vim.keymap.set("n", "<leader>mc", MiniMap.close, { desc = "MiniMap close" })
-vim.keymap.set("n", "<leader>mf", MiniMap.toggle_focus, { desc = "MiniMap focus" })
-vim.keymap.set("n", "<leader>mo", MiniMap.open, { desc = "MiniMap open" })
--- vim.keymap.set("n", "<leader>mr", MiniMap.refresh)
--- vim.keymap.set("n", "<leader>ms", MiniMap.toggle_side)
-vim.keymap.set("n", "<leader>mt", MiniMap.toggle, { desc = "MiniMap toggle" })
-
--- Hop (Motions)
--- place this in one of your configuration file(s)
-local hop = require("hop")
-local directions = require("hop.hint").HintDirection
-vim.keymap.set("", "<leader>hhf", function()
-	-- hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false })
-	hop.hint_char1()
-end, { remap = true, desc = "Hop hint char" })
--- vim.keymap.set("", "<leader>hF", function()
--- 	-- hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
--- 	hop.hint_char1()
--- end, { remap = true })
-vim.keymap.set("", "<leader>hht", function()
-	-- hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
-	hop.hint_char1({ hint_offset = -1 })
-end, { remap = true, desc = "Hop hint char with offset" })
--- vim.keymap.set("", "<leader>hT", function()
--- 	-- hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
--- 	hop.hint_char1({ hint_offset = 1 })
--- end, { remap = true })
-vim.keymap.set("", "<leader>hhs", function()
-	hop.hint_anywhere()
-end, { remap = true, desc = "Hop hint anywhere" })
