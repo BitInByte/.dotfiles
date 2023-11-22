@@ -58,6 +58,13 @@ return {
 					end)
 				end,
 			})
+			local MiniMap = require("mini.map")
+			vim.keymap.set("n", "<leader>mc", MiniMap.close, { desc = "MiniMap close" })
+			vim.keymap.set("n", "<leader>mf", MiniMap.toggle_focus, { desc = "MiniMap focus" })
+			vim.keymap.set("n", "<leader>mo", MiniMap.open, { desc = "MiniMap open" })
+			-- vim.keymap.set("n", "<leader>mr", MiniMap.refresh)
+			-- vim.keymap.set("n", "<leader>ms", MiniMap.toggle_side)
+			vim.keymap.set("n", "<leader>mt", MiniMap.toggle, { desc = "MiniMap toggle" })
 		end,
 	},
 	{
