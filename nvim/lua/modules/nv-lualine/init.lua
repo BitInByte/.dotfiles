@@ -36,6 +36,7 @@ return {
 			options = {
 				-- theme = bubbles_theme,
 				-- theme = 'tokyonight',
+				-- theme = "catppuccin",
 				theme = "auto",
 				-- component_separators = "|",
 				component_separators = { left = "", right = "" },
@@ -86,11 +87,11 @@ return {
 						cond = require("noice").api.status.command.has,
 						color = { fg = "#ff9e64" },
 					},
-					{
-						require("noice").api.status.mode.get,
-						cond = require("noice").api.status.mode.has,
-						color = { fg = "#ff9e64" },
-					},
+					-- {
+					-- 	require("noice").api.status.mode.get,
+					-- 	cond = require("noice").api.status.mode.has,
+					-- 	color = { fg = "#ff9e64" },
+					-- },
 					{
 						require("noice").api.status.search.get,
 						cond = require("noice").api.status.search.has,
