@@ -42,6 +42,7 @@ return {
 		-- DAP
 		"mfussenegger/nvim-dap",
 		"rcarriga/nvim-dap-ui",
+		"theHamsta/nvim-dap-virtual-text",
 
 		-- NULL-LS
 		"nvim-lua/plenary.nvim",
@@ -90,6 +91,7 @@ return {
 		-- References made easy
 		{
 			"dnlhc/glance.nvim",
+			event = "LspAttach",
 			config = function()
 				require("glance").setup({
 					-- your configuration
