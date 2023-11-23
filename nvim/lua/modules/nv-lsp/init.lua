@@ -40,9 +40,20 @@ return {
 		},
 
 		-- DAP
-		"mfussenegger/nvim-dap",
-		"rcarriga/nvim-dap-ui",
-		"theHamsta/nvim-dap-virtual-text",
+		{
+			"mfussenegger/nvim-dap",
+			event = { "BufReadPre", "BufNewFile" },
+			dependencies = {
+				"rcarriga/nvim-dap-ui",
+				"theHamsta/nvim-dap-virtual-text",
+				"mxsdev/nvim-dap-vscode-js",
+				{
+					"microsoft/vscode-js-debug",
+					-- opt = true,
+					build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+				},
+			},
+		},
 
 		-- NULL-LS
 		"nvim-lua/plenary.nvim",
@@ -98,6 +109,9 @@ return {
 				})
 			end,
 		},
+
+		-- inlay hints until neovim 0.10 release
+		-- "simrat39/inlay-hints.nvim",
 	},
 	build = ":MasonUpdate", -- :MasonUpdate updates registry contents
 	config = function()
@@ -107,6 +121,9 @@ return {
 		require("core.mason") -- lsp management
 		-- Lsp needs to be loaded after mason in order for
 		-- automatic_installation to work
+		-- require("inlay-hints").setup({
+		-- 	renderer = "inlay-hints/render/virtline",
+		-- })
 		require("core.lsp") -- lsp engine
 		require("core.cmp") -- completion
 		require("core.dap") -- debuggers management
