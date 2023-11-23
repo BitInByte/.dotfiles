@@ -25,11 +25,14 @@ function M.load(args)
 				telemetry = {
 					enable = false,
 				},
+				hint = {
+					enable = true,
+				},
 			},
 		},
-		on_attach = args.on_attach,
-		flags = args.flags,
-		capabilities = args.capabilities,
+		-- on_attach = args.on_attach,
+		-- flags = args.flags,
+		-- capabilities = args.capabilities,
 	})
 end
 

@@ -8,7 +8,7 @@ local M = {}
 function M.load(args)
 	require("lspconfig").texlab.setup({
 		capabilities = args.capabilities,
-		on_attach = args.on_attach,
+		-- on_attach = args.on_attach,
 		flags = args.flags,
 	})
 end

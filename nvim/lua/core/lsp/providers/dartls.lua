@@ -13,7 +13,7 @@ function M.load(args)
 	-- })
 	require("flutter-tools").setup({
 		lsp = {
-			on_attach = args.on_attach,
+			-- on_attach = args.on_attach,
 			capabilities = args.capabilities,
 			flags = args.flags,
 		},

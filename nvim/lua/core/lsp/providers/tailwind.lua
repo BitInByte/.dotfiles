@@ -8,11 +8,11 @@ local M = {}
 --- Function to load the params needed for lsp
 ---@param args {} on this case will be on_attach, capabilities and flags
 function M.load(args)
-    require("lspconfig").tailwindcss.setup({
-        on_attach = args.on_attach,
-        flags = args.flags,
-        capabilities = args.capabilities,
-    })
+	require("lspconfig").tailwindcss.setup({
+		-- on_attach = args.on_attach,
+		flags = args.flags,
+		capabilities = args.capabilities,
+	})
 end
 
 return M

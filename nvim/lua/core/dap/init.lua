@@ -1,4 +1,6 @@
 local dap = require("dap")
+local dap_ui = require("dapui")
+
 require("dap-vscode-js").setup({
 	debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
 	-- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
@@ -93,19 +95,6 @@ for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "java
 		-- 	or nil,
 	}
 end
---
--- local status, dap = pcall(require, "dap")
--- if not status then
--- 	return
--- end
---
--- local status_dap_ui, dap_ui = pcall(require, "dapui")
--- if not status_dap_ui then
--- 	return
--- end
-
--- local dap = require("dap")
-local dap_ui = require("dapui")
 
 dap_ui.setup({
 	icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
@@ -190,71 +179,6 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
 	dap_ui.close()
 end
--- require("dap-vscode-js").setup({
--- 	-- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
--- 	debugger_path = vim.fn.expand("~/.local/share/nvim/mason/bin/js-debug-adapter"), -- Path to vscode-js-debug installation.
--- 	-- debugger_path = "(runtimedir)/site/pack/packer/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
--- 	-- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
--- 	-- adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
--- 	adapters = { "pwa-chrome" }, -- which adapters to register in nvim-dap
--- 	-- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
--- 	-- log_file_level = false -- Logging level for output to file. Set to false to disable file logging.
--- 	-- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
--- })
---
--- for _, language in ipairs({ "typescriptreact", "javascriptreact" }) do
--- 	require("dap").configurations[language] = {
--- 		-- ..., -- see below
--- 		{
--- 			type = "pwa-chrome",
--- 			name = "Attach - Remote Debugging",
--- 			request = "attach",
--- 			program = "${file}",
--- 			cwd = vim.fn.getcwd(),
--- 			sourceMaps = true,
--- 			protocol = "inspector",
--- 			port = 9222,
--- 			webRoot = "${workspaceFolder}",
--- 		},
--- 		{
--- 			type = "pwa-chrome",
--- 			name = "Launch Chrome",
--- 			request = "launch",
--- 			url = "http://localhost:3000",
--- 		},
--- 	}
--- end
--- require("mason-nvim-dap").setup_handlers({})
-
--- dap.adapters.firefox = {
--- 	type = "executable",
--- 	command = "node",
--- 	-- args = {os.getenv('HOME') .. '/path/to/vscode-firefox-debug/dist/adapter.bundle.js'},
--- }
---
--- dap.configurations.typescript = {
--- 	{
--- 		name = "Debug with Firefox",
--- 		type = "firefox",
--- 		request = "launch",
--- 		reAttach = true,
--- 		url = "http://localhost:3000",
--- 		webRoot = "${workspaceFolder}",
--- 		firefoxExecutable = "/usr/bin/firefox",
--- 	},
--- }
-
--- require("mason-nvim-dap").setup({
--- 	automatic_installation = true,
--- 	handlers = {
--- 		function(config)
--- 			-- all sources with no handler get passed here
---
--- 			-- Keep original functionality
--- 			require("mason-nvim-dap").default_setup(config)
--- 		end,
--- 	},
--- })
 
 -- vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
 -- vim.fn.sign_define("DapBreakpoint", { text = "→", texthl = "Error", linehl = "", numhl = "" })

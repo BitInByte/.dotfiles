@@ -10,7 +10,7 @@ local M = {}
 function M.load(args)
 	-- require("lspconfig").vuels.setup({
 	require("lspconfig").volar.setup({
-		on_attach = args.on_attach,
+		-- on_attach = args.on_attach,
 		flags = args.flags,
 		capabilities = args.capabilities,
 	})

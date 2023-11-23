@@ -21,8 +21,8 @@ function M.load(args)
 	-- 	},
 	-- })
 	require("typescript-tools").setup({
-		on_attach = args.on_attach,
-		capabilities = args.capabilities,
+		-- on_attach = args.on_attach,
+		-- capabilities = args.capabilities,
 		-- on_attach = function() ... end,
 		-- handlers = { ... },
 		-- ...
@@ -45,7 +45,17 @@ function M.load(args)
 			tsserver_max_memory = "auto",
 			-- described below
 			tsserver_format_options = {},
-			tsserver_file_preferences = {},
+			-- tsserver_file_preferences = {},
+			tsserver_file_preferences = {
+				includeInlayParameterNameHints = "all",
+				includeInlayEnumMemberValueHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+			},
+			code_lens = "all",
 			-- mirror of VSCode's `typescript.suggest.completeFunctionCalls`
 			complete_function_calls = false,
 		},
