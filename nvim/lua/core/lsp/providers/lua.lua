@@ -32,7 +32,7 @@ function M.load(args)
 		},
 		-- on_attach = args.on_attach,
 		-- flags = args.flags,
-		-- capabilities = args.capabilities,
+		capabilities = args.capabilities,
 	})
 end
 

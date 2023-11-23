@@ -22,7 +22,7 @@ function M.load(args)
 	-- })
 	require("typescript-tools").setup({
 		-- on_attach = args.on_attach,
-		-- capabilities = args.capabilities,
+		capabilities = args.capabilities,
 		-- on_attach = function() ... end,
 		-- handlers = { ... },
 		-- ...
