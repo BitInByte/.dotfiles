@@ -50,6 +50,7 @@ return {
 		vim.keymap.set("n", "<leader>ft", "<cmd>Telescope telescope-tabs list_tabs<cr>", { desc = "Telescope Tabs" })
 		vim.keymap.set("n", "<leader>fp", builtin.help_tags, { desc = "Telescope help tags" })
 		vim.keymap.set("n", "<leader>fc", builtin.command_history, { desc = "Telescope command history" })
+		vim.keymap.set("n", "<leader>f:", builtin.commands, { desc = "Telescope command" })
 		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Telescope diagnostics" })
 		vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "Telescope marks" })
 		vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Telescope lsp document symbols" })
