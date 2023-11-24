@@ -96,6 +96,23 @@ for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "java
 	}
 end
 
+require("mason-nvim-dap").setup({
+	automatic_installation = true,
+	ensure_installed = { "firefox", "chrome" },
+	-- automatic_setup = true,
+	handlers = {
+		function(config)
+			-- all sources with no handler get passed here
+
+			-- Keep original functionality
+			require("mason-nvim-dap").default_setup(config)
+		end,
+		-- firefox = function(config)
+		-- 	require("mason-nvim-dap").default_setup(config)
+		-- end,
+	},
+})
+
 dap_ui.setup({
 	icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
 	mappings = {
@@ -182,11 +199,17 @@ end
 
 -- vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
 -- vim.fn.sign_define("DapBreakpoint", { text = "→", texthl = "Error", linehl = "", numhl = "" })
-vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticError", linehl = "", numhl = "" })
+vim.fn.sign_define(
+	"DapBreakpoint",
+	{ text = "", texthl = "DiagnosticError", linehl = "DiagnosticError", numhl = "" }
+)
 -- vim.fn.sign_define("DapStopped", { text = "🟡", texthl = "", linehl = "", numhl = "" })
 -- vim.fn.sign_define("DapStopped", { text = "→", texthl = "Success", linehl = "", numhl = "" })
-vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticWarn", linehl = "", numhl = "" })
-vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DagnosticInfo", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticWarn", linehl = "DiagnosticWarn", numhl = "" })
+vim.fn.sign_define(
+	"DapBreakpointRejected",
+	{ text = "", texthl = "DiagnosticInfo", linehl = "DiagnosticInfo", numhl = "" }
+)
 -- vim.fn.sign_define("DapBreakpointRejected", { text = "🔵", texthl = "", linehl = "", numhl = "" })
 -- vim.fn.sign_define("DapBreakpoint", { text = "→", texthl = "Error", linehl = "", numhl = "" })
 -- vim.fn.sign_define("DapStopped", { text = "→", texthl = "Success", linehl = "", numhl = "" })
