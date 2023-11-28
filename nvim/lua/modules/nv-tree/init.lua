@@ -8,6 +8,14 @@ return {
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
 		},
+		keys = {
+			{
+				"<C-t>",
+				":Neotree float<CR>",
+				silent = true,
+				desc = "Toggle Neotree",
+			},
+		},
 		config = function()
 			-- Unless you are still migrating, remove the deprecated commands from v1.x
 			vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
@@ -265,13 +273,16 @@ return {
 		-- opts = {},
 		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		keys = {
+			{ "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
+		},
 		config = function()
 			local oil = require("oil")
 			-- require("oil").setup()
 			oil.setup({
 				default_file_explorer = false,
 			})
-			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+			-- vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 		end,
 	},
 }

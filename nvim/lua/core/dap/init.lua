@@ -236,6 +236,12 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>do",
+	"<cmd>lua require'dap'.step_out()<CR>",
+	{ silent = true, desc = "Dap step out" }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>dh",
 	"<cmd>lua require'dap'.step_over()<CR>",
 	{ silent = true, desc = "Dap step over" }
 )
@@ -244,6 +250,12 @@ vim.api.nvim_set_keymap(
 	"<leader>di",
 	"<cmd>lua require'dap'.step_into()<CR>",
 	{ silent = true, desc = "Dap step into" }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>dt",
+	"<cmd>lua require'dap'.terminate()<CR>",
+	{ silent = true, desc = "Dap terminate" }
 )
 vim.api.nvim_set_keymap(
 	"n",

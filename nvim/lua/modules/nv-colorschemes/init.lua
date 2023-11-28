@@ -4,6 +4,8 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
+		-- Lazy will only call this colorscheme when we set up this
+		-- theme as colorscheme on vim
 		lazy = true,
 		opts = {
 			integrations = {

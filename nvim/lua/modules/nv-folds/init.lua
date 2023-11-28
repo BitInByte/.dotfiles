@@ -5,10 +5,26 @@ return {
 	dependencies = { "kevinhwang91/promise-async", "nvim-treesitter/nvim-treesitter" },
 	-- event = { "BufReadPre", "BufNewFile" },
 	event = { "BufRead", "BufNewFile" },
+	keys = {
+		{
+			"zR",
+			function()
+				require("ufo").openAllFolds()
+			end,
+			desc = "Open all folds",
+		},
+		{
+			"zR",
+			function()
+				require("ufo").closeAllFolds()
+			end,
+			desc = "Close all folds",
+		},
+	},
 	config = function()
 		-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-		vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-		vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+		-- vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+		-- vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 		local handler = function(virtText, lnum, endLnum, width, truncate)
 			local newVirtText = {}
 			local suffix = (" 󰁂 %d "):format(endLnum - lnum)

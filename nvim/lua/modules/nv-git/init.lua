@@ -3,6 +3,134 @@ return {
 	"lewis6991/gitsigns.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	-- version = 'release' -- To use the latest release (do not use this if you build Neovim nightly or dev builds!)
+	-- keys = {
+	-- 	{
+	-- 		"]c",
+	-- 		function()
+	-- 			if vim.wo.diff then
+	-- 				return "]c"
+	-- 			end
+	-- 			vim.schedule(function()
+	-- 				require("gitsigns").next_hunk()
+	-- 			end)
+	-- 			return "<Ignore>"
+	-- 		end,
+	-- 		expr = true,
+	-- 		desc = "Gitsigns next hunk",
+	-- 	},
+	-- 	{
+	-- 		"[c",
+	-- 		function()
+	-- 			if vim.wo.diff then
+	-- 				return "[c"
+	-- 			end
+	-- 			vim.schedule(function()
+	-- 				require("gitsigns").prev_hunk()
+	-- 			end)
+	-- 			return "<Ignore>"
+	-- 		end,
+	-- 		expr = true,
+	-- 		desc = "Gitsigns previous hunk",
+	-- 	},
+	-- 	{
+	-- 		"<leader>hs",
+	-- 		function()
+	-- 			require("gitsigns").stage_hunk()
+	-- 		end,
+	-- 		desc = "Gitsigns stage hunk",
+	-- 	},
+	-- 	{
+	-- 		"<leader>hr",
+	-- 		function()
+	-- 			require("gitsigns").reset_hunk()
+	-- 		end,
+	-- 		desc = "Gitsigns reset hunk",
+	-- 	},
+	-- 	{
+	-- 		"<leader>hs",
+	-- 		mode = { "v" },
+	-- 		function()
+	-- 			require("gitsigns").stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+	-- 		end,
+	-- 		desc = "Gitsigns stage hunk range",
+	-- 	},
+	-- 	{
+	-- 		"<leader>hr",
+	-- 		mode = { "v" },
+	-- 		function()
+	-- 			require("gitsigns").reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+	-- 		end,
+	-- 		desc = "Gitsigns reset hunk",
+	-- 	},
+	-- 	{
+	-- 		"<leader>hS",
+	-- 		function()
+	-- 			require("gitsigns").stage_buffer()
+	-- 		end,
+	-- 		desc = "Gitsigns stage buffer",
+	-- 	},
+	-- 	{
+	-- 		"<leader>hu",
+	-- 		function()
+	-- 			require("gitsigns").undo_stage_hunk()
+	-- 		end,
+	-- 		desc = "Gitsigns undo stage hunk",
+	-- 	},
+	-- 	{
+	-- 		"<leader>hR",
+	-- 		function()
+	-- 			require("gitsigns").reset_buffer()
+	-- 		end,
+	-- 		desc = "Gitsigns reset buffer",
+	-- 	},
+	-- 	{
+	-- 		"<leader>hp",
+	-- 		function()
+	-- 			require("gitsigns").preview_hunk()
+	-- 		end,
+	-- 		desc = "Gitsigns preview hunk",
+	-- 	},
+	-- 	{
+	-- 		"<leader>hb",
+	-- 		function()
+	-- 			require("gitsigns").blame_line({ full = true })
+	-- 		end,
+	-- 		desc = "Gitsigns blame line",
+	-- 	},
+	-- 	{
+	-- 		"<leader>tb",
+	-- 		function()
+	-- 			require("gitsigns").toggle_current_line_blame()
+	-- 		end,
+	-- 		desc = "Gitsigns toggle current line blame",
+	-- 	},
+	-- 	{
+	-- 		"<leader>hd",
+	-- 		function()
+	-- 			require("gitsigns").diffthis()
+	-- 		end,
+	-- 		desc = "Gitsigns diff this",
+	-- 	},
+	-- 	{
+	-- 		"<leader>hD",
+	-- 		function()
+	-- 			require("gitsigns").diffthis("~")
+	-- 		end,
+	-- 		desc = "Gitsigns diff this",
+	-- 	},
+	-- 	{
+	-- 		"<leader>td",
+	-- 		function()
+	-- 			require("gitsigns").toggle_deleted()
+	-- 		end,
+	-- 		desc = "Gitsigns toggle deleted",
+	-- 	},
+	-- 	{
+	-- 		"ih",
+	-- 		mode = { "o", "x" },
+	-- 		":<C-U>Gitsigns select_hunk<CR>",
+	-- 	},
+	-- },
 	config = function()
 		local gitsigns = require("gitsigns")
 		gitsigns.setup({

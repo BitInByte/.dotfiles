@@ -123,64 +123,64 @@ vim.api.nvim_set_keymap(
 )
 
 -- Tree maps
-vim.api.nvim_set_keymap("n", "<C-t>", ":Neotree float<CR>", { silent = true, desc = "Toggle Neotree" })
+-- vim.api.nvim_set_keymap("n", "<C-t>", ":Neotree float<CR>", { silent = true, desc = "Toggle Neotree" })
 -- vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", { silent = true })
 -- vim.keymap.set("n", "<leader>mn", require("nvim-tree.api").marks.navigate.next)
 -- vim.keymap.set("n", "<leader>mp", require("nvim-tree.api").marks.navigate.prev)
 -- vim.keymap.set("n", "<leader>ms", require("nvim-tree.api").marks.navigate.select)
 
 -- Terminal
-vim.api.nvim_set_keymap("n", "<leader>tv", ":ToggleTerm<CR>", { silent = true, desc = "ToggleTerm" })
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>tf",
-	":ToggleTerm direction=float<CR>",
-	{ silent = true, desc = "ToggleTerm float" }
-)
-function _G.set_terminal_keymaps()
-	local opts = { buffer = 0 }
-	vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
-	vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
-	vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
-	vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
-	vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
-	vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
-end
+-- vim.api.nvim_set_keymap("n", "<leader>tv", "<cmd>ToggleTerm<CR>", { silent = true, desc = "ToggleTerm" })
+-- vim.api.nvim_set_keymap(
+-- 	"n",
+-- 	"<leader>tf",
+-- 	":ToggleTerm direction=float<CR>",
+-- 	{ silent = true, desc = "ToggleTerm float" }
+-- )
+-- function _G.set_terminal_keymaps()
+-- 	local opts = { buffer = 0 }
+-- 	vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+-- 	vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+-- 	vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+-- 	vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+-- 	vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+-- 	vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+-- end
 
 -- Trouble
-vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, desc = "Trouble toggle" })
-vim.keymap.set(
-	"n",
-	"<leader>xw",
-	"<cmd>TroubleToggle workspace_diagnostics<cr>",
-	{ silent = true, noremap = true, desc = "Trouble workspace diagnostic" }
-)
-vim.keymap.set(
-	"n",
-	"<leader>xd",
-	"<cmd>TroubleToggle document_diagnostics<cr>",
-	{ silent = true, noremap = true, desc = "Trouble document diagnostics" }
-)
-vim.keymap.set(
-	"n",
-	"<leader>xl",
-	"<cmd>TroubleToggle loclist<cr>",
-	{ silent = true, noremap = true, desc = "Trouble loclist" }
-)
-vim.keymap.set(
-	"n",
-	"<leader>xq",
-	"<cmd>TroubleToggle quickfix<cr>",
-	{ silent = true, noremap = true, desc = "Trouble quickfix" }
-)
-vim.keymap.set(
-	"n",
-	"gR",
-	"<cmd>TroubleToggle lsp_references<cr>",
-	{ silent = true, noremap = true, desc = "Trouble lsp references" }
-)
+-- vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, desc = "Trouble toggle" })
+-- vim.keymap.set(
+-- 	"n",
+-- 	"<leader>xw",
+-- 	"<cmd>TroubleToggle workspace_diagnostics<cr>",
+-- 	{ silent = true, noremap = true, desc = "Trouble workspace diagnostic" }
+-- )
+-- vim.keymap.set(
+-- 	"n",
+-- 	"<leader>xd",
+-- 	"<cmd>TroubleToggle document_diagnostics<cr>",
+-- 	{ silent = true, noremap = true, desc = "Trouble document diagnostics" }
+-- )
+-- vim.keymap.set(
+-- 	"n",
+-- 	"<leader>xl",
+-- 	"<cmd>TroubleToggle loclist<cr>",
+-- 	{ silent = true, noremap = true, desc = "Trouble loclist" }
+-- )
+-- vim.keymap.set(
+-- 	"n",
+-- 	"<leader>xq",
+-- 	"<cmd>TroubleToggle quickfix<cr>",
+-- 	{ silent = true, noremap = true, desc = "Trouble quickfix" }
+-- )
+-- vim.keymap.set(
+-- 	"n",
+-- 	"gR",
+-- 	"<cmd>TroubleToggle lsp_references<cr>",
+-- 	{ silent = true, noremap = true, desc = "Trouble lsp references" }
+-- )
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
-vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+-- vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 -- vim.api.nvim_set_keymap("n", "<silent>ff", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent = true })

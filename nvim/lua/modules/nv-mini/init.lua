@@ -11,6 +11,36 @@ return {
 	{
 		"echasnovski/mini.map",
 		version = false,
+		keys = {
+			{
+				"<leader>mc",
+				function()
+					require("mini.map").close()
+				end,
+				desc = "MiniMap close",
+			},
+			{
+				"<leader>mf",
+				function()
+					require("mini.map").toggle_focus()
+				end,
+				desc = "MiniMap focus",
+			},
+			{
+				"<leader>mo",
+				function()
+					require("mini.map").open()
+				end,
+				desc = "MiniMap open",
+			},
+			{
+				"<leader>mt",
+				function()
+					require("mini.map").toggle()
+				end,
+				desc = "MiniMap toggle",
+			},
+		},
 		config = function()
 			local minimap = require("mini.map")
 			local autocmd = vim.api.nvim_create_autocmd
@@ -59,12 +89,12 @@ return {
 				end,
 			})
 			local MiniMap = require("mini.map")
-			vim.keymap.set("n", "<leader>mc", MiniMap.close, { desc = "MiniMap close" })
-			vim.keymap.set("n", "<leader>mf", MiniMap.toggle_focus, { desc = "MiniMap focus" })
-			vim.keymap.set("n", "<leader>mo", MiniMap.open, { desc = "MiniMap open" })
+			-- vim.keymap.set("n", "<leader>mc", MiniMap.close, { desc = "MiniMap close" })
+			-- vim.keymap.set("n", "<leader>mf", MiniMap.toggle_focus, { desc = "MiniMap focus" })
+			-- vim.keymap.set("n", "<leader>mo", MiniMap.open, { desc = "MiniMap open" })
 			-- vim.keymap.set("n", "<leader>mr", MiniMap.refresh)
 			-- vim.keymap.set("n", "<leader>ms", MiniMap.toggle_side)
-			vim.keymap.set("n", "<leader>mt", MiniMap.toggle, { desc = "MiniMap toggle" })
+			-- vim.keymap.set("n", "<leader>mt", MiniMap.toggle, { desc = "MiniMap toggle" })
 		end,
 	},
 	{
