@@ -1,6 +1,7 @@
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 local navic = require("nvim-navic")
+-- local ih = require("inlay-hints")
 
 local status, builtin = pcall(require, "telescope.builtin")
 if not status then
@@ -52,8 +53,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		bufopts.desc = "Diagnostics lsp definitions"
 		keymap.set("n", "gd", builtin.lsp_definitions, bufopts)
 		bufopts.desc = "Diagnostics lsp buffer hover"
-		-- keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-		keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", bufopts)
+		keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+		-- keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", bufopts)
 		bufopts.desc = "Diagnostics lsp buffer implementation"
 		-- keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 		keymap.set("n", "gi", builtin.lsp_implementations, bufopts)
