@@ -36,6 +36,7 @@ return {
 				"hrsh7th/cmp-nvim-lua",
 				"hrsh7th/cmp-nvim-lsp-signature-help",
 				"onsails/lspkind-nvim",
+				"rasulomaroff/cmp-bufname",
 			},
 		},
 
