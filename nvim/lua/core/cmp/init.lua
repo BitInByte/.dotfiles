@@ -30,12 +30,13 @@ cmp.setup({
 		-- ["<C-p>"] = cmp.mapping.,
 		-- This option doesn't show the selected item directly
 		-- on the buffer
-		-- ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+		-- ["<C-p>"] = cmp.mapping.select_prev_item(),
 		-- This option doesn't show the selected item directly
 		-- on the buffer
-		-- ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-		["<C-n>"] = cmp.mapping.select_next_item(),
+		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+		["<C-y>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		-- ["<C-n>"] = cmp.mapping.select_next_item(),
 
 		["<C-s>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
@@ -63,6 +64,9 @@ cmp.setup({
 		-- end, { "i", "s" }),
 		--
 	}),
+	experimental = {
+		ghost_text = true,
+	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" }, -- For luasnip users.

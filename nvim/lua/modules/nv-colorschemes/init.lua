@@ -1,6 +1,6 @@
 return {
 	-- { "bluz71/vim-nightfly-colors", lazy = true },
-	{ "bluz71/vim-nightfly-colors", name = "nightfly", lazy = true, priority = 1000 },
+	{ "bluz71/vim-nightfly-colors", name = "nightfly", enabled = false, lazy = true, priority = 1000 },
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -24,5 +24,5 @@ return {
 			},
 		},
 	},
-	{ "Mofiqul/dracula.nvim", lazy = true },
+	{ "Mofiqul/dracula.nvim", enabled = false, lazy = true },
 }

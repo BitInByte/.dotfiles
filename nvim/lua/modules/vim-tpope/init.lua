@@ -2,6 +2,7 @@ return {
 	{
 		"tpope/vim-fugitive",
 		event = { "BufReadPre", "BufNewFile" },
+		cmd = "G",
 	},
 	{ "tpope/vim-surround", event = { "BufReadPre", "BufNewFile" } },
 	-- Fix indentation (tabs) based on buffer document or project in

@@ -14,7 +14,7 @@ return {
 			desc = "Open all folds",
 		},
 		{
-			"zR",
+			"zM",
 			function()
 				require("ufo").closeAllFolds()
 			end,
