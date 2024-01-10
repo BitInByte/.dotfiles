@@ -11,6 +11,7 @@ return {
 	{
 		"echasnovski/mini.map",
 		version = false,
+		lazy = false, -- Trigger config function to start mini map on vim start
 		keys = {
 			{
 				"<leader>mc",
