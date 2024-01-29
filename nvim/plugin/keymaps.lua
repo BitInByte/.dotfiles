@@ -122,6 +122,18 @@ vim.api.nvim_set_keymap(
 	{ silent = true, desc = "Toggle norelativenumber" }
 )
 
+-- Copy entire file content
+-- as described on https://stackoverflow.com/questions/1620018/copy-all-the-lines-to-clipboard
+-- % refers the next command to work on all lines of the file
+-- y to yank those lines
+-- + to copy to system clipboard
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>yf",
+	"<cmd>%y+<CR>",
+	{ silent = true, desc = "Copy entire file content to system clipboard" }
+)
+
 -- Tree maps
 -- vim.api.nvim_set_keymap("n", "<C-t>", ":Neotree float<CR>", { silent = true, desc = "Toggle Neotree" })
 -- vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", { silent = true })
