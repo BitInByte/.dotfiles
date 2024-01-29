@@ -40,7 +40,7 @@ null_ls.setup({
 			-- 		})
 			-- 	end,
 			-- })
-			vim.keymap.set("n", "<space>bf", function()
+			vim.keymap.set({"n", "v"}, "<space>bf", function()
 				vim.lsp.buf.format({
 					async = false,
 					filter = function(attachedClient)
