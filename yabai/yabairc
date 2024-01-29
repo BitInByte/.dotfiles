@@ -4,6 +4,17 @@ yabai -m config layout bsp
 
 yabai -m config window_placement second_child
 
+# respect sketchybar height even on external screens
+# The issue were that notch was respected which made it 
+# believe that it was respecting the external bar automatically
+# The truth was that it was respected because of the notch on the
+# laptop. This do the trick since we're saying that there's 
+# an external bar on all screens with 32 height.
+# See: https://github.com/koekeishiya/yabai/issues/454
+# See: https://github.com/koekeishiya/yabai/pull/1149/files
+# See: https://github.com/koekeishiya/yabai/issues/1060
+yabai -m config external_bar all:32:0
+
 # yabai -m config window_shadow                on
 yabai -m config window_border                on 
 yabai -m config window_border_width          4
